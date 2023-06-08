@@ -1,3 +1,18 @@
+<script setup>
+const mobileNavigation = ref(false);
+
+const toggleMobileNavigation = () => {
+  mobileNavigation.value = !mobileNavigation.value;
+};
+const route = useRoute();
+
+const isIndexPage = computed(() => {
+      return route.path === '/'
+    });
+
+provide("mobile-navigation", mobileNavigation);
+</script>
+
 <template>
   <header role="heading" class="py-4 shadow-lg bg-white sticky top-0 z-50">
     <LayoutMobileNavigation />
@@ -8,6 +23,7 @@
         <button
           type="button"
           class="absolute left-2.5 top-1/2 transform -translate-y-1/2 focus:outline-none lg:hidden rotate-180"
+          @click="toggleMobileNavigation"
         >
           <svg
             clip-rule="evenodd"
