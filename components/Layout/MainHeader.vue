@@ -4,11 +4,6 @@ const mobileNavigation = ref(false);
 const toggleMobileNavigation = () => {
   mobileNavigation.value = !mobileNavigation.value;
 };
-const route = useRoute();
-
-const isIndexPage = computed(() => {
-      return route.path === '/'
-    });
 
 provide("mobile-navigation", mobileNavigation);
 </script>

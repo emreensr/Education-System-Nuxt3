@@ -10,4 +10,5 @@ useHead({
 <template>
   <LayoutMainHeader />
   <slot />
+  <LayoutMainFooter />
 </template>
