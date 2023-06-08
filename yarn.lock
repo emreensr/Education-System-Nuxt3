@@ -651,24 +651,6 @@
   optionalDependencies:
     ipx "^1.2.0"
 
-"@nuxt/image@^1.0.0-rc.1":
-  version "1.0.0-rc.1"
-  resolved "https://registry.npmjs.org/@nuxt/image/-/image-1.0.0-rc.1.tgz"
-  integrity sha512-gCYglIwEuYOdIbcH21RbMfqgQ2jqyd9SJH+GmyvH9M/vBsL7eZ4XEatfZRWa2q1A4DcIMs09/LbQiR3HHy2wZw==
-  dependencies:
-    "@nuxt/kit" "^3.5.3"
-    consola "^3.1.0"
-    defu "^6.1.2"
-    h3 "^1.6.6"
-    image-meta "^0.1.1"
-    node-fetch-native "^1.1.1"
-    ohash "^1.1.2"
-    pathe "^1.1.1"
-    std-env "^3.3.3"
-    ufo "^1.1.2"
-  optionalDependencies:
-    ipx "^1.2.0"
-
 "@nuxt/kit@^3.1.2", "@nuxt/kit@^3.3.3", "@nuxt/kit@^3.4.3", "@nuxt/kit@^3.5.0", "@nuxt/kit@^3.5.1", "@nuxt/kit@^3.5.3", "@nuxt/kit@3.5.3":
   version "3.5.3"
   resolved "https://registry.npmjs.org/@nuxt/kit/-/kit-3.5.3.tgz"
