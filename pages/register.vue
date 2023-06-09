@@ -8,6 +8,6 @@
 
 <template>
         <NuxtLayout>
-            <LoginC/>
+            <Register/>
         </NuxtLayout>
 </template>
