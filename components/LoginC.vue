@@ -16,7 +16,8 @@ const activeStep = ref('about');
       } else if (activeStep.value === 'account') {
         activeStep.value = 'address';
       } else if (activeStep.value === 'address') {
-        // Submit form or do something else with the form values
+        activeStep.value = 'login';
+      } else if (activeStep.value === 'login') {
         console.log(formValues);
       }
     };
@@ -26,6 +27,8 @@ const activeStep = ref('about');
         activeStep.value = 'about';
       } else if (activeStep.value === 'address') {
         activeStep.value = 'account';
+      } else if (activeStep.value === 'login') {
+        activeStep.value = 'address';
       }
     };
 
@@ -33,15 +36,17 @@ const activeStep = ref('about');
 </script>
 
 <template>
-  <div class="w-full max-w-3xl px-3 text-center [flex:0_0_auto] mx-auto">
-   <h3 class="text-[#344767] mt-12">Build Your Profile</h3>
-   <h5 class="font-normal dark:text-white text-[#8392ab]">This information will let us know more about you.</h5>
+  <div class="w-full max-w-3xl px-3 text-center [flex:0_0_auto] mx-auto mt-28">
+   <h3 class="text-[#344767] mt-12 text-2xl">Ne hizmeti almak istiyorsun?</h3>
+   <h5 class="font-normal dark:text-white text-[#8392ab] mt-2">Almak istediğiniz hizmeti seç, hemen hizmet almaya başla!</h5>
    <div multisteps-form="" class="mb-12">
       <div class="flex flex-wrap -mx-3">
          <div class="w-full max-w-full px-3 mx-auto my-12 [flex:0_0_auto]">
-            <div class="grid grid-cols-3"><button aria-controls="about" type="button" class="before:w-[0.85rem] before:h-[0.85rem] before:rounded-[50%] before:scale-[1.2] rounded-0 indent-[-82.5rem] relative m-0 cursor-pointer border-none bg-transparent px-1.5 pb-0.5 pt-5 text-[#344767] outline-none transition-all ease-linear before:absolute before:top-0 before:left-1/2 before:z-30 before:box-border before:block before:-translate-x-1/2 before:border-2 before:border-solid before:border-current before:bg-current before:transition-all before:ease-linear before:content-[''] sm:indent-0" title="About"><span class="text-[#8392ab]">About</span></button>
-               <button aria-controls="account" type="button" class="before:w-[0.85rem] before:h-[0.85rem] before:rounded-[50%] after:top-[5px] rounded-0 indent-[-82.5rem] relative m-0 cursor-pointer border-none bg-transparent px-1.5 pb-0.5 pt-5 outline-none transition-all ease-linear before:absolute before:top-0 before:left-1/2 before:z-30 before:box-border before:block before:-translate-x-1/2 before:border-2 before:border-solid before:border-current before:transition-all before:ease-linear before:content-[''] after:absolute after:left-[calc(-50%-13px/2)] after:z-10 after:block after:h-0.5 after:w-full after:bg-current after:transition-all after:ease-linear after:content-[''] sm:indent-0 before:bg-white text-[#dee2e6]" title="Account">Account</button>
-               <button aria-controls="address" type="button" class="before:w-[0.85rem] before:h-[0.85rem] before:rounded-[50%] after:top-[5px] rounded-0 indent-[-82.5rem] relative m-0 cursor-pointer border-none bg-transparent px-1.5 pb-0.5 pt-5 outline-none transition-all ease-linear before:absolute before:top-0 before:left-1/2 before:z-30 before:box-border before:block before:-translate-x-1/2 before:border-2 before:border-solid before:border-current before:transition-all before:ease-linear before:content-[''] after:absolute after:left-[calc(-50%-13px/2)] after:z-10 after:block after:h-0.5 after:w-full after:bg-current after:transition-all after:ease-linear after:content-[''] sm:indent-0 before:bg-white text-[#dee2e6]" title="Address">Address</button>
+            <div class="grid grid-cols-4">
+               <button aria-controls="about" type="button" class="before:w-[0.85rem] before:h-[0.85rem] before:rounded-[50%] before:scale-[1.2] rounded-0 indent-[-82.5rem] relative m-0 cursor-pointer border-none bg-transparent px-1.5 pb-0.5 pt-5 text-[#344767] outline-none transition-all ease-linear before:absolute before:top-0 before:left-1/2 before:z-30 before:box-border before:block before:-translate-x-1/2 before:border-2 before:border-solid before:border-current before:bg-current before:transition-all before:ease-linear before:content-[''] sm:indent-0" title="About"><span class="text-[#8392ab]">Dersler</span></button>
+               <button aria-controls="account" type="button" class="before:w-[0.85rem] before:h-[0.85rem] before:rounded-[50%] after:top-[5px] rounded-0 indent-[-82.5rem] relative m-0 cursor-pointer border-none bg-transparent px-1.5 pb-0.5 pt-5 outline-none transition-all ease-linear before:absolute before:top-0 before:left-1/2 before:z-30 before:box-border before:block before:-translate-x-1/2 before:border-2 before:border-solid before:border-current before:transition-all before:ease-linear before:content-[''] after:absolute after:left-[calc(-50%-13px/2)] after:z-10 after:block after:h-0.5 after:w-full after:bg-current after:transition-all after:ease-linear after:content-[''] sm:indent-0 before:bg-white text-[#dee2e6]" title="Account">Konum</button>
+               <button aria-controls="address" type="button" class="before:w-[0.85rem] before:h-[0.85rem] before:rounded-[50%] after:top-[5px] rounded-0 indent-[-82.5rem] relative m-0 cursor-pointer border-none bg-transparent px-1.5 pb-0.5 pt-5 outline-none transition-all ease-linear before:absolute before:top-0 before:left-1/2 before:z-30 before:box-border before:block before:-translate-x-1/2 before:border-2 before:border-solid before:border-current before:transition-all before:ease-linear before:content-[''] after:absolute after:left-[calc(-50%-13px/2)] after:z-10 after:block after:h-0.5 after:w-full after:bg-current after:transition-all after:ease-linear after:content-[''] sm:indent-0 before:bg-white text-[#dee2e6]" title="Address">Beklentiler</button>
+               <button aria-controls="login" type="button" class="before:w-[0.85rem] before:h-[0.85rem] before:rounded-[50%] after:top-[5px] rounded-0 indent-[-82.5rem] relative m-0 cursor-pointer border-none bg-transparent px-1.5 pb-0.5 pt-5 outline-none transition-all ease-linear before:absolute before:top-0 before:left-1/2 before:z-30 before:box-border before:block before:-translate-x-1/2 before:border-2 before:border-solid before:border-current before:transition-all before:ease-linear before:content-[''] after:absolute after:left-[calc(-50%-13px/2)] after:z-10 after:block after:h-0.5 after:w-full after:bg-current after:transition-all after:ease-linear after:content-[''] sm:indent-0 before:bg-white text-[#dee2e6]" title="Login">Giriş</button>
             </div>
          </div>
       </div>
@@ -51,25 +56,69 @@ const activeStep = ref('about');
                <div form="about" v-if="activeStep === 'about'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
                   <div class="flex flex-wrap -mx-3 text-center">
                      <div class="w-10/12 max-w-full px-3 mx-auto [flex:0_0_auto]">
-                        <h5 class="text-[#344767] font-normal dark:text-white">Let's start with the basic information</h5>
-                        <p class="text-[#67748e]">Let us know your name and email address. Use an address you don't mind other users contacting you at</p>
+                        <h5 class="text-[#344767] font-normal text-lg">Haydi başlayalım!</h5>
+                        <p class="text-[#67748e] mt-2">Hizmet almak istediğin kategoriyi buradan seçebilirsin.</p>
                      </div>
                   </div>
                   <div>
                      <div class="flex flex-wrap mt-4 -mx-3">
-                        <div class="w-full max-w-full px-3 [flex:0_0_auto] sm:w-4/12">
-                           <div class="relative inline-flex items-center justify-center text-white transition-all duration-200 w-28 h-28 text-base ease-in-out rounded-xl"><img class="w-full rounded-lg" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-dashboard/assets/img/team-2.jpg" alt="Image placeholder"><a href="javascript:;" class="inline-block w-6 h-6 p-[0.125rem] right-0 bottom-0 absolute -mb-2 -mr-2 font-bold text-center uppercase align-middle transition-all bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] text-[#3a416f] border-0 border-transparent border-solid rounded-lg cursor-pointer leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 active:opacity-[.85]"><i class="top-0 fa fa-pen text-[.5rem]" aria-hidden="true"></i></a></div>
+                        <div class="w-full max-w-full px-3 mt-6 text-left [flex:0_0_auto] sm:w-full sm:mt-0">
+                          <!-- <label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700" for="First Name">First Name</label>
+                          <input type="text" name="First Name" placeholder="Eg. Michael" class="mb-4 focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none"> -->
+                           <div class="w-full max-w-full ml-auto [flex:0_0_auto] md:w-full">
+                           <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Country">Dersler</label>
+                           <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
+                              <div class="choices__inner">
+                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
+                                    <option value="Algeria">Matematik</option>
+                                    <option value="Algeria">Yabancı Dil</option>
+                                    <option value="Algeria">Fizik</option>
+                                    <option value="Algeria">Spor</option>
+                                    <option value="Algeria">Müzik</option>
+                                 </select>
+                              </div>
+                           </div>
                         </div>
-                        <div class="w-full max-w-full px-3 mt-6 text-left [flex:0_0_auto] sm:w-8/12 sm:mt-0"><label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700 dark:text-white/80" for="First Name">First Name</label><input type="text" name="First Name" placeholder="Eg. Michael" class="mb-4 focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 dark:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none"><label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700 dark:text-white/80" for="Last Name">Last Name</label><input type="text" name="Last Name" placeholder="Eg. Tomson" class="mb-4 focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 dark:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none"><label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700 dark:text-white/80" for="Email Address">Email Address</label><input type="email" name="Email Address" placeholder="Eg. soft@dashboard.com" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 dark:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none"></div>
+                        <div class="w-full max-w-full ml-auto mt-3 [flex:0_0_auto] md:w-full">
+                           <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Country">Ders Kategorileri</label>
+                           <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
+                              <div class="choices__inner">
+                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
+                                    <option value="Algeria">Genel Matematik</option>
+                                    <option value="Algeria">Geometri</option>
+                                    <option value="Algeria">Mantık</option>
+                                    <option value="Algeria">Liner Cebir</option>
+                                    <option value="Algeria">Diferansiyel Denklemler</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="w-full max-w-full ml-auto mt-3 [flex:0_0_auto] md:w-full">
+                           <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Country">Seviye</label>
+                           <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
+                              <div class="choices__inner">
+                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
+                                    <option value="Algeria">İlk Okul</option>
+                                    <option value="Algeria">Lise</option>
+                                    <option value="Algeria">Üniversite</option>
+                                    <option value="Algeria">KPSS</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                      </div>
                      </div>
-                     <div class="flex mt-6"><button type="button" aria-controls="account" next-form-btn="" href="javascript:;" @click="nextStep" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25">Next</button></div>
+                     <div class="flex mt-6">
+                      <button type="button" aria-controls="account" next-form-btn="" href="javascript:;" @click="nextStep" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et
+                      </button>
+                    </div>
                   </div>
                </div>
-               <div form="account" v-if="activeStep === 'account'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-0 opacity-0 invisible">
+               <div form="account" v-if="activeStep === 'account'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
                   <div class="flex flex-wrap -mx-3 text-center">
                      <div class="w-10/12 max-w-full px-3 mx-auto [flex:0_0_auto]">
-                        <h5 class="text-[#344767] font-normal dark:text-white">What are you doing? (checkboxes)</h5>
-                        <p class="text-[#67748e]">Give us more details about you. What do you enjoy doing in your spare time?</p>
+                        <h5 class="text-[#344767] font-normal text-xl">Dersleri nerede almak istiyorsunuz?</h5>
+                        <p class="text-[#67748e] mt-2">Birden fazla seçim yapabilirsiniz.</p>
                      </div>
                   </div>
                   <div>
@@ -92,7 +141,7 @@ const activeStep = ref('about');
                                  </g>
                               </svg>
                            </label>
-                           <h6 class="select-none dark:text-white">Design</h6>
+                           <h6 class="select-none dark:text-white">Öğrenci Evinde</h6>
                         </div>
                         <div class="w-full max-w-full px-3 sm:[flex:0_0_auto] sm:w-3/12 shrink-0">
                            <input id="code" type="checkbox" class="absolute pointer-events-none peer [clip:rect(0,0,0,0)]">
@@ -112,7 +161,7 @@ const activeStep = ref('about');
                                  </g>
                               </svg>
                            </label>
-                           <h6 class="select-none dark:text-white">Code</h6>
+                           <h6 class="select-none dark:text-white">Öğretmen Evinde</h6>
                         </div>
                         <div class="w-full max-w-full px-3 mr-auto sm:[flex:0_0_auto] sm:w-3/12 shrink-0">
                            <input id="develop" type="checkbox" class="absolute pointer-events-none peer [clip:rect(0,0,0,0)]">
@@ -133,54 +182,64 @@ const activeStep = ref('about');
                                  </g>
                               </svg>
                            </label>
-                           <h6 class="select-none dark:text-white">Develop</h6>
+                           <h6 class="select-none dark:text-white">Online</h6>
                         </div>
                      </div>
-                     <div class="flex mt-6"><button type="button" aria-controls="about" prev-form-btn="" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Prev</button>
-                        <button type="button" aria-controls="address" @click="nextStep" next-form-btn="" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25">Next</button>
+                     <div class="flex mt-6"><button type="button" aria-controls="about"  @click="previousStep" prev-form-btn="" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Geri Dön</button>
+                        <button type="button" aria-controls="address" @click="nextStep" next-form-btn="" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et</button>
                      </div>
                   </div>
                </div>
-               <div form="address" v-if="activeStep === 'address'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-0 opacity-0 invisible">
+               <div form="address" v-if="activeStep === 'address'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
                   <div class="flex flex-wrap -mx-3 text-center">
                      <div class="w-10/12 max-w-full px-3 mx-auto [flex:0_0_auto]">
-                        <h5 class="text-[#344767] font-normal dark:text-white">Are you living in a nice area?</h5>
-                        <p class="text-[#67748e]">One thing I love about the later sunsets is the chance to go for a walk through the neighborhood woods before dinner</p>
+                        <h5 class="text-[#344767] font-normal mt-1">Sana daha iyi yardımcı olabilmemiz için istek ve beklentilerini buradan yazabilirsin.</h5>
                      </div>
                   </div>
                   <div>
                      <div class="flex flex-wrap -mx-3 text-left">
-                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-8/12"><label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700 dark:text-white/80" for="Street Name">Street Name</label><input type="text" name="Street Name" placeholder="Eg. Soft" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 dark:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none"></div>
-                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-4/12"><label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700 dark:text-white/80" for="Street No">Street No</label><input type="number" name="Street No" min="01" placeholder="Eg 221" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 dark:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none"></div>
-                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-7/12"><label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700 dark:text-white/80" for="City">City</label><input type="text" name="City" placeholder="Eg Tokyo" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 dark:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none"></div>
-                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-5/12">
-                           <label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700 dark:text-white/80" for="Country">Country</label>
-                           <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
-                              <div class="choices__inner">
-                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 dark:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
-                                    <option value="Algeria">Algeria</option>
-                                 </select>
-                                 <div class="choices__list choices__list--single">
-                                    <div class="choices__item choices__item--selectable" data-item="" data-id="3" data-value="Algeria" data-custom-properties="null" aria-selected="true">Algeria</div>
-                                 </div>
-                              </div>
-                              <div class="choices__list choices__list--dropdown" aria-expanded="false">
-                                 <input type="text" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="false" placeholder="" aria-activedescendant="choices--choices-country-dj-item-choice-2">
-                                 <div class="choices__list" role="listbox">
-                                    <div id="choices--choices-country-dj-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="Albania" data-select-text="Press to select" data-choice-selectable="">Albania</div>
-                                    <div id="choices--choices-country-dj-item-choice-2" class="choices__item choices__item--choice is-selected choices__item--selectable is-highlighted" role="option" data-choice="" data-id="2" data-value="Algeria" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Algeria</div>
-                                    <div id="choices--choices-country-dj-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Andorra" data-select-text="Press to select" data-choice-selectable="">Andorra</div>
-                                    <div id="choices--choices-country-dj-item-choice-4" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="4" data-value="Angola" data-select-text="Press to select" data-choice-selectable="">Angola</div>
-                                    <div id="choices--choices-country-dj-item-choice-5" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="5" data-value="Argentina" data-select-text="Press to select" data-choice-selectable="">Argentina</div>
-                                    <div id="choices--choices-country-dj-item-choice-6" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="6" data-value="Brasil" data-select-text="Press to select" data-choice-selectable="">Brasil</div>
-                                 </div>
-                              </div>
-                           </div>
+                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-full">
+                          <label class="mb-4 ml-1 font-bold text-sm text-slate-700" for="Street Name">Beklentilerin</label>
+                          <textarea name="Street Name" rows="8" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
+                            </textarea>
+                          </div>
+                     </div>
+                     <div class="flex flex-wrap -mx-3">
+                        <div class="flex w-full max-w-full px-3 mt-6 [flex:0_0_auto]"><button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Geri Dön</button>
+                           <button type="button" send-form-btn="" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam et</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div form="address" v-if="activeStep === 'login'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
+                  <div class="flex flex-wrap -mx-3 text-center">
+                     <div class="w-10/12 max-w-full px-3 mx-auto [flex:0_0_auto]">
+                        <h5 class="text-[#344767] font-normal dark:text-white text-xl">Çok az kaldı...</h5>
+                        <p class="text-[#67748e] mt-2">Bilgilerini doldurup kayıt işlemini tamamlayabilirsin.</p>
+                     </div>
+                  </div>
+                  <div>
+                     <div class="flex flex-wrap -mx-3 text-left">
+                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
+                          <label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700" for="Street Name">Ad</label>
+                          <input type="text" name="Street Name" placeholder="Eg. Soft" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
+                        </div>
+                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
+                          <label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700" for="Street No">Soyad</label>
+                          <input type="number" name="Street No" min="01" placeholder="Eg 221" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
+                        </div>
+                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
+                          <label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700" for="Street Name">E-Posta</label>
+                          <input type="text" name="Street Name" placeholder="Eg. Soft" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
+                        </div>
+                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
+                          <label class="mb-2 ml-1 font-bold text-[.75rem] text-slate-700" for="Street No">Şifre</label>
+                          <input type="number" name="Street No" min="01" placeholder="Eg 221" class="focus:shadow-[0_0_0_2px_#e9aede] dark:bg-grey-950 dark:placeholder:text-white/80 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
                         </div>
                      </div>
                      <div class="flex flex-wrap -mx-3">
-                        <div class="flex w-full max-w-full px-3 mt-6 [flex:0_0_auto]"><button type="button" aria-controls="account" prev-form-btn="" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Prev</button>
-                           <button type="button" send-form-btn="" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25">Send</button>
+                        <div class="flex w-full max-w-full px-3 mt-6 [flex:0_0_auto]"><button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Geri Dön</button>
+                          <button type="button" send-form-btn="" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25">Kaydol</button>
                         </div>
                      </div>
                   </div>
