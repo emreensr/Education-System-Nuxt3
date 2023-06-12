@@ -44,7 +44,7 @@ const progressBarWidth = ref('0%');
 <template>
  <div class="w-full max-w-3xl px-3 text-center flex:0 auto mx-auto mt-12">
   {{ progressBarWidth }}
-  <div class="w-full h-10 bg-[#ccc] rounded-2xl mt-3">
+  <div class="w-full h-10 bg-gray-100 rounded-2xl mt-3">
     <div class="h-full bg-gradient-to-tl from-[#141727] to-[#3a416f] rounded-2xl text-white" :style="{ width: progressBarWidth }">
     </div>
   </div>
