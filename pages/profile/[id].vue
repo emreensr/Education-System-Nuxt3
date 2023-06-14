@@ -11,13 +11,13 @@
 
 <div class="app">
  <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 my-12 max-w-7xl container px-2 mx-auto">
-    <aside class="col-span-12 lg:col-span-4">
+    <aside class="col-span-12 lg:col-span-3">
         <div class="bg-white shadow-md rounded-lg p-5 lg:sticky lg:top-20">
             <div class="flex flex-col gap-1 text-center items-center">
                 <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="">
-                <p class="font-semibold text-xl">Emre Ensar Çapcı</p>
+                <p class="font-semibold text-xl">Emre Ensar</p>
                 <div class="text- leading-normal text-gray-500 flex justify-center items-center">
-                    <div class="flex items-center mt-1.5 mb-3">
+                    <div class="flex items-center mt-2.5 mb-3">
                         <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <title>First star</title>
@@ -58,23 +58,39 @@
                 </div>
                 </div>
             </div>
-            <div class="flex justify-center items-center gap-2 my-3">
-                <div class="font-semibold text-center mx-4">
-                    <p class="text-black text-xl">300₺</p>
-                    <span class="text-gray-400 text-sm">Saatlik Ücret</span>
+            <div class="flex justify-between space-x-6 mt-5 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="flex flex-col space-y-2">
+                        <span class="font-normal text-sm">Saatlik Ücret</span>
+                    </div>
                 </div>
-                <div class="font-semibold text-center mx-4">
-                    <p class="text-black text-xl">1 saat</p>
-                    <span class="text-gray-400 text-sm">Cevaplama Süresi</span>
+                <div>
+                    <p class='text-[18px] font-bold text-black'>700₺</p>
                 </div>
-                <div class="font-semibold text-center mx-4">
-                    <p class="text-black text-xl">20+</p>
-                    <span class="text-gray-400 text-sm">Öğrenci Sayısı</span>
+            </div>
+            <div class="flex justify-between space-x-6 mt-5 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="flex flex-col space-y-2">
+                        <span class="font-normal text-sm">Cevaplama Süresi</span>
+                    </div>
+                </div>
+                <div>
+                    <p class='text-[18px] font-bold text-black'>1 saat</p>
+                </div>
+            </div>
+            <div class="flex justify-between space-x-6 mt-5 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="flex flex-col space-y-2">
+                        <span class="font-normal text-sm">Öğrenci Sayısı</span>
+                    </div>
+                </div>
+                <div>
+                    <p class='text-[18px] font-bold text-black'>20+</p>
                 </div>
             </div>
             <div class="flex justify-center items-center">
                 <div class="font-semibold text-center mx-4">
-                    <button type="button" class="flex items-center gap-3 inline-block px-6 py-3 mt-3 mb-0 ml-auto font-bold text-right text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                    <button type="button" class="flex items-center gap-3 inline-block px-6 py-3 mt-8 mb-0 ml-auto font-bold text-right text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
                     ><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-white" viewBox="0 0 512 512">
                         <path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"/>
                     </svg>
@@ -111,7 +127,17 @@
                 Kişiye özel bir eğitim modeli ile öğrencilerime katkıda bulunuyorum.
                 </div>
         </div>
-        <div class="flex bg-white mt-6 rounded-lg">
+        <div class="bg-white rounded-lg mt-12">
+                <!-- <div class="border-b border-gray-100"></div>  -->
+                <div class="flex gap-1 items-center text-center font-semibold text-xl mb-0.5 mx-3 mt-5">
+                    <h2 class="text-xl font-medium">Verdiği Hizmetler</h2>
+                </div>
+                <div class="mx-auto max-w-6xl grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-8 mt-5">
+        <CardContent />
+        <CardContent />
+    </div>
+        </div>
+        <div class="flex bg-white mt-6 rounded-lg mt-8">
             <div class="flex flex-col justify-center w-full py-1">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl mb-0.5 mx-3 mt-3">
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 384 512">
