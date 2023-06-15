@@ -7,11 +7,9 @@
 </script>
 
 <template>
-<NuxtLayout>
-
 <div class="app bg-[#F4F5F7] p-5">
- <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:my-8 max-w-7xl container mx-auto">
-    <aside class="col-span-12 lg:col-span-3">
+ <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:my-3 max-w-6xl container mx-auto">
+    <aside class="col-span-12 lg:col-span-4">
         <div class="bg-white shadow-md rounded-lg p-5 lg:sticky lg:top-28">
             <div class="flex flex-col gap-1 text-center items-center">
                 <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="">
@@ -107,13 +105,13 @@
                     <h2 class="text-[24px] font-semibold">Eğitim Bilgileri</h2>
                 </div>
                 <div class="mt-5">
-                    <p class="text-gray-700 leading-normal">
+                    <p class="text-gray-800 text-base">
                         Tuzla Teknik Ve Anadolu Lisesi - Web Programcılığı
                     </p>
-                    <p class="text-gray-700 leading-normal">
+                    <p class="text-gray-800 text-base">
                         Kocaeli Üniversitesi - Bilgisayar Programcılığı
                     </p>
-                    <p class="text-gray-700">
+                    <p class="text-gray-800 text-base">
                         Doğuş Üniversitesi - Bilgisayar Mühendisliği
                     </p>
                 </div>
@@ -123,18 +121,18 @@
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">
                     <h2 class="text-[24px] font-semibold">Ders ile ilgili bilgiler</h2>
                 </div>
-                <p class="text-gray-600 font-normal mt-5 leading-normal">Merhaba ben Emre Ensar Çapcı, 2020 yılında doğuş Üniversitesinden mezun oldum.
+                <p class="text-gray-800 text-base mt-5">Merhaba ben Emre Ensar Çapcı, 2020 yılında doğuş Üniversitesinden mezun oldum.
                 Şu an matematik alanında özel ders ve eğitim danışmanlığı konusunda destek oluyorum.
                 Kişiye özel bir eğitim modeli ile öğrencilerime katkıda bulunuyorum.
                 </p>
-                <p class="text-gray-600 font-normal mt-5 leading-normal">
+                <p class="text-gray-800 text-base mt-5">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.
                 </p>
         </div>
-        <div class="bg-white p-5">
+        <div class="bg-white lg:p-5">
                 <!-- <div class="border-b border-gray-100"></div>  -->
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">
                     <h2 class="text-[24px] font-semibold">Verdiği Hizmetler</h2>
@@ -154,7 +152,7 @@
                         <h2 class="text-xl font-semibold">Ders verdiği konumlar</h2>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 py-3 px-3">
+                <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 py-3 px-3">
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Tuzla</div>
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Pendik</div>
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Kartal</div>
@@ -165,11 +163,10 @@
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Sancaktepe</div>
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Ümraniye</div>
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Çekmeköy</div>
-
-                    </div>
+                </div>
             </div>
         </div>
-        <div class="flex bg-white p-5 my-10">
+        <div class="flex bg-white p-5 lg:my-10">
             <div class="flex flex-col justify-center w-full px-2 py-1">
                 <div class="flex justify-between items-center ">
                     <div class="flex flex-col">
@@ -210,13 +207,12 @@
                 </div>
             </div>
         </div>
-
         <section class="bg-white py-8 p-5">
             <div class="mx-auto">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-[24px] font-semibold text-gray-900">Yorumlar (20)</h2>
             </div>
-            <form class="mb-6">
+            <form v-if="false" class="mb-6">
                 <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
                     <label for="comment" class="sr-only">Yorum Yaz..</label>
                     <textarea id="comment" rows="6"
@@ -237,7 +233,7 @@
                                 alt="Michael Gough">Michael Gough</p>
                     </div>
                 </footer>
-                <p class="text-gray-500">Very straight-to-point article. Really worth time reading. Thank you! But tools are just the
+                <p class="text-gray-800 text-base">Very straight-to-point article. Really worth time reading. Thank you! But tools are just the
                     instruments for the UX designers. The knowledge of the design tools are as important as the
                     creation of the design strategy.</p>
                 <!-- <div class="flex items-center mt-4 space-x-4">
@@ -248,16 +244,16 @@
                     </button>
                 </div> -->
             </article>
-            <article class="p-6 mb-6 ml-6 lg:ml-12 text-base bg-white rounded-xl border border-gray-300">
+            <article class="p-6 mb-6 ml-6 lg:ml-12 text-base bg-[#f7f7f7] rounded-xl border border-gray-300">
                 <footer class="flex justify-between items-center mb-2">
                     <div class="flex items-center">
                         <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
                                 class="mr-2 w-6 h-6 rounded-full"
                                 src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                                alt="Jese Leos">Jese Leos</p>
+                                alt="Jese Leos">Emre Ensar</p>
                     </div>
                 </footer>
-                <p class="text-gray-500">Much appreciated! Glad you liked it ☺️</p>
+                <p class="text-gray-800 text-base">Much appreciated! Glad you liked it ☺️</p>
             </article>
             <article class="p-6 mb-6 text-base bg-white rounded-xl border border-gray-300">
                 <footer class="flex justify-between items-center mb-2">
@@ -268,7 +264,7 @@
                                 alt="Bonnie Green">Bonnie Green</p>
                     </div>
                 </footer>
-                <p class="text-gray-500 dark:text-gray-400">The article covers the essentials, challenges, myths and stages the UX designer should consider while creating the design strategy.</p>
+                <p class="text-gray-800 text-base">The article covers the essentials, challenges, myths and stages the UX designer should consider while creating the design strategy.</p>
             </article>
             <article class="p-6 text-base bg-white rounded-xl border border-gray-300">
                 <footer class="flex justify-between items-center mb-2">
@@ -281,7 +277,7 @@
                                 title="June 23rd, 2022">Jun. 23, 2022</time></p> -->
                     </div>
                 </footer>
-                <p class="text-gray-500">Thanks for sharing this. I do came from the Backend development and explored some of the tools to design my Side Projects.</p>
+                <p class="text-gray-800 text-base">Thanks for sharing this. I do came from the Backend development and explored some of the tools to design my Side Projects.</p>
             </article>
         </div>
 </section>
@@ -290,6 +286,4 @@
 </main>
 
 </div>
-</NuxtLayout>
-
 </template>

@@ -3,8 +3,8 @@
 const menuItems = useState("menuItems", () => {
   return [
     {
-      name: "Öğretmenler",
-      target: "/",
+      name: "Dersler",
+      target: "/classes",
     },
     {
       name: "Kurslar",
@@ -28,7 +28,9 @@ const menuItems = useState("menuItems", () => {
 
 <template>
   <div>
+    <NuxtLayout>
     <NuxtLoadingIndicator />
     <NuxtPage/>
+  </NuxtLayout>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
 <!-- This is an example component -->
 <div class='relative flex items-center justify-center px-2'>
-    <div class='w-full max-w-md mx-auto bg-white rounded-3xl shadow-xl overflow-hidden'>
+    <div class='w-full max-w-md mx-auto bg-white rounded-xl shadow-xl overflow-hidden'>
         <div class='max-w-md mx-auto'>
           <div class='h-[190px]' style='background-image:url(https://bgcp.bionluk.com/images/portfolio/1400x788/42ad5955-e341-4d1b-b166-d000da76cb08.png);background-size:cover;background-position:center'>
            </div>
@@ -13,7 +13,10 @@
                 <div class="flex items-center space-x-2">
                     <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" class="rounded-full h-12 w-12" alt="">
                     <div class="flex flex-col space-y-2">
-                        <span class="text-[15px]">Emre Ensar Çapcı</span>
+                        <a href="/profile/1">
+                             <span class="text-[15px]">Emre Ensar</span>
+                        </a>
+
                         <span class="text-[#8b95a1] text-[15px]">Matematik</span>
                     </div>
                     
@@ -73,12 +76,12 @@
                     <p class='text-[13px] font-semibold text-yellow-400'>28 Yorum</p>
                 </div>
             </div>
-            <p class='text-[#2d3640] text-[15px] mt-1 font-normal'>Ben matematik konusunda size yardım edebilir ve gelişiminize katkıda bulunabilirim.</p>
+            <p class='text-gray-800 text-base mt-1'>Ben matematik konusunda size yardım edebilir ve gelişiminize katkıda bulunabilirim.</p>
             <div class="flex justify-center items-center">
 
             <div class="font-semibold text-center mx-4">
-            <button type="button" class="flex items-center gap-3 inline-block px-6 py-3 mt-4 mb-0 ml-auto font-bold text-right text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">
-                    <span class="text-white text-md">İlana Git</span>
+                <button type="button" class="flex items-center gap-3 inline-block px-6 py-3 mt-4 mb-0 ml-auto font-bold text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">
+                        <span class="text-white text-md">İlana Git</span>
                 </button>
             </div>
           </div>
