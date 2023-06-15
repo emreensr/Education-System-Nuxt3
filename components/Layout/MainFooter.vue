@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-100 border-t space-y-6 mt-10">
+  <footer class="bg-gray-100 border-t space-y-5">
     <div class="max-w-7xl mx-auto py-10 px-4 lg:px-8 2xl:px-0">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-y-6 md:gap-y-0 md:gap-12">
         <div>
@@ -27,13 +27,13 @@
             FaydApp <br /> Tuzla <br /> İstanbul 34900 <br />
           </p>
 
-          <iframe
+          <!-- <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96514.9197173578!2d29.27428972826745!3d40.89181339933851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cad9a716174373%3A0x1df73419f1930424!2zVHV6bGEvxLBzdGFuYnVsLCBUw7xya2l5ZQ!5e0!3m2!1str!2snl!4v1686229762086!5m2!1str!2snl"
             class="w-full"
             frameborder="0"
             allowfullscreen
             loading="lazy"
-          ></iframe>
+          ></iframe> -->
         </div>
         <div>
           <div class="text-base mb-4 flex items-center space-x-2">

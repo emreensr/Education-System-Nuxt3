@@ -9,10 +9,10 @@
 <template>
 <NuxtLayout>
 
-<div class="app">
- <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 my-12 max-w-7xl container px-2 mx-auto">
+<div class="app bg-[#F4F5F7] p-5">
+ <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:my-8 max-w-7xl container mx-auto">
     <aside class="col-span-12 lg:col-span-3">
-        <div class="bg-white shadow-md rounded-lg p-5 lg:sticky lg:top-20">
+        <div class="bg-white shadow-md rounded-lg p-5 lg:sticky lg:top-28">
             <div class="flex flex-col gap-1 text-center items-center">
                 <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="">
                 <p class="font-semibold text-xl">Emre Ensar</p>
@@ -102,66 +102,78 @@
     </aside>
 
     <article class="col-span-12 lg:col-span-8">
-        <div class="bg-white rounded-lg mb-4">
-                <!-- <div class="border-b border-gray-100"></div>  -->
-                <div class="flex gap-1 items-center text-center font-semibold text-xl mb-0.5 mx-3 mt-3">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 640 512">
-                        <path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/>
-                    </svg> -->
-                    <h2 class="text-xl font-medium">Eğitim Bilgileri</h2>
+        <div class="bg-white mb-4 p-5">
+                <div class="flex gap-1 items-center text-center font-semibold text-xl">
+                    <h2 class="text-[24px] font-semibold">Eğitim Bilgileri</h2>
                 </div>
-                <div class="text-gray-600 text-md py-2 mx-3">Kocaeli Üniversitesi - Bilgisayar Programcılığı</div>
-                <div class="text-gray-600 text-md py-2 mx-3">Doğuş Üniversitesi - Bilgisayar Mühendisliği</div>
+                <div class="mt-5">
+                    <p class="text-gray-700 leading-normal">
+                        Tuzla Teknik Ve Anadolu Lisesi - Web Programcılığı
+                    </p>
+                    <p class="text-gray-700 leading-normal">
+                        Kocaeli Üniversitesi - Bilgisayar Programcılığı
+                    </p>
+                    <p class="text-gray-700">
+                        Doğuş Üniversitesi - Bilgisayar Mühendisliği
+                    </p>
+                </div>
         </div>
 
-        <div class="bg-white rounded-lg">
-                <!-- <div class="border-b border-gray-100"></div>  -->
-                <div class="flex gap-1 items-center text-center font-semibold text-xl mb-0.5 mx-3 mt-5">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 448 512">
-                        <path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
-                    </svg> -->
-                    <h2 class="text-xl font-medium">Ders ile ilgili bilgiler</h2>
+        <div class="bg-white p-5 my-10">
+                <div class="flex gap-1 items-center text-center font-semibold text-xl">
+                    <h2 class="text-[24px] font-semibold">Ders ile ilgili bilgiler</h2>
                 </div>
-                <div class="text-gray-600 text-md py-2 mx-3">Merhaba ben Emre Ensar Çapcı, 2020 yılında doğuş Üniversitesinden mezun oldum. <br><br>
-                Şu an matematik alanında özel ders ve eğitim danışmanlığı konusunda destek oluyorum. <br> <br>
+                <p class="text-gray-600 font-normal mt-5 leading-normal">Merhaba ben Emre Ensar Çapcı, 2020 yılında doğuş Üniversitesinden mezun oldum.
+                Şu an matematik alanında özel ders ve eğitim danışmanlığı konusunda destek oluyorum.
                 Kişiye özel bir eğitim modeli ile öğrencilerime katkıda bulunuyorum.
-                </div>
+                </p>
+                <p class="text-gray-600 font-normal mt-5 leading-normal">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.
+                </p>
         </div>
-        <div class="bg-white rounded-lg mt-12">
+        <div class="bg-white p-5">
                 <!-- <div class="border-b border-gray-100"></div>  -->
-                <div class="flex gap-1 items-center text-center font-semibold text-xl mb-0.5 mx-3 mt-5">
-                    <h2 class="text-xl font-medium">Verdiği Hizmetler</h2>
+                <div class="flex gap-1 items-center text-center font-semibold text-xl">
+                    <h2 class="text-[24px] font-semibold">Verdiği Hizmetler</h2>
                 </div>
-                <div class="mx-auto max-w-6xl grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-8 mt-5">
-        <CardContent />
-        <CardContent />
-    </div>
+                <div class="mx-auto max-w-6xl grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-8 lg:p-5 mt-5">
+                    <CardContent />
+                    <CardContent />
+                </div>
         </div>
-        <div class="flex bg-white mt-6 rounded-lg mt-8">
+        <div class="flex bg-white my-10 p-5">
             <div class="flex flex-col justify-center w-full py-1">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl mb-0.5 mx-3 mt-3">
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 384 512">
                             <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
                     </svg> -->
                     <div class="flex flex-col">
-                        <h2 class="text-xl font-medium">Ders verdiği konumlar</h2>
+                        <h2 class="text-xl font-semibold">Ders verdiği konumlar</h2>
                     </div>
                 </div>
-                <div class="grid grid-cols-3 lg:grid-cols-6 gap-4 py-3 px-3">
+                <div class="grid grid-cols-2 lg:grid-cols-6 gap-4 py-3 px-3">
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Tuzla</div>
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Pendik</div>
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Kartal</div>
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Maltepe</div>
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Kadıköy</div>
                     <div class="flex items-center bg-slate-100 rounded-md p-3">Ataşehir</div>
+                    <div class="flex items-center bg-slate-100 rounded-md p-3">Sultanbeyli</div>
+                    <div class="flex items-center bg-slate-100 rounded-md p-3">Sancaktepe</div>
+                    <div class="flex items-center bg-slate-100 rounded-md p-3">Ümraniye</div>
+                    <div class="flex items-center bg-slate-100 rounded-md p-3">Çekmeköy</div>
+
                     </div>
             </div>
         </div>
-        <div class="flex bg-white mt-6 rounded-lg">
+        <div class="flex bg-white p-5 my-10">
             <div class="flex flex-col justify-center w-full px-2 py-1">
                 <div class="flex justify-between items-center ">
                     <div class="flex flex-col">
-                        <h2 class="text-xl font-medium">Ders mekanları</h2>
+                        <h2 class="text-xl font-semibold">Ders mekanları</h2>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 py-3">
@@ -199,10 +211,10 @@
             </div>
         </div>
 
-        <section class="bg-white py-8 lg:py-16 p-2">
+        <section class="bg-white py-8 p-5">
             <div class="mx-auto">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-lg lg:text-xl font-semibold text-gray-900">Yorumlar (20)</h2>
+                <h2 class="text-[24px] font-semibold text-gray-900">Yorumlar (20)</h2>
             </div>
             <form class="mb-6">
                 <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
