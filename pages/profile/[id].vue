@@ -4,6 +4,28 @@
     layout: "main",
     });
 
+ const showMore = ref(false);
+ const locations = ref([
+        'Tuzla',
+        'Pendik',
+        'Kartal',
+        'Maltepe',
+        'Kadıköy',
+        'Ataşehir',
+        'Sultanbeyli',
+        'Sancaktepe',
+        'Ümraniye',
+        'Çekmeköy',
+      ]);
+
+const visibleLocations = computed(() => {
+    return showMore.value ? locations.value : locations.value.slice(0, 4);
+});
+
+const toggleShowMore = () => {
+      showMore.value = !showMore.value;
+    };
+
 </script>
 
 <template>
@@ -153,18 +175,25 @@
                         <h2 class="text-[20px] font-semibold">Ders verdiği konumlar</h2>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 py-3 px-3">
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Tuzla</div>
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Pendik</div>
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Kartal</div>
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Maltepe</div>
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Kadıköy</div>
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Ataşehir</div>
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Sultanbeyli</div>
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Sancaktepe</div>
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Ümraniye</div>
-                    <div class="flex items-center bg-slate-100 rounded-md p-3">Çekmeköy</div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 py-3 px-3">
+                    <div
+                        v-for="(location, index) in visibleLocations"
+                        :key="index"
+                        class="flex items-center bg-slate-100 rounded-md p-3"
+                        >
+                        {{ location }}
+                    </div> 
+                   </div>
+                <div class="flex justify-center items-center">
+                <div class="font-semibold text-center mx-4">
+                    <button 
+                    type="button" 
+                    @click="toggleShowMore" 
+                    class="flex items-center gap-3 inline-block px-6 py-3 mt-4 mb-0 ml-auto font-bold text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">
+                    {{ showMore ? 'Daha Az Göster' : 'Daha Fazla Göster' }}
+                    </button>
                 </div>
+</div>
             </div>
         </div>
         <div class="flex bg-white p-5 lg:my-10">
