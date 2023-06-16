@@ -1,18 +1,18 @@
 <template>
 <!-- This is an example component -->
-<div class='relative flex items-center justify-center px-2'>
+<div class='relative flex items-center justify-center'>
     <div class='w-full max-w-md mx-auto bg-white rounded-xl shadow-xl overflow-hidden'>
         <div class='max-w-md mx-auto'>
           <div class='h-[190px]' style='background-image:url(https://bgcp.bionluk.com/images/portfolio/1400x788/42ad5955-e341-4d1b-b166-d000da76cb08.png);background-size:cover;background-position:center'>
            </div>
-          <div class='p-4 sm:p-4'>
+          <div class='p-3 sm:p-3'>
             <div class='flex flex-row'>
             </div>
              <!-- Item -->
-             <div class="flex justify-between space-x-6 mt-0.5 items-center">
+             <div class="flex justify-between space-x-6 items-center">
                 <div class="flex items-center space-x-2">
                     <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" class="rounded-full h-12 w-12" alt="">
-                    <div class="flex flex-col space-y-2">
+                    <div class="flex flex-col space-y-1">
                         <a href="/profile/1">
                              <span class="text-[15px]">Emre Ensar</span>
                         </a>
@@ -27,10 +27,9 @@
             </div>
             <!-- Item -->
               <!-- Item -->
-              <div class="flex justify-between space-x-6 mt-3 items-center">
+              <!-- <div class="flex justify-between space-x-6 mt-3 items-center">
                 <div class="flex items-center space-x-2">
                     <div class="flex flex-col space-y-2">
-                        <!-- Item -->
                 <div class="flex items-center mt-0.5 mb-3">
                         <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
@@ -75,8 +74,8 @@
                 <div>
                     <p class='text-[13px] font-semibold text-yellow-400'>28 Yorum</p>
                 </div>
-            </div>
-            <p class='text-gray-800 text-base mt-1'>Ben matematik konusunda size yardım edebilir ve gelişiminize katkıda bulunabilirim.</p>
+            </div> -->
+            <p class='text-gray-800 text-base mt-2'>Ben matematik konusunda size yardım edebilir ve gelişiminize katkıda bulunabilirim.</p>
             <div class="flex justify-center items-center">
 
             <div class="font-semibold text-center mx-4">

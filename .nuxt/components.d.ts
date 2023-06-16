@@ -2,6 +2,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'CardContent': typeof import("../components/Card/Content.vue")['default']
+    'CardSwiper': typeof import("../components/Card/Swiper.vue")['default']
     'HomeFeatureSection': typeof import("../components/Home/FeatureSection.vue")['default']
     'HomeMainSlider': typeof import("../components/Home/MainSlider.vue")['default']
     'LayoutHeaderLinks': typeof import("../components/Layout/HeaderLinks.vue")['default']
@@ -35,6 +36,7 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyCardContent': typeof import("../components/Card/Content.vue")['default']
+    'LazyCardSwiper': typeof import("../components/Card/Swiper.vue")['default']
     'LazyHomeFeatureSection': typeof import("../components/Home/FeatureSection.vue")['default']
     'LazyHomeMainSlider': typeof import("../components/Home/MainSlider.vue")['default']
     'LazyLayoutHeaderLinks': typeof import("../components/Layout/HeaderLinks.vue")['default']
@@ -71,6 +73,7 @@ declare module 'vue' {
 }
 
 export const CardContent: typeof import("../components/Card/Content.vue")['default']
+export const CardSwiper: typeof import("../components/Card/Swiper.vue")['default']
 export const HomeFeatureSection: typeof import("../components/Home/FeatureSection.vue")['default']
 export const HomeMainSlider: typeof import("../components/Home/MainSlider.vue")['default']
 export const LayoutHeaderLinks: typeof import("../components/Layout/HeaderLinks.vue")['default']
@@ -104,6 +107,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyCardContent: typeof import("../components/Card/Content.vue")['default']
+export const LazyCardSwiper: typeof import("../components/Card/Swiper.vue")['default']
 export const LazyHomeFeatureSection: typeof import("../components/Home/FeatureSection.vue")['default']
 export const LazyHomeMainSlider: typeof import("../components/Home/MainSlider.vue")['default']
 export const LazyLayoutHeaderLinks: typeof import("../components/Layout/HeaderLinks.vue")['default']

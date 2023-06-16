@@ -1,5 +1,63 @@
 <template>
-  <div class="relative isolate px-6 pt-14 lg:px-8">
+   <div class="overflow-hidden bg-white py-12 lg:py-32 max-w-8xl mx-auto">
+  <div class="w-full px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:grid-cols-2">
+      <div class="lg:pr-8 lg:pt-4 lg:mt-32">
+        <div class="lg:max-w-lg">
+          <h2 class="text-base font-semibold leading-7 text-indigo-600">Hemen Başla</h2>
+          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Ders ver ya da al</p>
+          <p class="mt-6 text-lg leading-8 text-gray-600">Binlerce eğitmen arasına sen de katıl. Öğrencilerin ihtiyaçlarını karşılamaya hemen başla</p>
+          <div class="py-8 mx-auto">
+                <form>   
+                  <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
+                  <div class="relative">
+                      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                          <svg aria-hidden="true" class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                      </div>
+                      <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Ne dersi almak istersiniz?" required>
+                      <button 
+                        type="submit" 
+                        class="flex
+                              items-center
+                              justify-center
+                              text-white 
+                              absolute 
+                              right-2.5 
+                              bottom-2.5 
+                              bg-blue-700 
+                              hover:bg-blue-800 
+                              focus:ring-4 
+                              focus:outline-none 
+                              focus:ring-blue-300 
+                              font-medium 
+                              rounded-lg 
+                              text-sm
+                              px-4 
+                              py-2"
+                          >
+                        <svg
+                           class="w-4 h-4 
+                           text-white
+                           mr-1.5" 
+                           fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
+                          </path>
+                        </svg>
+                        <span class="hidden lg:block md:block">Eğitmen Bul</span>
+                      </button>               
+                    </div>
+                </form>
+        </div>
+      </div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+       alt="Product screenshot"
+       class="hidden w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 lg:block"
+      width="2432" height="1442">
+    </div>
+  </div>
+</div>  
+  <!-- <div class="relative isolate px-6 pt-14 lg:px-8">
       <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
         <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
       </div>
@@ -36,5 +94,5 @@
       <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
         <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
       </div>
-      </div>
+      </div> -->
   </template>

@@ -286,6 +286,12 @@
     </article>
 </main>
 
+<div class="max-w-8xl mx-auto mt-12">
+<h1 class="text-[24px] font-semibold text-center">Kategori ile ilgili diğer ilanlar</h1>
+    <div class="py-8 max-w-6xl mx-auto">
+        <CardSwiper />
+    </div>
+</div>
 </div>
 </NuxtLayout>
 </template>
