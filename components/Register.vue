@@ -70,7 +70,7 @@ const progressBarWidth = ref('0%');
                            <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Country">Dersler</label>
                            <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
                               <div class="choices__inner">
-                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e9aede] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
+                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
                                     <option value="Algeria">Matematik</option>
                                     <option value="Algeria">Yabancı Dil</option>
                                     <option value="Algeria">Fizik</option>
@@ -84,7 +84,7 @@ const progressBarWidth = ref('0%');
                            <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Country">Ders Kategorileri</label>
                            <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
                               <div class="choices__inner">
-                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e9aede] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
+                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
                                     <option value="Algeria">Genel Matematik</option>
                                     <option value="Algeria">Geometri</option>
                                     <option value="Algeria">Mantık</option>
@@ -98,7 +98,7 @@ const progressBarWidth = ref('0%');
                            <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Country">Seviye</label>
                            <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
                               <div class="choices__inner">
-                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e9aede] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
+                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
                                     <option value="Algeria">İlk Okul</option>
                                     <option value="Algeria">Lise</option>
                                     <option value="Algeria">Üniversite</option>
@@ -155,7 +155,7 @@ const progressBarWidth = ref('0%');
                            <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Country">Şehir</label>
                            <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
                               <div class="choices__inner">
-                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e9aede] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
+                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
                                     <option value="Algeria">İstanbul</option>
                                     <option value="Algeria">Ankara</option>
                                     <option value="Algeria">İzmir</option>
@@ -168,7 +168,7 @@ const progressBarWidth = ref('0%');
                            <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Country">İlçe</label>
                            <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
                               <div class="choices__inner">
-                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e9aede] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
+                                 <select choice="" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input" name="choices-country" choices-select="" hidden="" tabindex="-1" data-choice="active">
                                     <option value="Algeria">Adalar</option>
                                     <option value="Algeria">Bahçelievler</option>
                                     <option value="Algeria">Kartal</option>
@@ -184,7 +184,7 @@ const progressBarWidth = ref('0%');
                      </div>
                   </div>
                </div>
-               <div form="address" v-if="activeStep === 'address'" class="absolute top-0 left-0 mt-5 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
+               <div form="address" v-if="activeStep === 'address'" class="absolute top-0 left-0 mt-5 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
                   <div class="flex flex-wrap -mx-3 text-center">
                      <div class="w-10/12 max-w-full px-3 mx-auto [flex:0_0_auto]">
                         <h5 class="text-[#344767] font-normal mt-1">Sana daha iyi yardımcı olabilmemiz için istek ve beklentilerini buradan yazabilirsin.</h5>
@@ -194,7 +194,7 @@ const progressBarWidth = ref('0%');
                      <div class="flex flex-wrap -mx-3 text-left">
                         <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-full">
                           <label class="mb-4 ml-1 font-bold text-sm text-slate-700" for="Street Name">Beklentilerin</label>
-                          <textarea name="Street Name" rows="8" class="focus:shadow-[0_0_0_2px_#e9aede] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
+                          <textarea name="Street Name" rows="8" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none">
                             </textarea>
                           </div>
                      </div>
@@ -216,19 +216,19 @@ const progressBarWidth = ref('0%');
                      <div class="flex flex-wrap -mx-3 text-left">
                         <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
                           <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Street Name">Ad</label>
-                          <input type="text" name="Street Name" placeholder="Adınız" class="focus:shadow-[0_0_0_2px_#e9aede] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
+                          <input type="text" name="Street Name" placeholder="Adınız" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-400 focus:outline-none">
                         </div>
                         <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
                           <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Street No">Soyad</label>
-                          <input type="text" name="Street No" min="01" placeholder="Soyadınız" class="focus:shadow-[0_0_0_2px_#e9aede] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
+                          <input type="text" name="Street No" min="01" placeholder="Soyadınız" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none">
                         </div>
                         <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
                           <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Street Name">E-Posta</label>
-                          <input type="text" name="Street Name" placeholder="E-Posta Adresiniz" class="focus:shadow-[0_0_0_2px_#e9aede] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
+                          <input type="text" name="Street Name" placeholder="E-Posta Adresiniz" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none">
                         </div>
                         <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
                           <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Street No">Şifre</label>
-                          <input type="password" name="Street No" min="01" placeholder="Şifre" class="focus:shadow-[0_0_0_2px_#e9aede] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-[#e293d3] focus:outline-none">
+                          <input type="password" name="Street No" min="01" placeholder="Şifre" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none">
                         </div>
                      </div>
                      <div class="flex flex-wrap -mx-3">
