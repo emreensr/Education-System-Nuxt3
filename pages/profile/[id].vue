@@ -103,7 +103,7 @@
     <article class="col-span-12 lg:col-span-8">
         <div class="bg-white mb-4 p-5">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">
-                    <h2 class="text-[24px] font-semibold">Eğitim Bilgileri</h2>
+                    <h2 class="text-[20px] font-semibold">Eğitim Bilgileri</h2>
                 </div>
                 <div class="mt-5">
                     <p class="text-gray-800 text-base">
@@ -120,7 +120,7 @@
 
         <div class="bg-white p-5 my-10">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">
-                    <h2 class="text-[24px] font-semibold">Ders ile ilgili bilgiler</h2>
+                    <h2 class="text-[20px] font-semibold">Ders ile ilgili bilgiler</h2>
                 </div>
                 <p class="text-gray-800 text-base mt-5">Merhaba ben Emre Ensar Çapcı, 2020 yılında doğuş Üniversitesinden mezun oldum.
                 Şu an matematik alanında özel ders ve eğitim danışmanlığı konusunda destek oluyorum.
@@ -133,10 +133,10 @@
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.
                 </p>
         </div>
-        <div class="bg-white lg:p-5">
+        <div class="bg-white p-5">
                 <!-- <div class="border-b border-gray-100"></div>  -->
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">
-                    <h2 class="text-[24px] font-semibold">Verdiği Hizmetler</h2>
+                    <h2 class="text-[20px] font-semibold">Verdiği Hizmetler</h2>
                 </div>
                 <div class="mx-auto max-w-6xl grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-8 lg:p-5 mt-5">
                     <CardContent />
@@ -150,7 +150,7 @@
                             <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
                     </svg> -->
                     <div class="flex flex-col">
-                        <h2 class="text-xl font-semibold">Ders verdiği konumlar</h2>
+                        <h2 class="text-[20px] font-semibold">Ders verdiği konumlar</h2>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 py-3 px-3">
@@ -171,7 +171,7 @@
             <div class="flex flex-col justify-center w-full px-2 py-1">
                 <div class="flex justify-between items-center ">
                     <div class="flex flex-col">
-                        <h2 class="text-xl font-semibold">Ders mekanları</h2>
+                        <h2 class="text-[20px] font-semibold">Ders mekanları</h2>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 py-3">
@@ -211,7 +211,7 @@
         <section class="bg-white py-8 p-5">
             <div class="mx-auto">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-[24px] font-semibold text-gray-900">Yorumlar (20)</h2>
+                <h2 class="text-[20px] font-semibold text-gray-900">Yorumlar (20)</h2>
             </div>
             <form v-if="false" class="mb-6">
                 <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">

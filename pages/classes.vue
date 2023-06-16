@@ -41,7 +41,7 @@ definePageMeta({
             <button class="bg-indigo-600 py-3 px-6 my-2 rounded-md text-white hover:bg-indigo-500">Eğitmen Bul</button>
         </div>
         </div>
-        <div class="mx-auto max-w-6xl my-10 px-2">
+        <div class="mx-auto max-w-6xl my-10">
           <div class="flex justify-between space-x-6 items-center bg-indigo-600 rounded-md border p-6 border-gray-200">
                 <div class="flex items-center space-x-2">
                     <!-- <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" class="rounded-full h-12 w-12" alt=""> -->

@@ -5,7 +5,7 @@
       <div class="lg:pr-8 lg:pt-4 lg:mt-32">
         <div class="lg:max-w-lg">
           <h2 class="text-base font-semibold leading-7 text-indigo-600">Hemen Başla</h2>
-          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Ders ver ya da al</p>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-gray-900 lg:text-4xl">Ders ver ya da al</p>
           <p class="mt-6 text-lg leading-8 text-gray-600">Binlerce eğitmen arasına sen de katıl. Öğrencilerin ihtiyaçlarını karşılamaya hemen başla</p>
           <div class="py-8 mx-auto">
                 <form>   
@@ -38,7 +38,7 @@
                         <svg
                            class="w-4 h-4 
                            text-white
-                           mr-1.5" 
+                           lg:mr-1.5" 
                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z">
                           </path>
