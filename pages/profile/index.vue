@@ -72,19 +72,25 @@ const activeTab = ref(0);
                             <p class="mt-1 text-sm leading-6 text-gray-600">Buradan kişisel bilgilerinizi girebilir ve güncelleyebilirsiniz.</p>
                             <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-6">
                                 <div class="sm:col-span-3">
-                                    <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Adınız</label>
+                                    <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Adınız
+                                        <span class="font-medium text-red-600">*</span>
+                                    </label>
                                     <div class="mt-2">
                                         <input type="text" id="first_name" name="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     </div>
                                 </div>
                                 <div class="sm:col-span-3">
-                                    <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Soyadınız</label>
+                                    <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Soyadınız
+                                        <span class="font-medium text-red-600">*</span>
+                                    </label>
                                     <div class="mt-2">
                                         <input type="text" id="last_name" name="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     </div>
                                 </div>
                                 <div class="sm:col-span-3">
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-Posta Adresiniz</label>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-Posta Adresiniz
+                                        <span  class="font-medium text-red-600">*</span>
+                                    </label>
                                     <div class="relative">
                                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                         <svg aria-hidden="true" class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +102,9 @@ const activeTab = ref(0);
                                     </div>
                                 </div>
                                 <div class="sm:col-span-3">
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefon Numaranız</label>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefon Numaranız
+                                        <span class="font-medium text-red-600">*</span>
+                                    </label>
                                     <div class="relative">
                                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 512 512">
@@ -113,7 +121,9 @@ const activeTab = ref(0);
                                     </div>
                                 </div>
                                 <div class="sm:col-span-3">
-                                    <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Şehir</label>
+                                    <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Şehir
+                                        <span class="font-medium text-red-600">*</span>
+                                    </label>
                                     <div class="mt-2">
                                         <select id="country" name="country" autocomplete="country-name"
                                          class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input">
@@ -124,7 +134,9 @@ const activeTab = ref(0);
                                     </div>
                                 </div>
                                 <div class="sm:col-span-3">
-                                    <label for="country" class="block text-sm font-medium leading-6 text-gray-900">İlçe</label>
+                                    <label for="country" class="block text-sm font-medium leading-6 text-gray-900">İlçe
+                                        <span class="font-medium text-red-600">*</span>
+                                    </label>
                                     <div class="mt-2">
                                         <select id="country" name="country" autocomplete="country-name" 
                                         class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input">
