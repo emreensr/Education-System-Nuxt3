@@ -13,7 +13,7 @@
                 <div class="flex items-center space-x-2">
                     <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" class="rounded-full h-12 w-12" alt="">
                     <div class="flex flex-col space-y-1">
-                        <a href="/profile/1">
+                        <a href="/user/emre-ensar">
                              <span class="text-[15px]">Emre Ensar</span>
                         </a>
 
