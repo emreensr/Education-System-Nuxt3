@@ -18,11 +18,18 @@ const nextStep = () => {
       } else if (activeStep.value === 'advertTitle') {
         activeStep.value = 'classes';
         progressBarWidth.value = '3';
-      } else if (activeStep.value === 'address') {
-        activeStep.value = 'login';
-        progressBarWidth.value = '3';
-      } else if (activeStep.value === 'login') {
-        console.log(formValues);
+      } else if (activeStep.value === 'classes') {
+        activeStep.value = 'about';
+        progressBarWidth.value = '4';
+      } else if (activeStep.value === 'about') {
+         activeStep.value = 'location';
+        progressBarWidth.value = '5';
+      } else if (activeStep.value === 'location') {
+         activeStep.value = 'price';
+        progressBarWidth.value = '6';
+      } else if (activeStep.value === 'price') {
+         activeStep.value = 'photo';
+        progressBarWidth.value = '7';
       }
     };
     
@@ -33,9 +40,18 @@ const nextStep = () => {
       } else if (activeStep.value === 'classes') {
         activeStep.value = 'advertTitle';
         progressBarWidth.value = '2';
-      } else if (activeStep.value === 'login') {
-        activeStep.value = 'address';
-        progressBarWidth.value = '66%';
+      } else if (activeStep.value === 'about') {
+        activeStep.value = 'classes';
+        progressBarWidth.value = '3';
+      } else if (activeStep.value === 'location') {
+        activeStep.value = 'about';
+        progressBarWidth.value = '4';
+      } else if (activeStep.value === 'price') {
+        activeStep.value = 'location';
+        progressBarWidth.value = '5';
+      } else if (activeStep.value === 'photo') {
+        activeStep.value = 'price';
+        progressBarWidth.value = '6';
       }
     };
 </script>
@@ -45,7 +61,7 @@ const nextStep = () => {
    <div class="w-full max-w-7xl px-3 flex:0 auto mx-auto h-screen">
   <div class="w-full h-10 rounded-2xl mt-12 lg:mt-24">
     <div class="h-full text-center rounded-2xl text-black">
-      <span class="text-3xl font-bold">Adım {{ progressBarWidth }} / 5</span>
+      <span class="text-3xl font-bold">Adım {{ progressBarWidth }} / 7</span>
     </div>
   </div>
    <div multisteps-form="">
@@ -223,39 +239,183 @@ const nextStep = () => {
                   </div>
                </div>
                </div>
-               <div form="address" v-if="activeStep === 'login'" class="absolute top-0 left-0 mt-5 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
-                  <div class="flex flex-wrap -mx-3 text-center">
-                     <div class="w-10/12 max-w-full px-3 mx-auto [flex:0_0_auto]">
-                        <h5 class="text-[#344767] font-normal dark:text-white text-2xl">Çok az kaldı...</h5>
-                        <p class="text-[#67748e] mt-2">Bilgilerini doldurup kayıt işlemini tamamlayabilirsin.</p>
-                     </div>
+               <div form="about" v-if="activeStep === 'about'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 p-3">
+                  <div class="bg-[#fff1f1] p-12 rounded-2xl hidden md:block">
+                     <div class="flex items-center gap-2">
+                        <Icon name="material-symbols:info-outline-rounded" size="38" color="black" />
+                     <h1 class="font-bold text-3xl">Bilgi
+                     </h1>
                   </div>
-                  <div>
-                     <div class="flex flex-wrap -mx-3 text-left">
-                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
-                          <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Street Name">Ad</label>
-                          <input type="text" name="Street Name" placeholder="Adınız" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-400 focus:outline-none">
+                     <p class="mt-3 text-base">Güven verin, yetkinliğinizi kanıtlayın ve öğrencilere uzmanlığınız hakkında güven verin.</p>
+                     <p class="mt-2 text-base">Bunlar öğrencilerin sizin hakkınızda ilk okuyacağı şeylerden biri, yazdıklarınızın daha çekici ve güvenilir olması için yazım kurallarına ve yazı biçiminize dikkat edin.</p>
+
+                  </div>
+                  <div class="">
+                     <h1 class="font-semibold text-3xl">Sizin Hakkınızda</h1>
+                     <div class="mt-5">
+                        <textarea 
+                              v-model="description"
+                              class="w-full
+                              bg-transparent 
+                              border-2 
+                              border-gray-300 
+                              rounded-lg 
+                              py-2 
+                              px-4 
+                              placeholder-gray-400 
+                              outline-none
+                              focus:outline-none 
+                              focus:ring-2 
+                              focus:ring-indigo-500 
+                              focus:border-transparent 
+                              resize-none" 
+                              placeholder="Öğrencilerin sizi tanıması ve neden sizi tercih etmeleri gerektiğini anlatın"
+                              rows="6">
+                           </textarea>
+                           <!-- <div class="mt-5 flex justify-between">
+                              <div class="text-gray-400 text-[13px] font-medium">
+                                 {{ title.length}}/500
+                              </div>
+                              <p class="text-red-500 text-sm" v-if="isMaxLengthExceeded">Maksimum 80 karakter giriniz.</p>
+                           </div> -->
                         </div>
-                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
-                          <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Street No">Soyad</label>
-                          <input type="text" name="Street No" min="01" placeholder="Soyadınız" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none">
-                        </div>
-                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
-                          <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Street Name">E-Posta</label>
-                          <input type="text" name="Street Name" placeholder="E-Posta Adresiniz" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none">
-                        </div>
-                        <div class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12">
-                          <label class="mb-2 ml-1 font-bold text-sm text-slate-700" for="Street No">Şifre</label>
-                          <input type="password" name="Street No" min="01" placeholder="Şifre" class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none">
-                        </div>
-                     </div>
-                     <div class="flex flex-wrap -mx-3">
-                        <div class="flex w-full max-w-full px-3 mt-6 [flex:0_0_auto]">
+                        <div class="flex mt-12">
                            <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Geri Dön</button>
-                          <button type="button" send-form-btn="" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25">Kaydol</button>
+                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et</button>
+                        </div>
+                  </div>
+               </div>
+               </div>
+               <div form="location" v-if="activeStep === 'location'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 p-3">
+                  <div class="bg-[#fff1f1] p-12 rounded-2xl hidden md:block">
+                     <div class="flex items-center gap-2">
+                        <Icon name="material-symbols:info-outline-rounded" size="38" color="black" />
+                     <h1 class="font-bold text-3xl">Bilgi
+                     </h1>
+                  </div>
+                     <p class="mt-3 text-base">Adresiniz sitede asla yer almaz. Sadece ders vermeyi kabul ettiğiniz öğrencilere iletilir.</p>
+                     <p class="mt-3 text-base">Derslerinizi belirttiğiniz adresteki evinizde verebilirsiniz.</p>
+                     <p class="mt-3 text-base">Öğrencinin evine veya kararlaştıracağınız başka bir mekana gitmek için gidebileceğiniz en fazla uzaklık</p>
+                     <p class="mt-3 text-base">Sınırları ortadan kaldırın, webcam üzerinden derslerinizi online olarak tüm dünyadaki öğrencilere verin</p>
+                  </div>
+                  <div class="">
+                     <h1 class="font-semibold text-3xl">Dersin Verileceği Yer</h1>
+                     <div class="mt-5">
+                        <fieldset>
+                              <div class="mt-6 space-y-6">
+                                 <div class="relative flex gap-x-3 border border-gray-100 shadow-sm p-5 rounded-lg hover:bg-gray-200">
+                                 <div class="flex h-6 items-center">
+                                    <input id="comments" name="comments" type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                 </div>
+                                 <div class="text-sm leading-6">
+                                    <label for="comments" class="font-medium text-base text-gray-900">Öğrenci Evinde</label>
+                                 </div>
+                                 </div>
+                                 <div class="relative flex gap-x-3 border border-gray-100 shadow-sm p-5 rounded-lg hover:bg-gray-200">
+                                 <div class="flex h-6 items-center">
+                                    <input id="candidates" name="candidates" type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                 </div>
+                                 <div class="text-sm leading-6">
+                                    <label for="candidates" class="font-medium text-base text-gray-900">Öğretmen Evinde</label>
+                                 </div>
+                                 </div>
+                                 <div class="relative flex gap-x-3 border border-gray-100 shadow-sm p-5 rounded-lg hover:bg-gray-200">
+                                 <div class="flex h-6 items-center">
+                                    <input id="offers" name="offers" type="checkbox" class="h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                 </div>
+                                 <div class="text-sm leading-6">
+                                    <label for="offers" class="font-medium text-base text-gray-900">Online</label>
+                                 </div>
+                                 </div>
+                              </div>
+                           </fieldset>
+                        </div>
+                        <div class="flex mt-12">
+                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
+                           >Geri Dön</button>
+                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                           >Devam Et</button>
+                        </div>
+                  </div>
+               </div>
+               </div>
+               <div form="price" v-if="activeStep === 'price'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 p-3">
+                     <div class="bg-[#fff1f1] p-12 rounded-2xl hidden lg:block">
+                        <div class="flex items-center gap-2">
+                           <Icon name="material-symbols:info-outline-rounded" size="38" color="black" />
+                           <h1 class="font-bold text-3xl">Bilgi</h1>
+                        </div>
+                        <p class="mt-3 text-base">Saatlik ders ücretinizi seçmekte ve istediğiniz zaman değiştirmekte özgürsünüz.</p>
+                        <p class="mt-3 text-base">Yeni başlıyorsanız, çok yüksek bir saatlik ücret seçmemek sizin yararınıza olabilir, ücretinizi değiştirmek için yorum ve referans almayı bekleyin.</p>
+                     </div>
+                     <div class="flex flex-col justify-between">
+                        <h1 class="font-semibold text-3xl">Saatlik Ücret</h1>
+                        <div class="mt-5">
+                           <div class="flex">
+                              <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md">
+                                 ₺
+                              </span>
+                              <input type="text" id="website-admin" class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5" placeholder="100">
+                           </div>
+                        </div>
+                        <div class="flex mt-12">
+                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">
+                              Geri Dön
+                           </button>
+                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25" :disabled="isMaxLengthExceeded">
+                              Devam Et
+                           </button>
                         </div>
                      </div>
                   </div>
+               </div>
+               <div form="photo" v-if="activeStep === 'photo'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 p-3">
+                  <div class="bg-[#fff1f1] p-12 rounded-2xl hidden lg:block">
+                     <div class="flex items-center gap-2">
+                        <Icon name="material-symbols:info-outline-rounded" size="38" color="black" />
+                     <h1 class="font-bold text-3xl">Bilgi
+                     </h1>
+                  </div>
+                     <p class="mt-3 text-base">İlanınızın daha fazla ilgi çekmesi için görsel yüklemelisiniz.</p>
+                     <p class="mt-3 text-base">Profesyonel ve kaliteli bir fotoğraf öğrencilerinizle güven oluşturmanıza ve taleplerinizi arttırmanıza yardımcı olacaktır.</p>
+                  </div>
+                  <div class="">
+                     <h1 class="font-semibold text-3xl">Vitrin</h1>
+                     <div class="mt-5">
+                           <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                              <div class="text-center">
+                              <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                 <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                              </svg>
+                              <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                                 <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                    <span>Görsel Yükle</span>
+                                    <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                 </label>
+                                 <p class="pl-1">ya da sürükle bırak</p>
+                              </div>
+                              <p class="text-xs leading-5 text-gray-600">PNG, JPG, maksimum 10MB</p>
+                              </div>
+                        </div>
+                        </div>
+                        <div class="flex mt-12 gap-8">
+                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" 
+                                   class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
+                                   >
+                                   Geri Dön
+                                 </button>
+                           <button type="button" @click="nextStep" href="javascript:;"
+                                   class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                            >
+                            Ödemeye Geç
+                           </button>
+                        </div>
+                  </div>
+               </div>
                </div>
             </form>
          </div>

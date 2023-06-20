@@ -115,11 +115,11 @@ const progressBarWidth = ref('0%');
                     </div>
                   </div>
                </div>
-               <div form="account" v-if="activeStep === 'account'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 mt-5 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
+               <div form="account" v-if="activeStep === 'account'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 mt-5 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
                   <div class="flex flex-wrap -mx-3 text-center">
                      <div class="w-10/12 max-w-full px-3 mx-auto [flex:0_0_auto]">
                         <h3 class="text-[#344767] mt-3 text-2xl">Dersleri nerede almak istiyorsunuz?</h3>
-                        <h5 class="font-normal dark:text-white text-[#8392ab] mt-2">Birden fazla seçim yapabilirsiniz.</h5>
+                        <h5 class="font-normal text-[#8392ab] mt-2">Birden fazla seçim yapabilirsiniz.</h5>
                      </div>
                   </div>
                   <div>
