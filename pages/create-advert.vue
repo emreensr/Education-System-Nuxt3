@@ -45,7 +45,7 @@ const nextStep = () => {
    <div class="w-full max-w-7xl px-3 flex:0 auto mx-auto h-screen">
   <div class="w-full h-10 rounded-2xl mt-12 lg:mt-24">
     <div class="h-full text-center rounded-2xl text-black">
-      <span class="text-3xl font-bold">{{ progressBarWidth }} / 5 ADIM</span>
+      <span class="text-3xl font-bold">Adım {{ progressBarWidth }} / 5</span>
     </div>
   </div>
    <div multisteps-form="">
@@ -54,7 +54,7 @@ const nextStep = () => {
             <form class="relative" style="height: 423px;">
                <div form="category" v-if="activeStep === 'category'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 p-3">
-                  <div class="bg-[#fff1f1] p-12 rounded- hidden md:block">
+                  <div class="bg-[#fff1f1] p-12 rounded-2xl hidden md:block">
                      <div class="flex items-center gap-2">
                         <Icon name="material-symbols:info-outline-rounded" size="38" color="black" />
                      <h1 class="font-bold text-3xl">Bilgi
@@ -71,7 +71,26 @@ const nextStep = () => {
                                     </label>
                                     <div class="mt-2">
                                         <select id="country" name="country" autocomplete="country-name"
-                                         class="p-3 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-md mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input">
+                                         class="p-3 
+                                         bg-gray-50 
+                                         border
+                                         border-gray-300 
+                                         text-gray-900 
+                                         focus:shadow-[0_0_0_2px_#e5e7eb] 
+                                         text-md mt-2 
+                                         leading-5.6 
+                                         ease block 
+                                         w-full 
+                                         appearance-none 
+                                         rounded-md 
+                                         bg-clip-padding 
+                                         font-normal
+                                         outline-none
+                                         transition-all 
+                                         placeholder:text-grey-500 
+                                         focus:border-gray-400 
+                                         focus:outline-none"
+                                         >
                                         <option>Matematik</option>
                                         <option>Yüzme</option>
                                         <option>Yabancı Dil</option>
@@ -122,6 +141,7 @@ const nextStep = () => {
                               px-4 
                               placeholder-gray-400 
                               focus:outline-none 
+                              outline-none
                               focus:ring-2 
                               focus:ring-indigo-500 
                               focus:border-transparent 
@@ -180,6 +200,7 @@ const nextStep = () => {
                               py-2 
                               px-4 
                               placeholder-gray-400 
+                              outline-none
                               focus:outline-none 
                               focus:ring-2 
                               focus:ring-indigo-500 
