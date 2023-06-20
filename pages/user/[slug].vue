@@ -25,7 +25,6 @@ const visibleLocations = computed(() => {
 const toggleShowMore = () => {
       showMore.value = !showMore.value;
     };
-
 </script>
 
 <template>

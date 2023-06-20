@@ -43,20 +43,18 @@ const nextStep = () => {
 <template>
 <NuxtLayout>
    <div class="w-full max-w-7xl px-3 flex:0 auto mx-auto h-screen">
-  <div class="w-full h-10 rounded-2xl mt-24">
+  <div class="w-full h-10 rounded-2xl mt-12 lg:mt-24">
     <div class="h-full text-center rounded-2xl text-black">
       <span class="text-3xl font-bold">{{ progressBarWidth }} / 5 ADIM</span>
     </div>
   </div>
-   <!-- <h3 class="text-[#344767] mt-12 text-2xl">Ne hizmeti almak istiyorsun?</h3>
-   <h5 class="font-normal dark:text-white text-[#8392ab] mt-2">Almak istediğiniz hizmeti seç, hemen hizmet almaya başla!</h5>  -->
-   <div multisteps-form="" class="mb-12">
+   <div multisteps-form="">
       <div class="flex flex-wrap -mx-3">
          <div class="w-full max-w-full px-3 m-auto [flex:0_0_auto]">
-            <form class="relative mb-32" style="height: 423px;">
+            <form class="relative" style="height: 423px;">
                <div form="category" v-if="activeStep === 'category'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 md:my-16 p-3">
-                  <div class="bg-[#fff1f1] p-12 rounded-2xl">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 p-3">
+                  <div class="bg-[#fff1f1] p-12 rounded- hidden md:block">
                      <div class="flex items-center gap-2">
                         <Icon name="material-symbols:info-outline-rounded" size="38" color="black" />
                      <h1 class="font-bold text-3xl">Bilgi
@@ -99,9 +97,9 @@ const nextStep = () => {
                   </div>
                </div>
                </div>
-               <div form="advertTitle" v-if="activeStep === 'advertTitle'" class="absolute top-0 left-0 flex flex-col w-full mt-5 min-w-0 p-4 break-words bg-white border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 md:my-16 p-3">
-                  <div class="bg-[#fff1f1] p-12 rounded-2xl">
+               <div form="advertTitle" v-if="activeStep === 'advertTitle'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 p-3">
+                  <div class="bg-[#fff1f1] p-12 rounded-2xl hidden lg:block">
                      <div class="flex items-center gap-2">
                         <Icon name="material-symbols:info-outline-rounded" size="38" color="black" />
                      <h1 class="font-bold text-3xl">Bilgi
@@ -138,16 +136,25 @@ const nextStep = () => {
                               <p class="text-red-500 text-sm" v-if="isMaxLengthExceeded">Maksimum 80 karakter giriniz.</p>
                            </div>
                         </div>
-                        <div class="flex mt-12">
-                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Geri Dön</button>
-                           <button type="button" v-if="!isMaxLengthExceeded" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et</button>
+                        <div class="flex mt-12 gap-8">
+                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" 
+                                   class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
+                                   >
+                                   Geri Dön
+                                 </button>
+                           <button type="button" @click="nextStep" href="javascript:;"
+                                   class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                                   :disabled="isMaxLengthExceeded"
+                            >
+                            Devam Et
+                           </button>
                         </div>
                   </div>
                </div>
                </div>
-               <div form="classes" v-if="activeStep === 'classes'" class="absolute top-0 left-0 mt-5 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 md:my-16 p-3">
-                  <div class="bg-[#fff1f1] p-12 rounded-2xl">
+               <div form="classes" v-if="activeStep === 'classes'" class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 rounded-2xl bg-clip-border h-auto opacity-100 visible" active="">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-7xl mx-auto my-3 p-3">
+                  <div class="bg-[#fff1f1] p-12 rounded-2xl hidden md:block">
                      <div class="flex items-center gap-2">
                         <Icon name="material-symbols:info-outline-rounded" size="38" color="black" />
                      <h1 class="font-bold text-3xl">Bilgi
