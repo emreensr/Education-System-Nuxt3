@@ -49,6 +49,16 @@ definePageMeta({
                     </nuxt-link>
                     </li>
                     <li>
+                    <nuxt-link
+                        to="/profile/my-adverts"
+                        class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
+                        exact-active-class="bg-gray-100"
+                        >
+                        <Icon name="material-symbols:chrome-reader-mode-outline-rounded" size="22" color="gray"/>
+                        <span class="font-normal text-sm text-[#3F4254]">İlanlarım</span>
+                    </nuxt-link>
+                    </li>
+                    <li>
                         <nuxt-link
                             to="/profile/my-lessons"
                             class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
