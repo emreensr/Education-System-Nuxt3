@@ -5,7 +5,6 @@ definePageMeta({
 </script>
 
 <template>
-    <NuxtLayout>
     <div class="app bg-[#F4F5F7] p-5">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:my-3 max-w-8xl container mx-auto">
             <div class="py-10 bg-white shadow-md p-5 col-span-12 lg:col-span-3 lg:h-screen">
@@ -139,5 +138,4 @@ definePageMeta({
             </main>
         </div>
         </div>
-    </NuxtLayout>
     </template>

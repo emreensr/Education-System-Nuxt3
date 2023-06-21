@@ -7,7 +7,5 @@
 </script>
 
 <template>
-        <NuxtLayout>
             <Register/>
-        </NuxtLayout>
 </template>

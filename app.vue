@@ -26,9 +26,9 @@ const menuItems = useState("menuItems", () => {
 });
 </script>
 
-<template>
-  <div>
+ <template>
+  <NuxtLayout>
     <NuxtLoadingIndicator />
-    <NuxtPage/>
-  </div>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

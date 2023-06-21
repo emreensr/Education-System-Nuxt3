@@ -28,7 +28,6 @@ const toggleShowMore = () => {
 </script>
 
 <template>
-<NuxtLayout>
 <div class="app bg-[#F4F5F7] p-5">
  <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:my-3 max-w-6xl container mx-auto">
     <aside class="col-span-12 lg:col-span-4">
@@ -321,5 +320,4 @@ const toggleShowMore = () => {
     </div>
 </div>
 </div>
-</NuxtLayout>
 </template>

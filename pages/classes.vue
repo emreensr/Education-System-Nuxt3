@@ -6,7 +6,6 @@ definePageMeta({
 
 
 <template>
-    <NuxtLayout>
 <div class="app bg-[#F4F5F7] p-3">
     <div class="max-w-4xl mx-auto my-5 bg-white shadow-sm rounded-xl p-5">
         <div class="flex flex-wrap justify-between items-center">
@@ -103,5 +102,4 @@ definePageMeta({
 </div>
        
 </div>
-</NuxtLayout>
 </template>

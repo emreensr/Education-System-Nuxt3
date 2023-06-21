@@ -3,7 +3,7 @@ definePageMeta({
   layout: "main",
 });
 
-const progressBarWidth = ref('1');
+const progressBarWidth = ref('0');
 const title = ref('')
 const activeStep = ref('category');
 
@@ -14,56 +14,59 @@ const isMaxLengthExceeded = computed(() => {
 const nextStep = () => {
       if (activeStep.value === 'category') {
         activeStep.value = 'advertTitle';
-        progressBarWidth.value = '2';
+        progressBarWidth.value = '17';
       } else if (activeStep.value === 'advertTitle') {
         activeStep.value = 'classes';
-        progressBarWidth.value = '3';
+        progressBarWidth.value = '34';
       } else if (activeStep.value === 'classes') {
         activeStep.value = 'about';
-        progressBarWidth.value = '4';
+        progressBarWidth.value = '51';
       } else if (activeStep.value === 'about') {
          activeStep.value = 'location';
-        progressBarWidth.value = '5';
+        progressBarWidth.value = '68';
       } else if (activeStep.value === 'location') {
          activeStep.value = 'price';
-        progressBarWidth.value = '6';
+        progressBarWidth.value = '85';
       } else if (activeStep.value === 'price') {
          activeStep.value = 'photo';
-        progressBarWidth.value = '7';
+        progressBarWidth.value = '100';
       }
     };
     
     const previousStep = () => {
       if (activeStep.value === 'advertTitle') {
         activeStep.value = 'category';
-        progressBarWidth.value = '1';
+        progressBarWidth.value = '0';
       } else if (activeStep.value === 'classes') {
         activeStep.value = 'advertTitle';
-        progressBarWidth.value = '2';
+        progressBarWidth.value = '17';
       } else if (activeStep.value === 'about') {
         activeStep.value = 'classes';
-        progressBarWidth.value = '3';
+        progressBarWidth.value = '34';
       } else if (activeStep.value === 'location') {
         activeStep.value = 'about';
-        progressBarWidth.value = '4';
+        progressBarWidth.value = '51';
       } else if (activeStep.value === 'price') {
         activeStep.value = 'location';
-        progressBarWidth.value = '5';
+        progressBarWidth.value = '68';
       } else if (activeStep.value === 'photo') {
         activeStep.value = 'price';
-        progressBarWidth.value = '6';
+        progressBarWidth.value = '85';
       }
     };
 </script>
 
 <template>
-<NuxtLayout>
    <div class="w-full max-w-7xl px-3 flex:0 auto mx-auto h-screen">
-  <div class="w-full h-10 rounded-2xl mt-12 lg:mt-24">
-    <div class="h-full text-center rounded-2xl text-black">
-      <span class="text-3xl font-bold">Adım {{ progressBarWidth }} / 7</span>
+      <div class="w-full max-w-7xl mx-auto mt-12 lg:mt-24">
+  <div class="relative h-10 rounded-full bg-gray-100">
+    <div class="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#00dc82] via-[#34cdfe] to-[#0047e1] transition-width duration-500" :style="{ width: progressBarWidth + '%' }"></div>
+    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center w-10 h-10">
+      <span class="text-xl text-black font-bold">{{ progressBarWidth }}%</span>
     </div>
-  </div>
+   </div>
+</div>
+
    <div multisteps-form="">
       <div class="flex flex-wrap -mx-3">
          <div class="w-full max-w-full px-3 m-auto [flex:0_0_auto]">
@@ -127,7 +130,7 @@ const nextStep = () => {
                                     </div>
                         </div>
                         <div class="flex mt-6">
-                           <button type="button" v-if="!isMaxLengthExceeded" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 md:mt-12 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et</button>
+                           <button type="button" v-if="!isMaxLengthExceeded" @click="nextStep" href="javascript:;" class="inline-block px-3 py-3 md:mt-12 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et</button>
                         </div>
                   </div>
                </div>
@@ -174,12 +177,12 @@ const nextStep = () => {
                         </div>
                         <div class="flex mt-12 gap-8">
                            <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" 
-                                   class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
+                                   class="inline-block px-3 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
                                    >
                                    Geri Dön
                                  </button>
                            <button type="button" @click="nextStep" href="javascript:;"
-                                   class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                                   class="inline-block px-3 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
                                    :disabled="isMaxLengthExceeded"
                             >
                             Devam Et
@@ -233,8 +236,8 @@ const nextStep = () => {
                            </div> -->
                         </div>
                         <div class="flex mt-12">
-                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Geri Dön</button>
-                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et</button>
+                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-3 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Geri Dön</button>
+                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-3 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et</button>
                         </div>
                   </div>
                </div>
@@ -281,8 +284,8 @@ const nextStep = () => {
                            </div> -->
                         </div>
                         <div class="flex mt-12">
-                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Geri Dön</button>
-                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et</button>
+                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-3 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">Geri Dön</button>
+                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-3 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">Devam Et</button>
                         </div>
                   </div>
                </div>
@@ -333,9 +336,9 @@ const nextStep = () => {
                            </fieldset>
                         </div>
                         <div class="flex mt-12">
-                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
+                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-3 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
                            >Geri Dön</button>
-                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-3 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
                            >Devam Et</button>
                         </div>
                   </div>
@@ -362,10 +365,10 @@ const nextStep = () => {
                            </div>
                         </div>
                         <div class="flex mt-12">
-                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">
+                           <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" class="inline-block px-3 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]">
                               Geri Dön
                            </button>
-                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25" :disabled="isMaxLengthExceeded">
+                           <button type="button" @click="nextStep" href="javascript:;" class="inline-block px-3 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25" :disabled="isMaxLengthExceeded">
                               Devam Et
                            </button>
                         </div>
@@ -404,14 +407,14 @@ const nextStep = () => {
                         </div>
                         <div class="flex mt-12 gap-8">
                            <button type="button" aria-controls="account" prev-form-btn="" @click="previousStep" href="javascript:;" 
-                                   class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
+                                   class="inline-block px-3 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
                                    >
                                    Geri Dön
                                  </button>
                            <button type="button" @click="nextStep" href="javascript:;"
-                                   class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                                   class="inline-block px-3 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
                             >
-                            Ödemeye Geç
+                            Ödemeye geç
                            </button>
                         </div>
                   </div>
@@ -422,5 +425,4 @@ const nextStep = () => {
       </div>
    </div>
 </div>
-</NuxtLayout>
 </template>
