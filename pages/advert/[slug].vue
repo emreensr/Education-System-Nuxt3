@@ -1,0 +1,240 @@
+<script setup>
+
+    definePageMeta({
+    layout: "main",
+    });
+
+ const showMore = ref(false);
+ const locations = ref([
+        'Tuzla',
+        'Pendik',
+        'Kartal',
+        'Maltepe',
+        'Kadıköy',
+        'Ataşehir',
+        'Sultanbeyli',
+        'Sancaktepe',
+        'Ümraniye',
+        'Çekmeköy',
+      ]);
+
+const visibleLocations = computed(() => {
+    return showMore.value ? locations.value : locations.value.slice(0, 4);
+});
+
+const toggleShowMore = () => {
+      showMore.value = !showMore.value;
+    };
+</script>
+
+<template>
+<div class="app bg-[#F4F5F7] p-5">
+ <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:my-3 max-w-6xl container mx-auto">
+    <aside class="col-span-12 lg:col-span-4">
+        <div class="bg-white shadow-md rounded-3xl p-5 lg:sticky lg:top-28 ">
+            <div class='max-w-md mx-auto text-center items-center'>
+                <img class=" bg-white rounded-xl shadow mb-4 w-full max-w-md mx-auto"
+                 src="https://bgcp.bionluk.com/images/portfolio/1400x788/96ef3b09-6a68-4002-b2be-7613f37848ea.png" alt="">
+                <p class="font-medium text-lg">Matematik öğretmeninden online (tüm Türkiye) ve yüz yüze tecrübe ve enerji bir aradan</p>
+                <div class="text- leading-normal text-gray-500 flex justify-center items-center">
+                </div>
+            </div>
+            <div class="flex justify-between space-x-6 items-center mt-3">
+                <div class="flex items-center space-x-2">
+                    <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" class="rounded-full h-12 w-12" alt="">
+                    <div class="flex flex-col space-y-1">
+                        <a href="/profile/1">
+                             <span class="text-[15px]">Yunus Emre</span>
+                        </a>
+
+                        <span class="text-[#8b95a1] text-[15px]">Matematik</span>
+                    </div>
+                    
+                </div>
+                <div>
+                    <nuxt-link
+                        to="/user/emre-ensar"
+                        class="flex items-center gap-3 inline-block px-3 py-2 mt-4 mb-0 ml-auto font-semibold text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-green-500 leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                        >
+                        <span class="font-normal text-sm text-white">Profile Git</span>
+                    </nuxt-link>
+                </div>
+            </div>
+            <div class="flex justify-between space-x-6 mt-5 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="flex flex-col space-y-2">
+                        <span class="font-normal text-sm">Saatlik Ücret</span>
+                    </div>
+                </div>
+                <div>
+                    <p class='text-[18px] font-bold text-black'>700₺</p>
+                </div>
+            </div>
+            <div class="flex justify-between space-x-6 mt-5 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="flex flex-col space-y-2">
+                        <span class="font-normal text-sm">Cevaplama Süresi</span>
+                    </div>
+                </div>
+                <div>
+                    <p class='text-[18px] font-bold text-black'>1 saat</p>
+                </div>
+            </div>
+            <div class="flex justify-between space-x-6 mt-5 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="flex flex-col space-y-2">
+                        <span class="font-normal text-sm">Öğrenci Sayısı</span>
+                    </div>
+                </div>
+                <div>
+                    <p class='text-[18px] font-bold text-black'>20+</p>
+                </div>
+            </div>
+            <div class="flex justify-center items-center">
+                <div class="font-semibold text-center mx-4">
+                    <button type="button" class="flex items-center gap-2 inline-block px-6 py-3 mt-8 mb-0 ml-auto font-bold text-right text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                    ><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-white" viewBox="0 0 512 512">
+                        <path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"/>
+                    </svg>
+                    <span class="text-white text-md">Ders Talep Et</span>
+                </button>
+                </div>
+            </div>
+        </div>        
+    </aside>
+
+    <article class="col-span-12 lg:col-span-8">
+        <div class="bg-white mb-4 p-5">
+            <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center gap-4">
+                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Geometri</li>
+                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Trigonometri</li>
+                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Liner Cebir</li>
+                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">İstatistik</li>
+                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Mantık</li>
+            </ul>
+        </div>
+        <!-- <div class="bg-white mb-4 p-5">
+                <div class="flex gap-1 items-center text-center font-semibold text-xl">
+                    <h2 class="text-[20px] font-semibold">Eğitim Bilgileri</h2>
+                </div>
+                <div class="">
+                   <h1 class="font-medium text-3xl leading-10">
+                    Matematik öğretmeninden online (tüm Türkiye) ve yüz yüze (İstanbul Anadolu-Kocaeli) tecrübe ve enerji bir arada.Yeni Nesil den anlayan</h1>
+                </div>
+        </div> -->
+        <div class="flex bg-white p-5 lg:my-10">
+            <div class="flex flex-col justify-center w-full px-2 py-1">
+                <div class="flex justify-between items-center ">
+                    <div class="flex flex-col">
+                        <h2 class="text-[20px] font-semibold">Ders mekanları</h2>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 py-3">
+                    <div class="flex group shadow shadow-gray-200 items-center p-3 rounded-lg bg-white">
+                        <div class="flex items-center justify-center h-[45px] min-w-[45px] bg-amber-500/10 group-hover:bg-amber-500 text-amber-500 group-hover:text-white text-center rounded-xl me-5 transition-all duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 576 512">
+                              <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
+                            </svg>                        
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="mb-0 text-sm font-normal">Kendi evinde</h4>
+                        </div>
+                    </div>
+                    <div class="flex group shadow shadow-gray-200 items-center p-3 rounded-lg bg-white">
+                        <div class="flex items-center justify-center h-[45px] min-w-[45px] bg-amber-500/10 group-hover:bg-amber-500 text-amber-500 group-hover:text-white text-center rounded-xl me-5 transition-all duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 576 512">
+                              <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
+                            </svg>
+                       </div>
+                        <div class="flex-1">
+                            <h4 class="mb-0 text-sm font-normal">Öğrenci evinde</h4>
+                        </div>
+                    </div>
+                    <div class="flex group shadow shadow-gray-200 items-center p-3 rounded-lg bg-white">
+                        <div class="flex items-center justify-center h-[45px] min-w-[45px]  bg-amber-500/10 group-hover:bg-amber-500 text-amber-500 group-hover:text-white text-center rounded-xl me-5 transition-all duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 512 512">
+                              <path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="mb-0 text-sm font-normal">Online</h4>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-5 my-10">
+                <div class="flex gap-1 items-center text-center font-semibold text-xl">
+                    <h2 class="text-[20px] font-semibold">Yunus Emre ile ilgili bilgiler</h2>
+                </div>
+                <p class="text-gray-800 text-base mt-3 leading-7">
+                    Matematik öğretmeniyim.2018 yılında mezun oldum.Öğrenciliğim sırasında bir çok öğrenciyi sınavlara hazırlamış olmakla beraber hala eğitim vermekteyim.
+                    <ul class="my-3">
+                        <li>+KPSS</li>
+                        <li>+TYT</li>
+                        <li>+YKS</li>
+                        <li>+AYT</li>
+                        <li>+TEOG</li>
+                        <li>+ALES</li>
+                        <li>+DGS</li>
+                        <li>+Okul derslerine yardımcı etütler</li>
+                    </ul>
+                    <p>Bir çok öğrencimi üniversiteye yerleştirmekle beraber hala iletişimi devam ettirerek destek sağlamaktayım.</p>
+                    <p class="my-2">Başarılar</p>
+                    <p>+İSTANBUL ÜNİVERSİTE/ELEKTRİK ELEKTRONİK MÜH.</p>
+                    <p> +DOĞUŞ ÜNİVERSİTESİ /BİLGİSAYAR MÜH.</p>
+                    <p> +YENİ YÜZYIL ÜNİVERSİTESİ/MİMARLIK ...</p>
+                </p>
+        </div>
+        <div class="bg-white p-5 my-10">
+                <div class="flex gap-1 items-center text-center font-semibold text-xl">
+                    <h2 class="text-[20px] font-semibold">Ders ile ilgili bilgiler</h2>
+                </div>
+                <p class="text-gray-800 text-base mt-3 leading-7">
+                    Derslerimi öğrencimin seviyesine göre gelişim sağlayacak şekilde bir harita yöntem ve kılavuz metodlara uygun şekilde ders işlemekteyim.
+                    Ödev,soru çözümü, denemeler gibi bir çok yöntemle pekiştirme yöntemleri uyguluyoruz.
+                    Genellikle derslerim ; ilk 10 dk öğrencinin konuyla ilgili ön hazırlığını ölçerek daha sonra ki 40 dk ise bu ölçüme göre konu anlatımı içerik üretimi ve soru örnek çözümleri ile geçmekte son 10 dk ise konunun kısa özetiyle geçmektedir.
+                </p>
+        </div>
+        <div class="flex bg-white my-10 p-5">
+            <div class="flex flex-col justify-center w-full py-1">
+                <div class="flex gap-1 items-center text-center font-semibold text-xl mb-0.5 mx-3 mt-3">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 384 512">
+                            <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+                    </svg> -->
+                    <div class="flex flex-col">
+                        <h2 class="text-[20px] font-semibold">Ders verdiği konumlar</h2>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 py-3 px-3">
+                    <div
+                        v-for="(location, index) in visibleLocations"
+                        :key="index"
+                        class="flex items-center bg-slate-100 rounded-md p-3"
+                        >
+                        {{ location }}
+                    </div> 
+                   </div>
+                <div class="flex justify-center items-center">
+                <div class="font-semibold text-center mx-4">
+                    <button 
+                    type="button" 
+                    @click="toggleShowMore" 
+                    class="flex items-center gap-3 inline-block px-6 py-3 mt-4 mb-0 ml-auto font-bold text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">
+                    {{ showMore ? 'Daha Az Göster' : 'Daha Fazla Göster' }}
+                    </button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </article>
+</main>
+
+<div class="max-w-8xl mx-auto mt-12">
+<h1 class="text-[24px] font-semibold text-center">Kategori ile ilgili diğer ilanlar</h1>
+    <div class="py-8 max-w-6xl mx-auto">
+        <CardSwiper />
+    </div>
+</div>
+</div>
+</template>

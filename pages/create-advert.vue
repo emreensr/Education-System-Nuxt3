@@ -60,9 +60,9 @@ const nextStep = () => {
    <div class="w-full max-w-7xl px-3 flex:0 auto mx-auto h-screen">
       <div class="w-full max-w-7xl mx-auto mt-12 lg:mt-24">
   <div class="relative h-10 rounded-full bg-gray-100">
-    <div class="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#00dc82] via-[#34cdfe] to-[#0047e1] transition-width duration-500" :style="{ width: progressBarWidth + '%' }"></div>
+    <div class="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#00dc82] via-[#34cdfe] to-[#4c7eea] transition-width duration-500" :style="{ width: progressBarWidth + '%' }"></div>
     <div class="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center w-10 h-10">
-      <span class="text-xl text-black font-bold">{{ progressBarWidth }}%</span>
+      <span class="text-xl text-black font-semibold">{{ progressBarWidth }}%</span>
     </div>
    </div>
 </div>
