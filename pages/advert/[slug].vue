@@ -28,18 +28,47 @@ const toggleShowMore = () => {
 </script>
 
 <template>
-<div class="app bg-[#F4F5F7] p-5">
+<div class="app md:bg-[#F4F5F7] md:p-5">
  <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:my-3 max-w-6xl container mx-auto">
-    <aside class="col-span-12 lg:col-span-4">
-        <div class="bg-white shadow-md rounded-3xl p-5 lg:sticky lg:top-28 ">
-            <div class='max-w-md mx-auto text-center items-center'>
-                <img class=" bg-white rounded-xl shadow mb-4 w-full max-w-md mx-auto"
-                 src="https://bgcp.bionluk.com/images/portfolio/1400x788/96ef3b09-6a68-4002-b2be-7613f37848ea.png" alt="">
-                <p class="font-medium text-lg">Matematik öğretmeninden online (tüm Türkiye) ve yüz yüze tecrübe ve enerji bir aradan</p>
-                <div class="text- leading-normal text-gray-500 flex justify-center items-center">
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white md:hidden">
+    <div class="flex justify-between items-center p-3 space-x-3">
+        <div class="items-center mt-2">
+                <div class="flex items-center space-x-2">
+                    <a href="/user/yunus-emre">
+                    <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" class="rounded-full h-12 w-12" alt="">
+                    </a>
+                    <div class="flex flex-col space-y-1">
+                        <a href="/user/yunus-emre">
+                             <span class="text-[14px] text-gray-400">Yunus Emre</span>
+                        </a>
+                        <span class="text-xl font-semibold">700₺/saat</span>
+                    </div>
                 </div>
             </div>
-            <div class="flex justify-between space-x-6 items-center mt-3">
+        <div class="font-semibold text-center mx-4 p-3">
+            <button type="button"
+             class="flex items-center gap-2 inline-block px-5 py-3 mb-0 ml-auto font-bold text-white align-middle transition-all border-0 rounded-lg 
+                    cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-md ease-in tracking-tight shadow-md bg-150 bg-x-25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-white" viewBox="0 0 512 512">
+                    <path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"/>
+                </svg>
+                <span class="text-white text-md">Ders Talep Et</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+    <aside class="col-span-12 lg:col-span-4">
+        <div class="bg-white shadow-md rounded-xl md:rounded-3xl md:p-5 lg:sticky lg:top-28 ">
+            <div class='max-w-md mx-auto text-center items-center'>
+                <img class="bg-white md:rounded-xl mt-2 md:mt-0 shadow mb-4 w-full max-w-md mx-auto"
+                 src="https://bgcp.bionluk.com/images/portfolio/1400x788/96ef3b09-6a68-4002-b2be-7613f37848ea.png" alt="">
+                <p class="font-medium text-lg my-3">Matematik öğretmeninden online (tüm Türkiye) ve yüz yüze tecrübe ve enerji bir aradan</p>
+                <div class="border-b border-gray-100 max-w-full">
+                </div>
+            </div>
+            <div class="p-3 md:p-0">
+            <div class="hidden md:flex justify-between space-x-6 items-center mt-2">
                 <div class="flex items-center space-x-2">
                     <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" class="rounded-full h-12 w-12" alt="">
                     <div class="flex flex-col space-y-1">
@@ -60,46 +89,48 @@ const toggleShowMore = () => {
                     </nuxt-link>
                 </div>
             </div>
-            <div class="flex justify-between space-x-6 mt-5 items-center">
+            <div class="flex justify-between space-x-6 mt-2 md:mt-5 items-center">
                 <div class="flex items-center space-x-2">
                     <div class="flex flex-col space-y-2">
-                        <span class="font-normal text-sm">Saatlik Ücret</span>
+                        <span class="font-normal text-dm">Saatlik Ücret</span>
                     </div>
                 </div>
                 <div>
                     <p class='text-[18px] font-bold text-black'>700₺</p>
                 </div>
             </div>
-            <div class="flex justify-between space-x-6 mt-5 items-center">
+            <div class="flex justify-between space-x-6 mt-3 items-center">
                 <div class="flex items-center space-x-2">
                     <div class="flex flex-col space-y-2">
-                        <span class="font-normal text-sm">Cevaplama Süresi</span>
+                        <span class="font-normal text-md">Cevaplama Süresi</span>
                     </div>
                 </div>
                 <div>
                     <p class='text-[18px] font-bold text-black'>1 saat</p>
                 </div>
             </div>
-            <div class="flex justify-between space-x-6 mt-5 items-center">
+            <div class="flex justify-between space-x-6 mt-3 items-center">
                 <div class="flex items-center space-x-2">
                     <div class="flex flex-col space-y-2">
-                        <span class="font-normal text-sm">Öğrenci Sayısı</span>
+                        <span class="font-normal text-md">Öğrenci Sayısı</span>
                     </div>
                 </div>
                 <div>
                     <p class='text-[18px] font-bold text-black'>20+</p>
                 </div>
             </div>
-            <div class="flex justify-center items-center">
-                <div class="font-semibold text-center mx-4">
-                    <button type="button" class="flex items-center gap-2 inline-block px-6 py-3 mt-8 mb-0 ml-auto font-bold text-right text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
-                    ><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-white" viewBox="0 0 512 512">
-                        <path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"/>
-                    </svg>
-                    <span class="text-white text-md">Ders Talep Et</span>
-                </button>
-                </div>
-            </div>
+            <div class="hidden md:flex justify-center items-center">
+    <div class="font-semibold text-center mx-4">
+        <button type="button" class="flex items-center gap-2 inline-block px-6 py-3 mt-8 mb-0 ml-auto font-bold text-right text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-white" viewBox="0 0 512 512">
+                <path d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"/>
+            </svg>
+            <span class="text-white text-md">Ders Talep Et</span>
+        </button>
+    </div>
+</div>
+
+        </div>
         </div>        
     </aside>
 
@@ -163,7 +194,7 @@ const toggleShowMore = () => {
                 </div>
             </div>
         </div>
-        <div class="bg-white p-5 my-10">
+        <div class="bg-white p-5 md:my-10">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">
                     <h2 class="text-[20px] font-semibold">Yunus Emre ile ilgili bilgiler</h2>
                 </div>
@@ -186,7 +217,7 @@ const toggleShowMore = () => {
                     <p> +YENİ YÜZYIL ÜNİVERSİTESİ/MİMARLIK ...</p>
                 </p>
         </div>
-        <div class="bg-white p-5 my-10">
+        <div class="bg-white p-5 md:my-10">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">
                     <h2 class="text-[20px] font-semibold">Ders ile ilgili bilgiler</h2>
                 </div>
@@ -196,7 +227,7 @@ const toggleShowMore = () => {
                     Genellikle derslerim ; ilk 10 dk öğrencinin konuyla ilgili ön hazırlığını ölçerek daha sonra ki 40 dk ise bu ölçüme göre konu anlatımı içerik üretimi ve soru örnek çözümleri ile geçmekte son 10 dk ise konunun kısa özetiyle geçmektedir.
                 </p>
         </div>
-        <div class="flex bg-white my-10 p-5">
+        <div class="flex bg-white md:my-10 p-5">
             <div class="flex flex-col justify-center w-full py-1">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl mb-0.5 mx-3 mt-3">
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 384 512">
