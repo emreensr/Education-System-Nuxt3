@@ -28,7 +28,7 @@
 <template>
     <Swiper
         :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]"
-        :slides-per-view="1"
+        :slides-per-view="1.3"
         :breakpoints="{ 
             640:{ 
                 slidesPerView:1

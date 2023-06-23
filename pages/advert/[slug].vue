@@ -4,26 +4,67 @@
     layout: "main",
     });
 
- const showMore = ref(false);
- const locations = ref([
-        'Tuzla',
-        'Pendik',
-        'Kartal',
-        'Maltepe',
-        'Kadıköy',
-        'Ataşehir',
-        'Sultanbeyli',
-        'Sancaktepe',
-        'Ümraniye',
-        'Çekmeköy',
-      ]);
+ const showModal = ref(false);
 
-const visibleLocations = computed(() => {
-    return showMore.value ? locations.value : locations.value.slice(0, 4);
-});
+ const cities = ref([
+  {
+    id: 1,
+    name: 'İstanbul',
+    locations: [
+      {
+        id: 1,
+        name: 'Tuzla'
+      },
+      {
+        id: 2,
+        name: 'Pendik'
+      },
+      {
+        id: 3,
+        name: 'Kartal'
+      },
+      {
+        id: 4,
+        name: 'Maltepe'
+      },
+      {
+        id: 5,
+        name: 'Ataşehir'
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: 'Kocaeli',
+    locations: [
+      {
+        id: 3,
+        name: 'Gebze'
+      },
+      {
+        id: 4,
+        name: 'Çayırova'
+      }
+    ]
+  },
+]);
+
+
+//  const locations = ref([
+//         'Tuzla',
+//         'Pendik',
+//         'Kartal',
+//         'Maltepe',
+//         'Kadıköy',
+//         'Ataşehir',
+//         'Sultanbeyli',
+//         'Sancaktepe',
+//         'Ümraniye',
+//         'Çekmeköy',
+//       ]);
 
 const toggleShowMore = () => {
-      showMore.value = !showMore.value;
+      showModal.value = !showModal.value;
     };
 </script>
 
@@ -63,7 +104,7 @@ const toggleShowMore = () => {
             <div class='max-w-md mx-auto text-center items-center'>
                 <img class="bg-white md:rounded-xl mt-2 md:mt-0 shadow mb-4 w-full max-w-md mx-auto"
                  src="https://bgcp.bionluk.com/images/portfolio/1400x788/96ef3b09-6a68-4002-b2be-7613f37848ea.png" alt="">
-                <p class="font-medium text-lg my-3">Matematik öğretmeninden online (tüm Türkiye) ve yüz yüze tecrübe ve enerji bir aradan</p>
+                <p class="font-semibold text-lg my-3">Matematik öğretmeninden online (tüm Türkiye) ve yüz yüze tecrübe ve enerji bir aradan</p>
                 <div class="border-b border-gray-100 max-w-full">
                 </div>
             </div>
@@ -96,7 +137,7 @@ const toggleShowMore = () => {
                     </div>
                 </div>
                 <div>
-                    <p class='text-[18px] font-bold text-black'>700₺</p>
+                    <p class='text-[18px] font-normal text-black'>700₺</p>
                 </div>
             </div>
             <div class="flex justify-between space-x-6 mt-3 items-center">
@@ -106,7 +147,7 @@ const toggleShowMore = () => {
                     </div>
                 </div>
                 <div>
-                    <p class='text-[18px] font-bold text-black'>1 saat</p>
+                    <p class='text-[18px] font-normal text-black'>1 saat</p>
                 </div>
             </div>
             <div class="flex justify-between space-x-6 mt-3 items-center">
@@ -116,7 +157,7 @@ const toggleShowMore = () => {
                     </div>
                 </div>
                 <div>
-                    <p class='text-[18px] font-bold text-black'>20+</p>
+                    <p class='text-[18px] font-normal text-black'>20+</p>
                 </div>
             </div>
             <div class="hidden md:flex justify-center items-center">
@@ -135,15 +176,19 @@ const toggleShowMore = () => {
     </aside>
 
     <article class="col-span-12 lg:col-span-8">
-        <div class="bg-white mb-4 p-5">
-            <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center gap-4">
-                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Geometri</li>
-                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Trigonometri</li>
-                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Liner Cebir</li>
-                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">İstatistik</li>
-                <li class="border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Mantık</li>
-            </ul>
-        </div>
+        <div class="bg-white mb-4 p-3 items-center">
+    <div class="overflow-x-auto">
+        <ul class="flex flex-nowrap gap-3 m-0">
+            <li class="flex-none w-auto border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Geometri</li>
+            <li class="flex-none w-auto border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Trigonometri</li>
+            <li class="flex-none w-auto border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Liner Cebir</li>
+            <li class="flex-none w-auto border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">İstatistik</li>
+            <li class="flex-none w-auto border border-green-500/10 p-2 rounded-2xl bg-green-500/10 text-green-600 font-medium text-[15px]">Mantık</li>
+        </ul>
+    </div>
+</div>
+
+
         <!-- <div class="bg-white mb-4 p-5">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">
                     <h2 class="text-[20px] font-semibold">Eğitim Bilgileri</h2>
@@ -153,14 +198,24 @@ const toggleShowMore = () => {
                     Matematik öğretmeninden online (tüm Türkiye) ve yüz yüze (İstanbul Anadolu-Kocaeli) tecrübe ve enerji bir arada.Yeni Nesil den anlayan</h1>
                 </div>
         </div> -->
-        <div class="flex bg-white p-5 lg:my-10">
+        <div class="bg-white p-5 md:my-10">
+                <div class="flex gap-1 items-center text-center font-semibold text-xl">
+                    <h2 class="text-[20px] font-semibold">Ders ile ilgili bilgiler</h2>
+                </div>
+                <p class="text-gray-800 text-base mt-3 leading-7">
+                    Derslerimi öğrencimin seviyesine göre gelişim sağlayacak şekilde bir harita yöntem ve kılavuz metodlara uygun şekilde ders işlemekteyim.
+                    <p>Ödev,soru çözümü, denemeler gibi bir çok yöntemle pekiştirme yöntemleri uyguluyoruz.</p>
+                    Genellikle derslerim ; ilk 10 dk öğrencinin konuyla ilgili ön hazırlığını ölçerek daha sonra ki 40 dk ise bu ölçüme göre konu anlatımı içerik üretimi ve soru örnek çözümleri ile geçmekte son 10 dk ise konunun kısa özetiyle geçmektedir.
+                </p>
+        </div>
+        <div class="flex bg-white p-3 lg:my-10">
             <div class="flex flex-col justify-center w-full px-2 py-1">
                 <div class="flex justify-between items-center ">
                     <div class="flex flex-col">
                         <h2 class="text-[20px] font-semibold">Ders mekanları</h2>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 py-3">
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 py-3">
                     <div class="flex group shadow shadow-gray-200 items-center p-3 rounded-lg bg-white">
                         <div class="flex items-center justify-center h-[45px] min-w-[45px] bg-amber-500/10 group-hover:bg-amber-500 text-amber-500 group-hover:text-white text-center rounded-xl me-5 transition-all duration-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 576 512">
@@ -194,40 +249,7 @@ const toggleShowMore = () => {
                 </div>
             </div>
         </div>
-        <div class="bg-white p-5 md:my-10">
-                <div class="flex gap-1 items-center text-center font-semibold text-xl">
-                    <h2 class="text-[20px] font-semibold">Yunus Emre ile ilgili bilgiler</h2>
-                </div>
-                <p class="text-gray-800 text-base mt-3 leading-7">
-                    Matematik öğretmeniyim.2018 yılında mezun oldum.Öğrenciliğim sırasında bir çok öğrenciyi sınavlara hazırlamış olmakla beraber hala eğitim vermekteyim.
-                    <ul class="my-3">
-                        <li>+KPSS</li>
-                        <li>+TYT</li>
-                        <li>+YKS</li>
-                        <li>+AYT</li>
-                        <li>+TEOG</li>
-                        <li>+ALES</li>
-                        <li>+DGS</li>
-                        <li>+Okul derslerine yardımcı etütler</li>
-                    </ul>
-                    <p>Bir çok öğrencimi üniversiteye yerleştirmekle beraber hala iletişimi devam ettirerek destek sağlamaktayım.</p>
-                    <p class="my-2">Başarılar</p>
-                    <p>+İSTANBUL ÜNİVERSİTE/ELEKTRİK ELEKTRONİK MÜH.</p>
-                    <p> +DOĞUŞ ÜNİVERSİTESİ /BİLGİSAYAR MÜH.</p>
-                    <p> +YENİ YÜZYIL ÜNİVERSİTESİ/MİMARLIK ...</p>
-                </p>
-        </div>
-        <div class="bg-white p-5 md:my-10">
-                <div class="flex gap-1 items-center text-center font-semibold text-xl">
-                    <h2 class="text-[20px] font-semibold">Ders ile ilgili bilgiler</h2>
-                </div>
-                <p class="text-gray-800 text-base mt-3 leading-7">
-                    Derslerimi öğrencimin seviyesine göre gelişim sağlayacak şekilde bir harita yöntem ve kılavuz metodlara uygun şekilde ders işlemekteyim.
-                    Ödev,soru çözümü, denemeler gibi bir çok yöntemle pekiştirme yöntemleri uyguluyoruz.
-                    Genellikle derslerim ; ilk 10 dk öğrencinin konuyla ilgili ön hazırlığını ölçerek daha sonra ki 40 dk ise bu ölçüme göre konu anlatımı içerik üretimi ve soru örnek çözümleri ile geçmekte son 10 dk ise konunun kısa özetiyle geçmektedir.
-                </p>
-        </div>
-        <div class="flex bg-white md:my-10 p-5">
+        <div class="flex bg-white md:my-10 p-3">
             <div class="flex flex-col justify-center w-full py-1">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl mb-0.5 mx-3 mt-3">
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 384 512">
@@ -238,24 +260,43 @@ const toggleShowMore = () => {
                     </div>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 py-3 px-3">
-                    <div
-                        v-for="(location, index) in visibleLocations"
-                        :key="index"
-                        class="flex items-center bg-slate-100 rounded-md p-3"
-                        >
-                        {{ location }}
-                    </div> 
-                   </div>
-                <div class="flex justify-center items-center">
-                <div class="font-semibold text-center mx-4">
-                    <button 
-                    type="button" 
-                    @click="toggleShowMore" 
-                    class="flex items-center gap-3 inline-block px-6 py-3 mt-4 mb-0 ml-auto font-bold text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25">
-                    {{ showMore ? 'Daha Az Göster' : 'Daha Fazla Göster' }}
-                    </button>
-                </div>
-            </div>
+  <div v-for="(city, index) in cities" :key="index" class="flex items-center bg-slate-100 rounded-md p-3">
+    {{ city.name }}
+  </div> 
+</div>
+<div class="flex justify-center items-center">
+  <div class="font-semibold text-center mx-4">
+    <button 
+      type="button" 
+      @click="toggleShowMore" 
+      class="flex items-center gap-3 inline-block px-6 py-3 mt-4 mb-0 ml-auto font-bold text-white align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-sm ease-in tracking-tight shadow-md bg-150 bg-x-25"
+    >
+      Detaylı Gör
+    </button>
+  </div>
+</div>
+
+<div v-if="showModal" class="fixed top-0 left-0 flex w-full h-full bg-black bg-opacity-50 md:items-center justify-center z-50">
+  <div class="bg-white rounded-none md:rounded-2xl p-8 w-full md:h-96 max-w-2xl">
+    <div class="flex justify-end">
+      <button @click="toggleShowMore" class="text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <h2 class="text-xl font-semibold mb-4">Detaylı Konumlar</h2>
+    <ul>
+      <li v-for="(city, index) in cities" :key="index" class="my-3 flex flex-col space-x-2 gap-1"> 
+        <span class="font-semibold text-lg">{{ city.name }}: </span>
+        <span v-for="(location, idx) in city.locations" :key="idx" class="text-gray-600">
+          {{ location.name }}
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+
             </div>
         </div>
     </article>
