@@ -1,3 +1,9 @@
+<script setup>
+
+defineProps(["data"]);
+
+</script>
+
 <template>
 <!-- This is an example component -->
 <div class='relative flex items-center justify-center'>
@@ -14,7 +20,7 @@
                     <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" class="rounded-full h-12 w-12" alt="">
                     <div class="flex flex-col space-y-1">
                         <a href="/user/emre-ensar">
-                             <span class="text-[15px]">Emre Ensar</span>
+                             <span class="text-[15px]">{{ data?.name }}</span>
                         </a>
 
                         <span class="text-[#8b95a1] text-[15px]">Matematik</span>
@@ -22,7 +28,7 @@
                     
                 </div>
                 <div>
-                    <p class='text-[20px] font-bold text-[#0FB478]'>700₺</p>
+                    <p class='text-[20px] font-bold text-[#0FB478]'>{{data?.price}}₺</p>
                 </div>
             </div>
             <!-- Item -->

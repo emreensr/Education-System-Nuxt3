@@ -9,8 +9,8 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      apiURL: process.env.API_URL || "https://restaurant.ngsi.de/api",
-      baseURL: process.env.BASE_URL || "https://restaurant.ngsi.de/",
+      apiURL: process.env.API_URL || "http://localhost:8000/api",
+      baseURL: process.env.BASE_URL || "http://localhost:8000/",
       restaurantId: process.env.RESTAURANT_ID || "1",
     },
   },

@@ -125,8 +125,8 @@ const _inlineRuntimeConfig = {
     }
   },
   "public": {
-    "apiURL": "https://restaurant.ngsi.de/api",
-    "baseURL": "https://restaurant.ngsi.de/",
+    "apiURL": "http://localhost:8000/api",
+    "baseURL": "http://localhost:8000/",
     "restaurantId": "1"
   }
 };
