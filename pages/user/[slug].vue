@@ -34,7 +34,7 @@ const toggleShowMore = () => {
         <div class="bg-white shadow-md rounded-lg p-5 lg:sticky lg:top-28">
             <div class="flex flex-col gap-1 text-center items-center">
                 <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="">
-                <p class="font-semibold text-xl">Emre Ensar</p>
+                <p class="font-semibold text-xl">Yunus Emre</p>
                 <div class="text- leading-normal text-gray-500 flex justify-center items-center">
                     <div class="flex items-center mt-2.5 mb-3">
                         <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
@@ -136,6 +136,29 @@ const toggleShowMore = () => {
                         Doğuş Üniversitesi - Bilgisayar Mühendisliği
                     </p>
                 </div>
+        </div>
+        <div class="bg-white p-5 md:my-10">
+                <div class="flex gap-1 items-center text-center font-semibold text-xl">
+                    <h2 class="text-[20px] font-semibold">Yunus Emre ile ilgili bilgiler</h2>
+                </div>
+                <p class="text-gray-800 text-base mt-3 leading-7">
+                    Matematik öğretmeniyim.2018 yılında mezun oldum.Öğrenciliğim sırasında bir çok öğrenciyi sınavlara hazırlamış olmakla beraber hala eğitim vermekteyim.
+                    <ul class="my-3">
+                        <li>+KPSS</li>
+                        <li>+TYT</li>
+                        <li>+YKS</li>
+                        <li>+AYT</li>
+                        <li>+TEOG</li>
+                        <li>+ALES</li>
+                        <li>+DGS</li>
+                        <li>+Okul derslerine yardımcı etütler</li>
+                    </ul>
+                    <p>Bir çok öğrencimi üniversiteye yerleştirmekle beraber hala iletişimi devam ettirerek destek sağlamaktayım.</p>
+                    <p class="my-2">Başarılar</p>
+                    <p>+İSTANBUL ÜNİVERSİTE/ELEKTRİK ELEKTRONİK MÜH.</p>
+                    <p> +DOĞUŞ ÜNİVERSİTESİ /BİLGİSAYAR MÜH.</p>
+                    <p> +YENİ YÜZYIL ÜNİVERSİTESİ/MİMARLIK ...</p>
+                </p>
         </div>
 
         <div class="bg-white p-5 my-10">

@@ -29,7 +29,6 @@ const handleClickOutside = (event) => {
   }
 
 };
-
 onMounted(async () => {
   await nextTick();
   document.addEventListener("click", handleClickOutside);
@@ -88,6 +87,7 @@ onBeforeUnmount(() => {
 
       <nuxt-link
       to="/register"
+      @click="closeModal"
       >
       <p class="mt-10 text-center text-sm text-gray-500">
         Hesabınız yok mu?

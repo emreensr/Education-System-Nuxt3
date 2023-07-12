@@ -3,6 +3,7 @@ const mobileNavigation = ref(false);
 
 const toggleMobileNavigation = () => {
   mobileNavigation.value = !mobileNavigation.value;
+  console.log( mobileNavigation.value);
 };
 
 provide("mobile-navigation", mobileNavigation);

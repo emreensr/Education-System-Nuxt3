@@ -1,6 +1,11 @@
 <script setup>
+
 const isVisible = inject("mobile-navigation");
 const menuItems = useState("menuItems");
+
+const closeMenu = () => {
+  isVisible.value = false;
+};
 </script>
 
 <template>
@@ -19,7 +24,7 @@ const menuItems = useState("menuItems");
       <nav role="navigation" class="px-4 space-y-8">
         <ul class="space-y-6 text-base uppercase font-medium text-gray-50">
           <li v-for="menuItem in menuItems" :key="menuItem.name">
-            <nuxt-link :to="menuItem.target" :title="menuItem.name">
+            <nuxt-link :to="menuItem.target" :title="menuItem.name" @click="closeMenu">
               {{ menuItem.name }}
             </nuxt-link>
           </li>
