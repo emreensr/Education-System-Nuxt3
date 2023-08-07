@@ -33,7 +33,7 @@ const toggleShowMore = () => {
     <aside class="col-span-12 lg:col-span-4">
         <div class="bg-white shadow-md rounded-lg p-5 lg:sticky lg:top-28">
             <div class="flex flex-col gap-1 text-center items-center">
-                <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="">
+                <img class="h-32 w-32 bg-white p-2 rounded-2xl shadow mb-4" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="">
                 <p class="font-semibold text-xl">Yunus Emre</p>
                 <div class="text- leading-normal text-gray-500 flex justify-center items-center">
                     <div class="flex items-center mt-2.5 mb-3">
@@ -161,7 +161,7 @@ const toggleShowMore = () => {
                 </p>
         </div>
 
-        <div class="bg-white p-5 my-10">
+        <!-- <div class="bg-white p-5 my-10">
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">
                     <h2 class="text-[20px] font-semibold">Ders ile ilgili bilgiler</h2>
                 </div>
@@ -175,7 +175,7 @@ const toggleShowMore = () => {
                     It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.
                 </p>
-        </div>
+        </div> -->
         <div class="bg-white p-5">
                 <!-- <div class="border-b border-gray-100"></div>  -->
                 <div class="flex gap-1 items-center text-center font-semibold text-xl">

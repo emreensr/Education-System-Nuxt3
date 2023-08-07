@@ -67,7 +67,7 @@ definePageMeta({
                         <span class="font-normal text-sm text-[#3F4254]">Hangi Dersleri Verebilirsin?</span>
                     </nuxt-link>
                     </li>
-                    <li>
+                    <!-- <li>
                         <nuxt-link
                             to="/profile/locations"
                             class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
@@ -76,9 +76,8 @@ definePageMeta({
                         <Icon name="material-symbols:location-on" size="22" color="gray" />
                         <span class="font-normal text-sm text-[#3F4254]">Ders Verebileceğin Konumlar</span>
                     </nuxt-link>
-
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                         <nuxt-link
                             to="/profile/available-days"
                             class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
@@ -87,8 +86,7 @@ definePageMeta({
                         <Icon name="material-symbols:event-available" size="22" color="gray" />
                         <span class="font-normal text-sm text-[#3F4254]">Müsait Günlerin</span>
                         </nuxt-link>
-
-                    </li>
+                    </li> -->
                     <li>
                         <nuxt-link
                             to="/profile/lesson-requests"
