@@ -6,10 +6,10 @@
     "module": true,
     "resourceType": "script"
   },
-  "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/entry.js": {
+  "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "isEntry": true,
-    "file": "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/entry.js"
+    "file": "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/entry.js"
   }
 }
