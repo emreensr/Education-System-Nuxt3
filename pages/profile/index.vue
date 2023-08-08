@@ -5,12 +5,29 @@ definePageMeta({
 
 const runtimeConfig = useRuntimeConfig();
 const selectedCity = ref("");
+const selectedUniversity = ref("");
 const cities = ref([]);
 const districts = ref([]);
+const maxDate = new Date();
+const birth_date = ref();
+const universities = ref([]);
+const departments = ref([]);
 
-onMounted(() => {
-  getCities();
-});
+const getUniversities = async () => {
+  const response = await fetch(`${runtimeConfig.public.apiURL}/universities`);
+  const data = await response.json();
+  universities.value = data.data;
+};
+
+const getDepartments = async () => {
+  departments.value = [];
+  const response = await fetch(
+    `${runtimeConfig.public.apiURL}/university/${selectedUniversity.value}/departments`
+  );
+  const data = await response.json();
+  departments.value = data.data;
+  console.log(departments.value);
+};
 
 const getCities = async () => {
   const response = await fetch(`${runtimeConfig.public.apiURL}/cities`);
@@ -26,6 +43,11 @@ const getDistricts = async () => {
   const data = await response.json();
   districts.value = data.data;
 };
+
+onMounted(() => {
+  getCities();
+  getUniversities();
+});
 
 const activeTab = ref(0);
 const tabs = [
@@ -161,6 +183,7 @@ const setActiveTab = (index) => {
                   />
                 </div>
               </div>
+
               <div class="sm:col-span-3">
                 <label
                   for="email"
@@ -185,7 +208,9 @@ const setActiveTab = (index) => {
                   </div>
                   <input
                     type="text"
-                    id="email"
+                    id="phone"
+                    v-maska
+                    data-maska="(###) ### ## ##"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                   />
                 </div>
@@ -228,7 +253,7 @@ const setActiveTab = (index) => {
                   <select
                     id="district"
                     name="district"
-                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
+                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400"
                   >
                     <option
                       v-for="(district, index) in districts"
@@ -247,12 +272,17 @@ const setActiveTab = (index) => {
                   >Doğum Tarihi</label
                 >
                 <div class="mt-2">
-                  <input
-                    type="date"
-                    id="birth_date"
-                    name="birth_date"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  />
+                  <vue-date-picker
+                    input-class-name="birth-date-input"
+                    v-model="birth_date"
+                    :enable-time-picker="false"
+                    :max-date="maxDate"
+                    format="dd/MM/yyyy"
+                    locale="tr"
+                    placeholder="Tarih Seçiniz"
+                    auto-apply
+                  >
+                  </vue-date-picker>
                 </div>
               </div>
               <!-- <div class="sm:col-span-3">
@@ -314,31 +344,19 @@ const setActiveTab = (index) => {
                   <select
                     id="country"
                     name="country"
-                    autocomplete="country-name"
+                    v-model="selectedUniversity"
+                    @change="getDepartments"
                     class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
                   >
+                    <option disabled value="">Üniversite Seçiniz</option>
+                    <option
+                      v-for="(university, index) in universities"
+                      :value="university.id"
+                      :key="university.id"
+                    >
+                      {{ university.name }}
+                    </option>
                     <option>Akdeniz Üniversitesi</option>
-                    <option>ODTÜ</option>
-                    <option>Boğaziçi Üniversitesi</option>
-                  </select>
-                </div>
-              </div>
-              <div class="sm:col-span-3">
-                <label
-                  for="country"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Fakülte</label
-                >
-                <div class="mt-2">
-                  <select
-                    id="country"
-                    name="country"
-                    autocomplete="country-name"
-                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
-                  >
-                    <option>Bilgisayar Mühendisliği</option>
-                    <option>Endüstri Mühendisliği</option>
-                    <option>Matematik</option>
                   </select>
                 </div>
               </div>
@@ -355,9 +373,13 @@ const setActiveTab = (index) => {
                     autocomplete="country-name"
                     class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
                   >
-                    <option>Kimya</option>
-                    <option>Matematik</option>
-                    <option>Fizik</option>
+                     <option
+                      v-for="(department, index) in departments"
+                      :value="department.id"
+                      :key="department.id"
+                    >
+                      {{ department.name }}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -464,3 +486,19 @@ const setActiveTab = (index) => {
     </div>
   </div>
 </template>
+
+<style lang="scss">
+.birth-date-input {
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+  outline-color: #3b82f6;
+  outline-width: 2px;
+  display: block;
+  width: 100%;
+  padding: 0.625rem;
+  padding-left: 35px;
+}
+</style>

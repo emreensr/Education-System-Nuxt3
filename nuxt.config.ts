@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     },
   },
   build: {
-    transpile: ["@headlessui/vue"],
+    transpile: ['@vuepic/vue-datepicker']
   },
   googleFonts: {
     families: {
