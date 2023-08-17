@@ -42,7 +42,7 @@ onBeforeUnmount(() => {
 
 <template>
 <div class="fixed top-0 left-0 w-full h-full bg-black z-50 bg-opacity-50 flex md:items-center justify-center transition duration-500" v-if="loginModal">
-    <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-2xl overflow-y-auto loginPopup">
+    <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-xl overflow-y-auto loginPopup">
       <div class="flex items-center justify-between mx-auto mb-6">
         <h2 class="font-medium text-lg"></h2>
         <button class="text-gray-600 hover:text-gray-800" @click="closeModal">

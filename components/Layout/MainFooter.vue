@@ -7,7 +7,7 @@
             <img
               class="w-24 text-white"
               id="logoMain"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+              src="https://tailwindui.com/img/logos/mark.svg?color=white"
               alt="Pizzeria Minigolf"
             />
             <p class="text-[#b0b0b8] py-5 lg:ml-0 ml-3">
