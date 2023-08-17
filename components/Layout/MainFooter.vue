@@ -1,13 +1,13 @@
 <template>
   <div>
-    <footer class="bg-[#12173e] shadow dark:bg-gray-900">
+    <footer class="bg-[#010C20] shadow dark:bg-gray-900">
       <div class="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 lg:grid-cols-4 lg:gap-10 gap-12 lg:py-12 py-8">
           <div class="col-span-1 lg:ml-0 ml-3">
             <img
-              class="w-24 text-white"
+              class="w-40 text-white"
               id="logoMain"
-              src="https://tailwindui.com/img/logos/mark.svg?color=white"
+              src="/logo.png"
               alt="Pizzeria Minigolf"
             />
             <p class="text-[#b0b0b8] py-5 lg:ml-0 ml-3">

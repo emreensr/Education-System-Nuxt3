@@ -42,8 +42,8 @@ provide("mobile-navigation", mobileNavigation);
           title="Ristorante Pizzeria Minigolf"
           class="z-20 w-36 transition duration-400 flex items-center justify-center relative"
         >
-          <img width="75" id="logoMain"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+          <img width="120" id="logoMain"
+            src="/logo.png"
             alt="Pizzeria Minigolf"
             class="brightness-0"
           />
