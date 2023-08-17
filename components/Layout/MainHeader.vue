@@ -42,10 +42,9 @@ provide("mobile-navigation", mobileNavigation);
           title="Ristorante Pizzeria Minigolf"
           class="z-20 w-36 transition duration-400 flex items-center justify-center relative"
         >
-          <img width="120" id="logoMain"
-            src="/logo.png"
+          <img width="140" id="logoMain"
+            src="/headerLogo.png"
             alt="Pizzeria Minigolf"
-            class="brightness-0"
           />
         </nuxt-link>
       </div>
