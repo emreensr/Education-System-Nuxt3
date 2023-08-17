@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center mb-32 space-x-4">
+  <div class="flex justify-center mb:12 lg:mb-20 space-x-3">
     <div
       v-for="(page, index) in pages"
       :key="index"

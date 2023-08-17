@@ -48,11 +48,13 @@ const previousStep = () => {
 </script>
 
 <template>
-  <div class="w-full max-w-3xl px-3 flex:0 auto mx-auto lg:mt-8">
+  <div class="w-full max-w-3xl px-3 flex:0 auto mx-auto lg:mt-24 mt-12">
+            <Indicator :activePageIndex="activePageIndex" :totalPages="5" />
+
     <div multisteps-form="" class="mb-12 mt-5">
       <div class="flex flex-wrap -mx-3">
         <div class="w-full max-w-full px-3 m-auto [flex:0_0_auto]">
-          <form class="relative lg:mb-72 mb-80" style="height: 423px">
+          <form class="relative lg:mb-32 mb-52" style="height: 423px">
             <div
               form="account"
               v-if="activeStep === 'user_type'"
@@ -666,7 +668,6 @@ const previousStep = () => {
               </div>
             </div>
           </form>
-          <Indicator :activePageIndex="activePageIndex" :totalPages="5" />
         </div>
       </div>
     </div>
