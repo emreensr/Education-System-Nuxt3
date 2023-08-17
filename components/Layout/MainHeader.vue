@@ -43,7 +43,7 @@ provide("mobile-navigation", mobileNavigation);
           class="z-20 w-36 transition duration-400 flex items-center justify-center relative"
         >
           <img width="140" id="logoMain"
-            src="/headerLogo.png"
+            src="/headLogo.png"
             alt="Pizzeria Minigolf"
           />
         </nuxt-link>
