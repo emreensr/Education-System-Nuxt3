@@ -4,6 +4,7 @@
 /// <reference types="@nuxtjs/google-fonts" />
 /// <reference types="@nuxt/image-edge" />
 /// <reference types="nuxt-swiper" />
+/// <reference types="@vueuse/nuxt" />
 /// <reference types="@nuxt/telemetry" />
 /// <reference types="nuxt" />
 /// <reference path="types/plugins.d.ts" />

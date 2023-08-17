@@ -2,6 +2,8 @@
 const activeStep = ref("user_type");
 const progressBarWidth = ref("0%");
 const activePageIndex = ref(0);
+const totalPages = ref(5);
+const selectedOption = ref("");
 
 const formValues = reactive({
   firstName: "",
@@ -12,8 +14,25 @@ const formValues = reactive({
   city: "",
 });
 
+const updateTotalPages = () => {
+  if (selectedOption.value === 'student') {
+    return 5;
+  } else if (selectedOption.value === 'teacher') {
+    return 2;
+  }
+};
+
+onMounted(() => {
+  totalPages.value = updateTotalPages();
+});
+
+const computedTotalPages = computed(() => {
+  return totalPages.value;
+});
+
+
 const nextStep = () => {
-  if (activeStep.value === "user_type") {
+  if (activeStep.value === "user_type" && selectedOption.value === 'student') {
     activeStep.value = "about";
     activePageIndex.value = 1;
   } else if (activeStep.value === "about") {
@@ -27,30 +46,36 @@ const nextStep = () => {
     activePageIndex.value = 4;
   } else if (activeStep.value === "login") {
     console.log(formValues);
+  } else {
+        activeStep.value = "login";
+        activePageIndex.value = 1;
+
   }
 };
 
 const previousStep = () => {
-  if (activeStep.value === "about") {
-    activeStep.value = "user_type";
-    activePageIndex.value = 0;
-  } else if (activeStep.value === "account") {
-    activeStep.value = "about";
-    activePageIndex.value = 1;
+  if (activeStep.value === "login" && selectedOption.value === 'student') {
+    activeStep.value = "address";
+    activePageIndex.value = 3;
   } else if (activeStep.value === "address") {
     activeStep.value = "account";
     activePageIndex.value = 2;
-  } else if (activeStep.value === "login") {
-    activeStep.value = "address";
-    activePageIndex.value = 3;
+  } else if (activeStep.value === "account") {
+    activeStep.value = "about";
+    activePageIndex.value = 1;
+  } else if (activeStep.value === "about" ) {
+    activeStep.value = "user_type";
+    activePageIndex.value = 0;
+  } else {
+    activeStep.value = "user_type";
+    activePageIndex.value = 0;
   }
 };
 </script>
 
 <template>
   <div class="w-full max-w-3xl px-3 flex:0 auto mx-auto lg:mt-24 mt-12">
-            <Indicator :activePageIndex="activePageIndex" :totalPages="5" />
-
+    <Indicator :activePageIndex="activePageIndex" :totalPages="computedTotalPages" />
     <div multisteps-form="" class="mb-12 mt-5">
       <div class="flex flex-wrap -mx-3">
         <div class="w-full max-w-full px-3 m-auto [flex:0_0_auto]">
@@ -64,47 +89,55 @@ const previousStep = () => {
               <div class="flex flex-wrap -mx-3 text-center">
                 <div class="w-10/12 max-w-full px-3 mx-auto [flex:0_0_auto]">
                   <h3 class="text-[#344767] mt-3 text-2xl">Hesap Oluştur</h3>
-                  <p class="font-normal text-[#8392ab] mt-2">Buradan kayıt olarak Eğitiva dünyasındaki binlerce kişiden biri olabilirsin.</p>
+                  <p class="font-normal text-[#8392ab] mt-2">
+                    Buradan kayıt olarak Eğitiva dünyasındaki binlerce kişiden biri
+                    olabilirsin.
+                  </p>
                 </div>
               </div>
               <div class="w-full space-y-3 my-8">
                 <div
-                  class="relative flex border items-center border-gray-100 shadow-sm p-5 rounded-lg"
+                  class="relative flex border items-center shadow-sm p-5 rounded-lg"
+                  :class="{ 'border-blue-600': selectedOption === 'student' }"
                 >
-                  <div class="border border-gray-200 rounded-md p-3 mr-2">
+                  <div class="border rounded-md p-3 mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
+                      class="h-7 w-7"
                       viewBox="0 0 448 512"
                     >
                       <path
-                        d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"
+                        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
                       />
                     </svg>
                   </div>
                   <div class="flex h-6 items-center"></div>
                   <div class="text-sm leading-6">
-                    <label for="comments" class="font-medium ml-2 text-gray-900"
+                    <label for="student" class="font-medium ml-2 text-gray-900"
                       >Ders Almak İstiyorum</label
                     >
                   </div>
                   <input
-                    id="comments"
-                    type="checkbox"
-                    value=""
-                    name="student"
-                    class="w-6 h-6 ml-auto text-blue-600 bg-gray-100 border-gray-300 rounded"
+                    id="student"
+                    type="radio"
+                    value="student"
+                    name="option"
+                    class="w-8 h-8 ml-auto text-blue-600 bg-gray-100 border-gray-300 rounded"
+                    v-model="selectedOption"
                   />
                 </div>
-                <div class="relative flex border items-center border-gray-100 shadow-sm p-5 rounded-lg">
+                <div
+                  class="relative flex border items-center shadow-sm p-5 rounded-lg"
+                  :class="{ 'border-blue-600': selectedOption === 'teacher' }"
+                >
                   <div class="border border-gray-200 rounded-md p-3 mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
-                      viewBox="0 0 448 512"
+                      class="h-9 w-9"
+                      viewBox="0 0 640 512"
                     >
                       <path
-                        d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"
+                        d="M192 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-8 384V352h16V480c0 17.7 14.3 32 32 32s32-14.3 32-32V192h56 64 16c17.7 0 32-14.3 32-32s-14.3-32-32-32H384V64H576V256H384V224H320v48c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H368c-26.5 0-48 21.5-48 48v80H243.1 177.1c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9V480c0 17.7 14.3 32 32 32s32-14.3 32-32z"
                       />
                     </svg>
                   </div>
@@ -116,10 +149,11 @@ const previousStep = () => {
                   </div>
                   <input
                     id="teacher"
-                    type="checkbox"
-                    value=""
-                    name="teacher"
-                    class="w-6 h-6 ml-auto text-blue-600 bg-gray-100 border-gray-300 rounded"
+                    type="radio"
+                    value="teacher"
+                    name="option"
+                    class="w-8 h-8 ml-auto text-blue-600 bg-gray-100 border-gray-300 rounded"
+                    v-model="selectedOption"
                   />
                 </div>
               </div>
@@ -138,7 +172,7 @@ const previousStep = () => {
             </div>
             <div
               form="about"
-              v-if="activeStep === 'about'"
+              v-if="activeStep === 'about' && selectedOption == 'student'"
               class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
               active=""
             >
@@ -289,7 +323,7 @@ const previousStep = () => {
             </div>
             <div
               form="account"
-              v-if="activeStep === 'account'"
+              v-if="activeStep === 'account' && selectedOption == 'student'"
               class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 mt-3 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
               active=""
             >
@@ -402,15 +436,6 @@ const previousStep = () => {
                       for="Country"
                       >Şehir</label
                     >
-                    <div
-                      class="choices"
-                      data-type="select-one"
-                      tabindex="0"
-                      role="combobox"
-                      aria-autocomplete="list"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
                       <div class="choices__inner">
                         <select
                           choice=""
@@ -427,7 +452,6 @@ const previousStep = () => {
                           <option value="Algeria">Adana</option>
                         </select>
                       </div>
-                    </div>
                   </div>
                   <div
                     class="w-full max-w-full lg:mt-8 mt-2 mb-8 ml-auto [flex:0_0_auto] md:w-6/12"
@@ -491,7 +515,7 @@ const previousStep = () => {
             </div>
             <div
               form="address"
-              v-if="activeStep === 'address'"
+              v-if="activeStep === 'address' && selectedOption == 'student'"
               class="absolute top-0 left-0 mt-5 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
               active=""
             >
@@ -626,9 +650,7 @@ const previousStep = () => {
                       class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
                     />
                   </div>
-                  <div
-                    class="w-full max-w-full px-3 mt-4 [flex:0_0_auto] md:w-6/12"
-                  >
+                  <div class="w-full max-w-full px-3 mt-4 [flex:0_0_auto] md:w-6/12">
                     <label
                       class="mb-2 ml-1 font-bold text-sm text-slate-700"
                       for="Street Name"

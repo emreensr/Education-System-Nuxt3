@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@nuxtjs/google-fonts",
     "@nuxt/image-edge",
-    "nuxt-swiper"
+    "nuxt-swiper",
+    "@vueuse/nuxt",
   ],
   runtimeConfig: {
     public: {
