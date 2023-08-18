@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@vueuse/nuxt",
   ],
+  plugins: [
+    { src: '~/plugins/aos.js', mode: 'client' }
+  ],
   runtimeConfig: {
     public: {
       apiURL: process.env.API_URL || "http://localhost:8000/api",

@@ -6,7 +6,8 @@ definePageMeta({
 
 <template>
     <HomeMainSlider />
-    <h1 class="text-center font-semibold text-2xl lg:text-3xl mb-3">EN İYİ ÖĞRETMENLER</h1>
+    <HomeCategorySection />
+    <h1 class="text-center font-semibold text-2xl lg:text-3xl mb-3 my-12">EN İYİ ÖĞRETMENLER</h1>
     <p class="text-center">Kategorisinden en iyi öğretmenleri sizin için listeledik.</p>
      <div class="mx-auto max-w-6xl grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mt-6 p-5">
         <CardContent />
