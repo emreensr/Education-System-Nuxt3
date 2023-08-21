@@ -1,7 +1,7 @@
 
 <template>
     <div class="bg-[#f8f8f8]">
-        <div data-aos="fade-up" data-aos-once="true" data-aos-delay="50" data-aos-offset="200" data-aos-duration="800"
+        <div data-aos="fade-in" data-aos-once="true" data-aos-delay="50" data-aos-offset="200" data-aos-duration="800"
             class="mt-8">  
             <div class="text-center lg:pt-24 pt-8 p-3 space-y-3 lg:pb-12">
                 <h1 class="font-semibold text-xl text-blue-700">KATEGORİLER</h1>
