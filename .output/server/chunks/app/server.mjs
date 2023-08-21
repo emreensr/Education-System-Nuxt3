@@ -382,7 +382,7 @@ const _routes = [
     meta: __nuxt_page_meta$f || {},
     alias: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.alias) || [],
     redirect: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.redirect) || void 0,
-    component: () => import('./_nuxt/classes-d455024f.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/classes-b95dd630.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$e == null ? void 0 : __nuxt_page_meta$e.name) ?? "create-advert",
@@ -398,7 +398,7 @@ const _routes = [
     meta: __nuxt_page_meta$d || {},
     alias: (__nuxt_page_meta$d == null ? void 0 : __nuxt_page_meta$d.alias) || [],
     redirect: (__nuxt_page_meta$d == null ? void 0 : __nuxt_page_meta$d.redirect) || void 0,
-    component: () => import('./_nuxt/index-380340a9.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-9cb89ed5.mjs').then((m) => m.default || m)
   },
   {
     path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/profile",
@@ -504,7 +504,7 @@ const _routes = [
     meta: __nuxt_page_meta || {},
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./_nuxt/_slug_-d01b74ae.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_slug_-ff653f55.mjs').then((m) => m.default || m)
   }
 ];
 const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }], "link": [], "style": [], "script": [], "noscript": [] };

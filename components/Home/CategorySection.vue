@@ -14,7 +14,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                     class="flex bg-red-400 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center md:mx-auto ml">
-                        <img src="matematik.png" />
+                         <img src="/matematik.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
@@ -26,7 +26,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                         class="flex bg-blue-400 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center md:mx-auto ml">
-                        <img src="fizik.png" />
+                         <img src="/fizik.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
@@ -38,7 +38,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                     class="flex bg-pink-400 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center mx-auto">
-                    <img src="ingilizce.png" />
+                     <img src="/ingilizce.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
@@ -50,7 +50,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                     class="flex bg-green-400 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center mx-auto">
-                    <img src="geometri.png" />
+                     <img src="/geometri.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
@@ -62,7 +62,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                     class="flex bg-yellow-300 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center mx-auto">
-                    <img src="tarih.png" />
+                     <img src="/tarih.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
@@ -74,7 +74,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                     class="flex bg-slate-400 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center mx-auto">
-                    <img src="resim.png" />
+                     <img src="/resim.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
@@ -86,7 +86,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                     class="flex bg-indigo-400 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center mx-auto">
-                    <img src="yazilim.png" />
+                     <img src="/yazilim.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
@@ -98,7 +98,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                     class="flex bg-orange-300 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center mx-auto">
-                    <img src="kimya.png" />
+                     <img src="/kimya.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
@@ -110,7 +110,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                     class="flex bg-teal-400 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center mx-auto">
-                    <img src="universite-hazirlik.png" />
+                     <img src="/universite-hazirlik.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
@@ -122,7 +122,7 @@
                 <div class="bg-white flex md:flex-col md:py-12 md:space-y-5 text-center shadow-xs p-4 border-b transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-md cursor-pointer">
                     <div
                     class="flex bg-lime-400 h-12 w-12 md:h-[60px] md:w-[60px] rounded-full justify-center items-center mx-auto">
-                    <img src="muzik.png" />
+                     <img src="/muzik.png" />
                     </div>
                     <div class="flex-grow ml-4 md:ml-0 flex flex-col justify-center">
                         <div class="flex md:flex-col justify-between items-center md:space-y-5">
