@@ -18,5 +18,6 @@ definePageMeta({
     </div>
     <div class="mx-auto max-w-8xl gap-8 mt-12">
     <HomeFeatureSection />
-</div>
+    </div>
+    <HomeFaq />
 </template>
