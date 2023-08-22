@@ -34,11 +34,11 @@ const goTop = () => {
 <template>
   <div
     @click="goTop"
-    class="fixed max-w-7xl px-4 lg:px-8 z-50 bottom-10 right-5 sm:right-0 cursor-pointer first:max-w-7xl
+    class="fixed max-w-7xl px-0 lg:px-8 z-50 bottom-10 right-5 sm:right-0 cursor-pointer first:max-w-7xl
      mx-auto transition-transform duration-1000 ease-out hover:-translate-y-2"
      :class="{ 'opacity-100 transform translate-y-0': showArrow, 'opacity-0 transform -translate-y-5': !showArrow }"
   >
-    <div class="w-30 h-30 rounded-full bg-[#010C20] p-3">
+    <div class="w-30 h-30 rounded-full bg-[#010C20] p-2 lg:p-3">
       <Icon name="uil:angle-up" size="27" color="white"/>
     </div>
   </div>
