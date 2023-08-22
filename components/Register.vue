@@ -573,7 +573,7 @@ const previousStep = () => {
             <div
               form="address"
               v-if="activeStep === 'login'"
-              class="absolute top-0 left-0 mt-5 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
+              class="absolute top-0 left-0 mt-5 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
               active=""
             >
               <div class="flex flex-wrap -mx-3 text-center">
