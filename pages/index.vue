@@ -7,6 +7,7 @@ definePageMeta({
 <template>
   <HomeMainSlider />
   <HomeCategorySection />
+  <HomeGoTopArrow />
   <h1 class="text-center font-semibold text-2xl lg:text-3xl mb-3 mt-8">
     EN İYİ ÖĞRETMENLER
   </h1>
