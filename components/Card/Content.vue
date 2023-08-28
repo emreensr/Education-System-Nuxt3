@@ -20,7 +20,7 @@ defineProps(["data"]);
                     <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" class="rounded-full h-12 w-12" alt="">
                     <div class="flex flex-col space-y-1">
                         <a href="/user/emre-ensar">
-                             <span class="text-[15px]">{{ data?.name }}</span>
+                             <span class="text-[15px]">{{ data?.name || 'Yunus Emre'}}</span>
                         </a>
 
                         <span class="text-[#8b95a1] text-[15px]">Matematik</span>
@@ -28,7 +28,7 @@ defineProps(["data"]);
                     
                 </div>
                 <div>
-                    <p class='text-[20px] font-bold text-[#0FB478]'>{{data?.price}}₺</p>
+                    <p class='text-[20px] font-bold text-[#0FB478]'>{{data?.price || 500 }}₺</p>
                 </div>
             </div>
             <!-- Item -->

@@ -1,11 +1,9 @@
 <script setup>
-
-    definePageMeta({
-    layout: "main",
-    });
-
+definePageMeta({
+  layout: "main",
+});
 </script>
 
 <template>
-            <Register/>
+     <Register />
 </template>

@@ -28,16 +28,16 @@
 <template>
     <Swiper
         :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperPagination]"
-        :slides-per-view="1.3"
+        :slides-per-view="1"
         :breakpoints="{ 
-            640:{ 
-                slidesPerView:1
+            640: {
+                slidesPerView: 1
             },
-            768:{
-                 slidesPerView:2, 
+            768: {
+                slidesPerView: 2,
             },
             1024: {
-                slidesPerView: 4,
+                slidesPerView: 3,
             },
          }"
         :loop="true"
@@ -54,7 +54,7 @@
       v-for="photo in swiperData"
       :key="key"
     >
-    <div class='relative flex items-center justify-center px-2'>
+    <div class='relative flex items-center justify-center px-2 lg:mb-12 mb-10'>
     <div class='w-full max-w-md mx-auto bg-white border rounded-xl overflow-hidden'>
         <div class='max-w-md mx-auto'>
           <img :src="photo.img" />
@@ -96,3 +96,17 @@
    </swiper-slide>
     </Swiper>
 </template>
+
+<style lang="scss">
+.swiper-pagination-bullets {
+    @apply flex justify-center space-x-4 items-center w-full;
+
+    .swiper-bullet {
+        @apply bg-[#04121f24] h-2 w-2 cursor-pointer rounded-full mt-10;
+    }
+
+    .swiper-bullet-active {
+        @apply bg-[#010C20] w-10;
+    }
+}
+</style>

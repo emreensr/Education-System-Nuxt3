@@ -1,4 +1,5 @@
 <script setup>
+const runtimeConfig = useRuntimeConfig();
 
 const loginModal = ref(false)
 const registerModal = ref(false)
@@ -15,6 +16,40 @@ const openRegisterModal = () => {
 const closeModal = () => {
   loginModal.value = false;
   registerModal.value = false;
+};
+const error = ref(null)
+
+const credentials = reactive({
+  email: "",
+  password: "",
+});
+
+const handleSubmit = async () => {
+  error.value = null;
+
+  await $fetch(runtimeConfig.public.apiURL + "/login", {
+    body: credentials,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(async (response) => {
+      try {
+        // userStore.setUserToken(response.access_token);
+        // userStore.setUserDetails(response.details, true, false);
+        await navigateTo("/profile");
+        closeModal()
+      } catch (err) {
+        console.log(err.response);
+        console.log("err", err);
+      }
+    })
+    .catch((err) => {
+      if (err.response && err.response.status === 401) {
+      error.value = err.response._data.message;
+    } 
+    })
 };
 
 const handleClickOutside = (event) => {
@@ -55,16 +90,22 @@ onBeforeUnmount(() => {
 
     <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
-        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Giriş Yap</h2>
+        <img class="mx-auto h-20 w-auto" src="/headLogo.png" alt="Your Company">
+        <h2 class="mt-10 text-center text-3xl font-semibold leading-9 tracking-tight text-[#010C20]">Giriş Yap</h2>
       </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form class="space-y-6" action="#" method="POST" @submit.prevent="handleSubmit"
+      >
         <div>
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">E-Posta</label>
           <div class="mt-2">
-            <input id="email" name="email" type="email" autocomplete="email" required class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2.5 font-normal text-grey-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-400 focus:outline-none">
+            <input id="email" 
+            name="email" 
+            type="email" 
+            v-model="credentials.email"
+            autocomplete="email" 
+            class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2.5 font-normal text-grey-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-400 focus:outline-none">
           </div>
         </div>
 
@@ -72,16 +113,30 @@ onBeforeUnmount(() => {
           <div class="flex items-center justify-between">
             <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Şifre</label>
             <div class="text-sm">
-              <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Şifremi unuttum?</a>
+              <a href="#" class="font-semibold text-[#010C20] hover:text-[#0D47A1]">Şifremi unuttum?</a>
             </div>
           </div>
           <div class="mt-2">
-            <input id="password" name="password" type="password" autocomplete="current-password" required class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2.5 font-normal text-grey-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-400 focus:outline-none">
+            <input id="password"
+             name="password" 
+             type="password" 
+             v-model="credentials.password"
+             autocomplete="current-password" 
+             class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2.5 font-normal text-grey-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-400 focus:outline-none">
           </div>
         </div>
+        <div
+        v-if="error"
+        class="text-red-600 bg-red-50 px-4 py-2 text-sm rounded-md"
+      >
+        {{ error }}
+      </div>
 
         <div>
-          <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Giriş Yap</button>
+          <button type="submit" 
+          :disabled="(!credentials.email || !credentials.password)"
+          :class="(!credentials.email || !credentials.password) ? 'bg-gray-300' : 'bg-[#010C20]'"
+          class="flex w-full justify-center rounded-md bg-[#010C20] px-3 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Giriş Yap</button>
         </div>
       </form>
 
@@ -91,7 +146,7 @@ onBeforeUnmount(() => {
       >
       <p class="mt-10 text-center text-sm text-gray-500">
         Hesabınız yok mu?
-        <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Kaydolun</a>
+        <a href="#" class="font-semibold leading-6 text-[#010C20] hover:text-[#0D47A1]">Kaydolun</a>
       </p>
     </nuxt-link>
     </div>
