@@ -58,17 +58,17 @@ const previousStep = () => {
 
 <template>
   <div class="w-full max-w-7xl px-3 flex:0 auto mx-auto h-screen">
-    <div class="w-full max-w-7xl mx-auto mt-12 lg:mt-24">
-      <div class="relative h-10 rounded-full bg-gray-100">
+    <div class="w-full max-w-7xl mx-auto mt-12 lg:mt-20">
+      <div class="relative h-8 rounded-full bg-gray-100">
         <div
-          class="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#00dc82] via-[#34cdfe] to-[#4c7eea] transition-width duration-500"
+          class="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#11253b] via-[#010C20] to-[#182c3f] transition-width duration-300"
           :style="{ width: progressBarWidth + '%' }"
         ></div>
         <div
-          class="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center w-10 h-10"
+          class="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center w-8 h-8"
         >
-          <span class="text-xl text-black font-semibold">{{ progressBarWidth }}%</span>
-        </div>
+        <span class="text-md text-black font-semibold" :class="progressBarWidth >= 51 ? 'text-white transition-width duration-300' : ''">{{ progressBarWidth }}%</span>
+      </div>
       </div>
     </div>
 

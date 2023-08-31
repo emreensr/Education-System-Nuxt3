@@ -3,7 +3,7 @@
     <div
       v-for="(page, index) in pages"
       :key="index"
-      :class="['w-[3cm] h-2 rounded-md', { 'bg-blue-600 text-white': index === activePageIndex, 'bg-gray-300': index !== activePageIndex }]"
+      :class="['w-[2cm] h-2 rounded-md', { 'bg-blue-600 text-white': index === activePageIndex, 'bg-gray-300': index !== activePageIndex }]"
     >
     </div>
   </div>
