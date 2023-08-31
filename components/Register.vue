@@ -1,9 +1,9 @@
 <script setup>
 const runtimeConfig = useRuntimeConfig();
-const activeStep = ref("user_type");
+const activeStep = ref("about");
 const progressBarWidth = ref("0%");
 const activePageIndex = ref(0);
-const totalPages = ref(5);
+const totalPages = ref(4);
 const selectedOption = ref("");
 
 const selectedLocations = ref([]);
@@ -36,6 +36,10 @@ const locationOptions = [
     },
   },
 ];
+
+const isSelected = (locationValue) => {
+  return selectedLocations.value.includes(locationValue);
+};
 
 const error = ref(null);
 
@@ -121,18 +125,15 @@ const computedTotalPages = computed(() => {
 });
 
 const nextStep = () => {
-  if (activeStep.value === "user_type" && selectedOption.value === "student") {
-    activeStep.value = "about";
-    activePageIndex.value = 1;
-  } else if (activeStep.value === "about") {
+  if (activeStep.value === "about") {
     activeStep.value = "account";
-    activePageIndex.value = 2;
+    activePageIndex.value = 1;
   } else if (activeStep.value === "account") {
     activeStep.value = "address";
-    activePageIndex.value = 3;
+    activePageIndex.value = 2;
   } else if (activeStep.value === "address") {
     activeStep.value = "login";
-    activePageIndex.value = 4;
+    activePageIndex.value = 3;
   } else if (activeStep.value === "login") {
     console.log(credentials);
   } else {
@@ -142,27 +143,24 @@ const nextStep = () => {
 };
 
 const previousStep = () => {
-  if (activeStep.value === "login" && selectedOption.value === "student") {
+  if (activeStep.value === "login") {
     activeStep.value = "address";
-    activePageIndex.value = 3;
+    activePageIndex.value = 2;
   } else if (activeStep.value === "address") {
     activeStep.value = "account";
-    activePageIndex.value = 2;
+    activePageIndex.value = 1;
   } else if (activeStep.value === "account") {
     activeStep.value = "about";
-    activePageIndex.value = 1;
-  } else if (activeStep.value === "about") {
-    activeStep.value = "user_type";
     activePageIndex.value = 0;
-  } else {
-    activeStep.value = "user_type";
+  }else {
+    activeStep.value = "about";
     activePageIndex.value = 0;
   }
 };
 </script>
 
 <template>
-  <div class="w-full max-w-3xl px-3 flex:0 auto mx-auto lg:mt-24 mt-12">
+  <div class="w-full max-w-3xl px-3 flex:0 auto mx-auto lg:mt-20 mt-12">
     <Indicator
       :activePageIndex="activePageIndex"
       :totalPages="computedTotalPages"
@@ -175,7 +173,7 @@ const previousStep = () => {
             style="height: 423px"
             @submit.prevent="handleSubmit"
           >
-            <div
+            <!-- <div
               form="account"
               v-if="activeStep === 'user_type'"
               class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 mt-5 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
@@ -264,10 +262,10 @@ const previousStep = () => {
                   Devam Et
                 </button>
               </div>
-            </div>
+            </div> -->
             <div
               form="about"
-              v-if="activeStep === 'about' && selectedOption == 'student'"
+              v-if="activeStep === 'about'"
               class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 dark:bg-grey-950 dark:shadow-dark-xl shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
               active=""
             >
@@ -427,7 +425,7 @@ const previousStep = () => {
             </div>
             <div
               form="account"
-              v-if="activeStep === 'account' && selectedOption == 'student'"
+              v-if="activeStep === 'account'"
               class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 mt-3 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
               active=""
             >
@@ -445,12 +443,14 @@ const previousStep = () => {
                 <div class="flex flex-wrap -mx-3 px-3">
                   <div class="w-full space-y-3 mt-5">
                     <label
-                      class="relative flex border items-center border-gray-100 shadow-sm p-3 rounded-lg"
+                      class="relative flex border items-center shadow-sm p-3 rounded-lg"
                       for="location"
                       v-for="(locationOption, index) in locationOptions"
                       :key="index"
+                      :class="{ 'border-blue-600': isSelected(locationOption.value) }"
+
                     >
-                      <div class="border border-gray-200 rounded-md p-3 mr-2">
+                      <div class="border rounded-md p-3 mr-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="25px"
@@ -474,9 +474,10 @@ const previousStep = () => {
                       />
                     </label>
                   </div>
+                  <div class="grid grid-cols-1 w-full md:grid-cols-2 lg:mt-8 mt-2 gap-4">
                   <div
-                    class="w-full max-w-full lg:mt-8 mt-2 ml-auto [flex:0_0_auto] md:w-6/12"
-                  >
+                    class="w-full"
+                    >
                     <label
                       class="mb-2 ml-1 font-bold text-sm text-slate-700"
                       for="Country"
@@ -501,7 +502,7 @@ const previousStep = () => {
                     </div>
                   </div>
                   <div
-                    class="w-full max-w-full lg:mt-8 mt-2 mb-8 ml-auto [flex:0_0_auto] md:w-6/12"
+                    class="w-full"
                   >
                     <label
                       class="mb-2 ml-1 font-bold text-sm text-slate-700"
@@ -536,6 +537,7 @@ const previousStep = () => {
                       </div>
                     </div>
                   </div>
+                  </div>
                 </div>
                 <div class="flex mt-6">
                   <button
@@ -563,7 +565,7 @@ const previousStep = () => {
             </div>
             <div
               form="address"
-              v-if="activeStep === 'address' && selectedOption == 'student'"
+              v-if="activeStep === 'address'"
               class="absolute top-0 left-0 mt-5 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
               active=""
             >
