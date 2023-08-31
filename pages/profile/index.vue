@@ -356,7 +356,6 @@ const setActiveTab = (index) => {
                     >
                       {{ university.name }}
                     </option>
-                    <option>Akdeniz Üniversitesi</option>
                   </select>
                 </div>
               </div>
