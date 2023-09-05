@@ -1,6 +1,6 @@
 import { ComputedRef, Ref } from 'vue'
 export type LayoutKey = "main"
-declare module "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/pages/runtime/composables" {
+declare module "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/node_modules/nuxt/dist/pages/runtime/composables" {
   interface PageMeta {
     layout?: false | LayoutKey | Ref<LayoutKey> | ComputedRef<LayoutKey>
   }

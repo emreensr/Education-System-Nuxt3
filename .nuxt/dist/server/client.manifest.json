@@ -6,10 +6,10 @@
     "module": true,
     "resourceType": "script"
   },
-  "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/entry.js": {
+  "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "isEntry": true,
-    "file": "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/entry.js"
+    "file": "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/node_modules/nuxt/dist/app/entry.js"
   }
 }
