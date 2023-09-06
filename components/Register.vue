@@ -31,6 +31,7 @@ const getCities = async () => {
 
 const getDistricts = async () => {
   districts.value = [];
+  credentials.district_id = '';
   const response = await fetch(
     `${runtimeConfig.public.apiURL}/city/${credentials.city_id}/districts`
   );
@@ -46,17 +47,21 @@ const getCategories = async () => {
 };
 
 const getSubCategories = async () => {
-  subCategories.value = [];
   levels.value = [];
+  credentials.sub_category_id = '';
+  credentials.level_id = '';
   const response = await fetch(
     `${runtimeConfig.public.apiURL}/category/${credentials.category_id}/sub_categories`
   );
   const data = await response.json();
   subCategories.value = data.data;
+  console.log('Sub Categories fetched:', subCategories.value);
+
 };
 
 const getCategoryLevels = async () => {
   levels.value = [];
+  credentials.level_id = '';
   const response = await fetch(
     `${runtimeConfig.public.apiURL}/category/${credentials.category_id}/levels`
   );
@@ -324,9 +329,24 @@ const previousStep = () => {
                             name="category"
                             v-model="credentials.category_id"
                             @change="getSubCategories"
-                            class="px-3 py-2 bg-white border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal focus:outline-none transition-all focus:border-gray-400"
+                            class="px-3 py-2 
+                            bg-white border 
+                            border-gray-300 
+                            text-gray-900 
+                            focus:shadow-[0_0_0_2px_#e5e7eb] 
+                            text-[.875rem] mt-2 
+                            leading-5.6 
+                            ease block 
+                            w-full 
+                            appearance-none 
+                            rounded-md 
+                            bg-clip-padding 
+                            p-2.5 font-normal 
+                            focus:outline-none 
+                            transition-all 
+                            focus:border-gray-400"
                           >
-                          <option disabled value="">Ders Seçiniz</option>
+                          <option value="">Ders Seçiniz</option>
                           <option
                               v-for="category in categories"
                               :value="category.id"
@@ -355,7 +375,7 @@ const previousStep = () => {
                             @change="getCategoryLevels"
                             class="px-3 py-2 bg-white border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal focus:outline-none transition-all placeholder:text-grey-500 focus:border-gray-400"
                           >
-                          <option disabled value="">Kategori Seçiniz</option>
+                          <option value="">Kategori Seçiniz</option>
                             <option
                               v-for="subCategory in subCategories"
                               :value="subCategory.id"
@@ -391,7 +411,7 @@ const previousStep = () => {
                           v-model="credentials.level_id"
                           class="px-3 py-2 bg-white border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal focus:outline-none transition-all placeholder:text-grey-500 focus:border-gray-400"
                         >
-                        <option disabled value="">Seviye Seçiniz</option>
+                        <option value="">Seviye Seçiniz</option>
                           <option
                             v-for="level in levels"
                             :value="level.id"

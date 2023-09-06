@@ -12,54 +12,54 @@
     "jsxFragmentFactory": "Fragment",
     "paths": {
       "#imports": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/.nuxt/types/nitro-imports"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/.nuxt/types/nitro-imports"
       ],
       "#paths": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/node_modules/nuxt/dist/core/runtime/nitro/paths"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/core/runtime/nitro/paths"
       ],
       "~": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
       ],
       "~/*": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "@": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
       ],
       "@/*": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "~~": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
       ],
       "~~/*": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "@@": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
       ],
       "@@/*": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "assets": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/assets"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/assets"
       ],
       "public": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/public"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/public"
       ],
       "public/*": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/public/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/public/*"
       ],
       "#image": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime"
       ],
       "#image/*": [
-        "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime/*"
       ]
     }
   },
   "include": [
-    "C:/Users/Emree/OneDrive/Masaüstü/Egitiva/Education-System-Nuxt3/.nuxt/types/nitro-nuxt.d.ts",
+    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/.nuxt/types/nitro-nuxt.d.ts",
     "./types/nitro.d.ts",
     "../**/*",
     "../server/**/*"
