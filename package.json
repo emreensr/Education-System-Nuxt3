@@ -26,10 +26,13 @@
     "@headlessui/vue": "^1.7.14",
     "@nuxt/image-edge": "^1.0.0-rc.1-28102847.e1cc7bb",
     "@nuxtjs/google-fonts": "^3.0.1",
+    "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
+    "@pinia/nuxt": "^0.4.11",
     "@vuepic/vue-datepicker": "^5.4.0",
     "@vueuse/nuxt": "^10.3.0",
     "aos": "^2.3.4",
     "maska": "^2.1.10",
+    "notiwind": "^2.0.2",
     "nuxt-swiper": "^1.1.0",
     "nuxt3-lazy-load": "^1.0.9"
   }

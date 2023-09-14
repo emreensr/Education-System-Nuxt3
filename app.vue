@@ -30,5 +30,6 @@ const menuItems = useState("menuItems", () => {
   <NuxtLayout>
     <NuxtLoadingIndicator />
     <NuxtPage />
+    <LayoutNotificationGroups />
   </NuxtLayout>
 </template>

@@ -1,5 +1,8 @@
 <script setup>
+import { useUserStore } from "~/store/user";
+
 const runtimeConfig = useRuntimeConfig();
+const userStore = useUserStore();
 
 const loginModal = ref(false)
 const registerModal = ref(false)
@@ -36,18 +39,21 @@ const handleSubmit = async () => {
   })
     .then(async (response) => {
       try {
-        // userStore.setUserToken(response.access_token);
-        // userStore.setUserDetails(response.details, true, false);
+        console.log(response);
+        userStore.setUserToken(response.access_token);
+        userStore.setUserDetails(response.user, true, false);
         await navigateTo("/profile");
         closeModal()
       } catch (err) {
-        console.log(err.response);
+        console.log(err);
         console.log("err", err);
       }
     })
     .catch((err) => {
-      if (err.response && err.response.status === 401) {
+      console.log(err.response);
+      if (err.response) {
       error.value = err.response._data.message;
+      console.log(error.value);
     } 
     })
 };
@@ -158,7 +164,7 @@ onBeforeUnmount(() => {
     <ul
       class="flex items-center space-x-5 absolute right-4 top-1/2 transform -translate-y-1/2 lg:static lg:translate-y-0"
     >
-      <li>
+      <li v-if="!userStore.getToken">
         <nuxt-link
           @click="openLoginModal"
           class="flex items-center space-x-2.5 text-sm cursor-pointer loginIcon"
@@ -168,6 +174,34 @@ onBeforeUnmount(() => {
           height="1em" viewBox="0 0 448 512"
           >
           <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>        </svg>
+        </nuxt-link>
+      </li>
+      <li v-else>
+        <nuxt-link to="/profile" class="flex items-center space-x-2.5 text-sm">
+          <img
+            v-if="userStore.getUserDetails?.user_info?.avatar"
+            :src="
+              runtimeConfig.public.baseURL +
+              userStore.getUserDetails?.user_info?.avatar
+            "
+            class="aspect-square rounded-full w-8 ring-2 transition duration-200 hover:ring-offset-2 ring-gray-200 hover:ring-gray-400 object-cover"
+            alt=""
+          />
+          <div
+            v-else
+            class="bg-gray-100 w-10 aspect-square flex items-center justify-center rounded-full p-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-8 text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"
+              />
+            </svg>
+          </div>
         </nuxt-link>
       </li>
     </ul>

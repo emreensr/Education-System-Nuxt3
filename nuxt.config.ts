@@ -7,10 +7,15 @@ export default defineNuxtConfig({
     "@nuxt/image-edge",
     "nuxt-swiper",
     "@vueuse/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+    "@pinia/nuxt",
   ],
   plugins: [
     { src: '~/plugins/aos.js', mode: 'client' }
   ],
+  alias: {
+    pinia: "/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs"
+  },
   runtimeConfig: {
     public: {
       apiURL: process.env.API_URL || "http://localhost:8000/api",

@@ -1,5 +1,10 @@
 <script setup>
+
+import { useUserStore } from "~/store/user";
+
 const runtimeConfig = useRuntimeConfig();
+const userStore = useUserStore();
+
 const activeStep = ref("about");
 const activePageIndex = ref(0);
 const totalPages = ref(4);
@@ -102,8 +107,9 @@ const handleSubmit = async () => {
   })
     .then(async (response) => {
       try {
-        // userStore.setUserToken(response.access_token);
-        // userStore.setUserDetails(response.details, true, false);
+        console.log(response);
+        userStore.setUserToken(response.access_token);
+        userStore.setUserDetails(response.user, true, false);
         await navigateTo("/profile");
         closeModal();
       } catch (err) {
@@ -112,7 +118,7 @@ const handleSubmit = async () => {
       }
     })
     .catch((err) => {
-      if (err.response && err.response.status === 401) {
+      if (err.response) {
         error.value = err.response._data.message;
       }
     });

@@ -1,7 +1,17 @@
 <script setup>
+import { useUserStore } from "~/store/user";
+
 definePageMeta({
   layout: "main",
+  middleware: "restricted",
 });
+
+const userStore = useUserStore();
+
+const handleLogout = () => {
+  userStore.signOut();
+};
+
 </script>
 
 <template>
@@ -138,7 +148,12 @@ definePageMeta({
                         <span class="font-normal text-sm text-[#3F4254]">Ayarlar</span>
                        </nuxt-link>
                     </li>
-                    <button class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white">Çıkış Yap</button>
+                    <button 
+                        class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white"
+                        @click="handleLogout"
+                        >
+                        Çıkış Yap
+                    </button>
                 </ul>
             </div>
             <main class="min-h-screen col-span-12 lg:col-span-9 bg-white border-l">

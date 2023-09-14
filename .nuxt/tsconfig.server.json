@@ -12,54 +12,57 @@
     "jsxFragmentFactory": "Fragment",
     "paths": {
       "#imports": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/.nuxt/types/nitro-imports"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/.nuxt/types/nitro-imports"
       ],
       "#paths": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/core/runtime/nitro/paths"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/core/runtime/nitro/paths"
       ],
       "~": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3"
       ],
       "~/*": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "@": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3"
       ],
       "@/*": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "~~": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3"
       ],
       "~~/*": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "@@": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3"
       ],
       "@@/*": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "assets": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/assets"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/assets"
       ],
       "public": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/public"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/public"
       ],
       "public/*": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/public/*"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/public/*"
+      ],
+      "pinia": [
+        "/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia"
       ],
       "#image": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime"
       ],
       "#image/*": [
-        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime/*"
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime/*"
       ]
     }
   },
   "include": [
-    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/.nuxt/types/nitro-nuxt.d.ts",
+    "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/.nuxt/types/nitro-nuxt.d.ts",
     "./types/nitro.d.ts",
     "../**/*",
     "../server/**/*"
