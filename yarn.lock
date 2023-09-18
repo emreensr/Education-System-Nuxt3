@@ -889,7 +889,7 @@
     defu "^6.1.2"
     pinia-plugin-persistedstate ">=3.1.0"
 
-"@pinia/nuxt@^0.4.11", "@pinia/nuxt@^0.4.4":
+"@pinia/nuxt@^0.4.4":
   version "0.4.11"
   resolved "https://registry.npmjs.org/@pinia/nuxt/-/nuxt-0.4.11.tgz"
   integrity sha512-bhuNFngJpmBCdAqWguezNJ/oJFR7wvKieqiZrmmdmPR07XjsidAw8RLXHMZE9kUm32M9E6T057OBbG/22jERTg==
@@ -5437,15 +5437,7 @@ pinia-plugin-persistedstate@>=3.1.0:
   resolved "https://registry.npmjs.org/pinia-plugin-persistedstate/-/pinia-plugin-persistedstate-3.2.0.tgz"
   integrity sha512-tZbNGf2vjAQcIm7alK40sE51Qu/m9oWr+rEgNm/2AWr1huFxj72CjvpQcIQzMknDBJEkQznCLAGtJTIcLKrKdw==
 
-pinia@^2.0.0:
-  version "2.1.6"
-  resolved "https://registry.npmjs.org/pinia/-/pinia-2.1.6.tgz"
-  integrity sha512-bIU6QuE5qZviMmct5XwCesXelb5VavdOWKWaB17ggk++NUwQWWbP5YnsONTk3b752QkW9sACiR81rorpeOMSvQ==
-  dependencies:
-    "@vue/devtools-api" "^6.5.0"
-    vue-demi ">=0.14.5"
-
-pinia@>=2.1.0:
+pinia@^2.0.0, pinia@^2.1.6, pinia@>=2.1.0:
   version "2.1.6"
   resolved "https://registry.npmjs.org/pinia/-/pinia-2.1.6.tgz"
   integrity sha512-bIU6QuE5qZviMmct5XwCesXelb5VavdOWKWaB17ggk++NUwQWWbP5YnsONTk3b752QkW9sACiR81rorpeOMSvQ==
@@ -7283,9 +7275,9 @@ vue-bundle-renderer@^1.0.3:
     ufo "^1.1.1"
 
 vue-demi@>=0.14.5:
-  version "0.14.6"
-  resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.14.6.tgz"
-  integrity sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==
+  version "0.14.5"
+  resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.14.5.tgz"
+  integrity sha512-o9NUVpl/YlsGJ7t+xuqJKx8EBGf1quRhCiT6D/J0pfwmk9zUwYkC7yrF4SZCe6fETvSM3UNL2edcbYrSyc4QHA==
 
 vue-devtools-stub@^0.1.0:
   version "0.1.0"

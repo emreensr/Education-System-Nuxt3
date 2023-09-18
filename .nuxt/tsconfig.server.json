@@ -50,14 +50,14 @@
       "public/*": [
         "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/public/*"
       ],
-      "pinia": [
-        "/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia"
-      ],
       "#image": [
         "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime"
       ],
       "#image/*": [
         "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime/*"
+      ],
+      "pinia": [
+        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/pinia/dist/pinia"
       ]
     }
   },
