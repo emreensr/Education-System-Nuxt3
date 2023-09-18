@@ -12,7 +12,7 @@ const menuItems = useState("menuItems", () => {
     },
     {
       name: "Ders Talepleri",
-      target: "/tischreservierungen",
+      target: "/course-requests",
     },
     {
       name: "Hakkımızda",
