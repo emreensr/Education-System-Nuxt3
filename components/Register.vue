@@ -109,7 +109,7 @@ const handleSubmit = async () => {
       try {
         console.log(response);
         userStore.setUserToken(response.access_token);
-        userStore.setUserDetails(response.user, true, false);
+        userStore.setUserDetails(response, true, false);
         await navigateTo("/profile");
         closeModal();
       } catch (err) {

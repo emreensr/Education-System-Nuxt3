@@ -19,7 +19,7 @@ export const useUserStore = defineStore('user', {
                 notify(
                     {
                       group: "central",
-                      title: `Hoşgeldiniz, ${payload.first_name}`,
+                      title: `Hoşgeldiniz, ${payload.user.first_name}`,
                       text: "Başarıyla giriş yaptınız!",
                     },
                     4000

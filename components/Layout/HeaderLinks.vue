@@ -41,7 +41,7 @@ const handleSubmit = async () => {
       try {
         console.log(response);
         userStore.setUserToken(response.access_token);
-        userStore.setUserDetails(response.user, true, false);
+        userStore.setUserDetails(response, true, false);
         await navigateTo("/profile");
         closeModal()
       } catch (err) {
@@ -169,22 +169,34 @@ onBeforeUnmount(() => {
           @click="openLoginModal"
           class="flex items-center space-x-2.5 text-sm cursor-pointer loginIcon"
         >
-          <svg xmlns="http://www.w3.org/2000/svg"
-          class="w-6 h-6" 
-          height="1em" viewBox="0 0 448 512"
-          >
-          <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>        </svg>
+        <svg
+        stroke="currentColor"
+        fill="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        color="#000000ff"
+        class="h-7 w-7"
+        xmlns="http://www.w3.org/2000/svg"
+        style="color: rgb(0, 0, 0)"
+      >
+        <g>
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path
+            d="M20 22h-2v-2a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v2H4v-2a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v2zm-8-9a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+          ></path>
+        </g>
+      </svg>
         </nuxt-link>
       </li>
       <li v-else>
         <nuxt-link to="/profile" class="flex items-center space-x-2.5 text-sm">
           <img
-            v-if="userStore.getUserDetails?.user_info?.avatar"
+            v-if="userStore.getUserDetails?.user?.avatar"
             :src="
               runtimeConfig.public.baseURL +
-              userStore.getUserDetails?.user_info?.avatar
+              userStore.getUserDetails?.user?.avatar
             "
-            class="aspect-square rounded-full w-8 ring-2 transition duration-200 hover:ring-offset-2 ring-gray-200 hover:ring-gray-400 object-cover"
+            class="aspect-square rounded-full w-10 transition duration-200 object-cover"
             alt=""
           />
           <div

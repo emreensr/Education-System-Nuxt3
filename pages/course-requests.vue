@@ -16,7 +16,7 @@ definePageMeta({
     </div>
     <div class="grid grid-cols-1 gap-5 mx-auto max-w-7xl pt:12 mb-20 px-3">
       <div
-        class="relative flex w-full flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
+        class="relative flex w-full flex-row rounded-xl bg-white bg-clip-border text-gray-700 border border-gray-100 shadow-md"
       >
         <div
           class="relative hidden m-0 md:block w-1/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700"
@@ -27,14 +27,17 @@ definePageMeta({
             class="h-full w-full object-cover"
           />
         </div>
-        <div class="p-6">
+        <div class="p-3 md:p-6">
           <div class="flex justify-between">
             <h6
-              class="mb-1 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased"
+              class="mb-1 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-[#FF4500] antialiased"
             >
               Matematik
             </h6>
-            <p class="text-xs">2 saat önce</p>
+            <div class="flex justify-center items-center">
+                <Icon name="ic:outline-access-time" size="18" color="gray" />
+                <p class="text-sm text-gray-400 ml-0.5">2 saat önce</p>
+            </div>
           </div>
           <h3
             class="mb-2 block font-sans text-md font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
@@ -48,7 +51,7 @@ definePageMeta({
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
-                class="h-5 w-5 text-blue-600"
+                class="h-5 w-5 text-[#FF4500]"
               >
                 <path
                   d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
@@ -65,7 +68,7 @@ definePageMeta({
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
-                class="h-5 w-5 text-blue-600"
+                class="h-5 w-5 text-[#FF4500]"
               >
                 <path
                   d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
@@ -79,7 +82,7 @@ definePageMeta({
             <div class="flex gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-blue-600"
+                class="h-5 w-5 text-[#FF4500]"
                 viewBox="0 0 576 512"
               >
                 <path
@@ -99,14 +102,14 @@ definePageMeta({
           <div class="flex justify-between items-center">
             <div class="flex w-full gap-3">
                 <button
-                class="block w-full md:w-1/3 select-none rounded-lg bg-white py-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-blue-700 shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20"
+                class="block w-full md:w-1/3 select-none bg-[#FF4500] rounded-lg p-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-orange-500/40"
                 type="button"
                 data-ripple-dark="true"
               >
                 Talep Et
               </button>
               <button
-                class="block w-full md:w-1/3 select-none rounded-lg bg-white p-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-blue-700 shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20"
+                class="block w-full md:w-1/3 select-none bg-[#FF4500] rounded-lg p-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-orange-500/40"
                 type="button"
                 data-ripple-dark="true"
               >
@@ -114,7 +117,7 @@ definePageMeta({
               </button>
             </div>
             <div class="hidden md:block">
-                <p class="text-sm">
+                <p class="text-sm text-gray-500">
                     İstanbul/Tuzla
                 </p>
             </div>
@@ -122,7 +125,7 @@ definePageMeta({
         </div>
       </div>
       <div
-        class="relative flex w-full flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
+        class="relative flex w-full flex-row rounded-xl bg-white bg-clip-border text-gray-700 border border-gray-100 shadow-md"
       >
         <div
           class="relative hidden m-0 md:block w-1/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700"
@@ -133,15 +136,18 @@ definePageMeta({
             class="h-full w-full object-cover"
           />
         </div>
-        <div class="p-6">
-          <div class="flex justify-between">
-            <h6
-              class="mb-1 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased"
-            >
-              Matematik
-            </h6>
-            <p class="text-xs">2 saat önce</p>
-          </div>
+        <div class="p-3 md:p-6">
+            <div class="flex justify-between">
+              <h6
+                class="mb-1 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-[#FF4500] antialiased"
+              >
+                Matematik
+              </h6>
+              <div class="flex justify-center items-center">
+                  <Icon name="ic:outline-access-time" size="18" color="gray" />
+                  <p class="text-sm text-gray-400 ml-0.5">2 saat önce</p>
+              </div>
+            </div>
           <h3
             class="mb-2 block font-sans text-md font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
           >
@@ -154,7 +160,7 @@ definePageMeta({
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
-                class="h-5 w-5 text-blue-600"
+                class="h-5 w-5 text-[#FF4500]"
               >
                 <path
                   d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
@@ -171,7 +177,7 @@ definePageMeta({
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
-                class="h-5 w-5 text-blue-600"
+                class="h-5 w-5 text-[#FF4500]"
               >
                 <path
                   d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
@@ -185,7 +191,7 @@ definePageMeta({
             <div class="flex gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-blue-600"
+                class="h-5 w-5 text-[#FF4500]"
                 viewBox="0 0 576 512"
               >
                 <path
@@ -205,14 +211,14 @@ definePageMeta({
           <div class="flex justify-between items-center">
             <div class="flex w-full gap-3">
                 <button
-                class="block w-full md:w-1/3 select-none rounded-lg bg-white py-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-blue-700 shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20"
+                class="block w-full md:w-1/3 select-none bg-[#FF4500] rounded-lg p-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-orange-500/40"
                 type="button"
                 data-ripple-dark="true"
               >
                 Talep Et
               </button>
               <button
-                class="block w-full md:w-1/3 select-none rounded-lg bg-white p-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-blue-700 shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20"
+                class="block w-full md:w-1/3 select-none bg-[#FF4500] rounded-lg p-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-orange-500/40"
                 type="button"
                 data-ripple-dark="true"
               >
@@ -220,7 +226,7 @@ definePageMeta({
               </button>
             </div>
             <div class="hidden md:block">
-                <p class="text-sm">
+                <p class="text-sm text-gray-500">
                     İstanbul/Tuzla
                 </p>
             </div>
@@ -228,7 +234,7 @@ definePageMeta({
         </div>
       </div>
       <div
-      class="relative flex w-full flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
+      class="relative flex w-full flex-row rounded-xl bg-white bg-clip-border text-gray-700 border border-gray-100 shadow-md"
     >
       <div
         class="relative hidden m-0 md:block w-1/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700"
@@ -239,14 +245,17 @@ definePageMeta({
           class="h-full w-full object-cover"
         />
       </div>
-      <div class="p-6">
+      <div class="p-3 md:p-6">
         <div class="flex justify-between">
           <h6
-            class="mb-1 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased"
+            class="mb-1 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-[#FF4500] antialiased"
           >
             Matematik
           </h6>
-          <p class="text-xs">2 saat önce</p>
+          <div class="flex justify-center items-center">
+              <Icon name="ic:outline-access-time" size="18" color="gray" />
+              <p class="text-sm text-gray-400 ml-0.5">2 saat önce</p>
+          </div>
         </div>
         <h3
           class="mb-2 block font-sans text-md font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
@@ -260,7 +269,7 @@ definePageMeta({
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
-              class="h-5 w-5 text-blue-600"
+              class="h-5 w-5 text-[#FF4500]"
             >
               <path
                 d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
@@ -277,7 +286,7 @@ definePageMeta({
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
-              class="h-5 w-5 text-blue-600"
+              class="h-5 w-5 text-[#FF4500]"
             >
               <path
                 d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"
@@ -291,7 +300,7 @@ definePageMeta({
           <div class="flex gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-blue-600"
+              class="h-5 w-5 text-[#FF4500]"
               viewBox="0 0 576 512"
             >
               <path
@@ -311,14 +320,14 @@ definePageMeta({
         <div class="flex justify-between items-center">
             <div class="flex w-full gap-3">
                 <button
-                class="block w-full md:w-1/3 select-none rounded-lg bg-white py-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-blue-700 shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20"
+                class="block w-full md:w-1/3 select-none bg-[#FF4500] rounded-lg p-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-orange-500/40"
                 type="button"
                 data-ripple-dark="true"
               >
                 Talep Et
               </button>
               <button
-                class="block w-full md:w-1/3 select-none rounded-lg bg-white p-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-blue-700 shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-gray-500/20"
+                class="block w-full md:w-1/3 select-none bg-[#FF4500] rounded-lg p-2.5 md:p-3.5 px-7 text-center align-middle font-sans text-sm font-semibold uppercase text-white shadow-md shadow-blue-gray-500/10 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-orange-500/40"
                 type="button"
                 data-ripple-dark="true"
               >
@@ -326,7 +335,7 @@ definePageMeta({
               </button>
             </div>
             <div class="hidden md:block">
-                <p class="text-sm">
+                <p class="text-sm text-gray-500">
                     İstanbul/Tuzla
                 </p>
             </div>
