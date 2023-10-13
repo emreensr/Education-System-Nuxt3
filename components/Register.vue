@@ -4,12 +4,13 @@ import { useUserStore } from "~/store/user";
 
 const runtimeConfig = useRuntimeConfig();
 const userStore = useUserStore();
+const { errorHandler } = useErrorHandler();
 
 const activeStep = ref("about");
 const activePageIndex = ref(0);
 const totalPages = ref(4);
 const selectedOption = ref("");
-const error = ref(null);
+const errors = ref([]);
 const cities = ref([]);
 const districts = ref([]);
 const selectedLocations = ref([]);
@@ -86,6 +87,16 @@ const credentials = reactive({
   last_name: "",
   email: "",
   password: "",
+  password_confirmation: "",
+  phone: "",
+});
+
+const teacherCredentials = reactive({
+  first_name: "",
+  last_name: "",
+  email: "",
+  password: "",
+  password_confirmation: "",
   phone: "",
 });
 
@@ -123,6 +134,23 @@ const handleSubmit = async () => {
       }
     });
 };
+
+const handleTeacherSubmit = async () => {
+  errors.value = [];
+  await $fetch(runtimeConfig.public.apiURL + "/teacherRegister", {
+    method: "POST",
+    body: teacherCredentials,
+  })
+  .then((response) => {
+        userStore.setUserToken(response.access_token);
+        userStore.setUserDetails(response, true, false);
+      navigateTo("/profile");
+    })
+    .catch((err) => {
+      errors.value = errorHandler(err)
+    })
+};
+
 
 const handleClickOutside = (event) => {
   const loginPopup = document.querySelector(".loginPopup");
@@ -191,15 +219,75 @@ const previousStep = () => {
     activePageIndex.value = 0;
   }
 };
+
+
+const activeTab = ref(0);
+const tabs = [
+  {
+    label: "ÖĞRENCİ KAYIT",
+    href: "#",
+    icon: {
+      viewBox: "0 0 20 20",
+      path:
+        "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z",
+    },
+  },
+  {
+    label: "ÖĞRETMEN KAYIT",
+    href: "#",
+    icon: {
+      viewBox: "0 0 640 512",
+      path:
+        "M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H322.8c-3.1-8.8-3.7-18.4-1.4-27.8l15-60.1c2.8-11.3 8.6-21.5 16.8-29.7l40.3-40.3c-32.1-31-75.7-50.1-123.9-50.1H178.3zm435.5-68.3c-15.6-15.6-40.9-15.6-56.6 0l-29.4 29.4 71 71 29.4-29.4c15.6-15.6 15.6-40.9 0-56.6l-14.4-14.4zM375.9 417c-4.1 4.1-7 9.2-8.4 14.9l-15 60.1c-1.4 5.5 .2 11.2 4.2 15.2s9.7 5.6 15.2 4.2l60.1-15c5.6-1.4 10.8-4.3 14.9-8.4L576.1 358.7l-71-71L375.9 417z",
+    },
+  }
+];
+
+const setActiveTab = (index) => {
+  activeTab.value = index;
+};
+
 </script>
 
 <template>
-  <div class="w-full max-w-3xl px-3 flex:0 auto mx-auto lg:mt-20 mt-12">
-    <Indicator
+  <div class="w-full max-w-3xl px-3 mx-auto lg:mt-20 mt-12">
+    <div class="border-b border-gray-200">
+      <ul class="flex justify-between -mb-px text-sm font-medium text-center text-gray-500">
+        <li v-for="(tab, index) in tabs" :key="index" class="mr-2 w-1/2">
+          <a
+            :href="tab.href"
+            :class="[
+              'inline-flex p-4 w-full items-center border-b-2 rounded-t-lg hover:border-[#010C20] hover:text-[#010C20]',
+              { 'text-[#010C20] w-full items-center border-[#010C20] active': index === activeTab },
+            ]"
+            @click="setActiveTab(index)"
+          >
+            <svg
+              :class="['w-5 h-5 mr-2', { ' text-[#010C20]': index === activeTab }]"
+              fill="currentColor"
+              :viewBox="tab.icon.viewBox"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                v-if="index === activeTab || !tab.icon.onlyActive"
+                :d="tab.icon.path"
+                :clip-rule="tab.icon.clipRule || 'evenodd'"
+                :fill-rule="tab.icon.fillRule || 'evenodd'"
+              />
+            </svg>
+            <p class="text-xs lg:text-base">
+              {{ tab.label }}
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- <Indicator
+       v-if="activeTab === 0"
       :activePageIndex="activePageIndex"
       :totalPages="computedTotalPages"
-    />
-    <div multisteps-form="" class="mb-12 mt-5">
+    /> -->
+    <div multisteps-form="" class="mb-12 mt-5" v-if="activeTab == 0">
       <div class="flex flex-wrap -mx-3">
         <div class="w-full max-w-full px-3 m-auto [flex:0_0_auto]">
           <form
@@ -667,19 +755,160 @@ const previousStep = () => {
                 </div>
               </div>
               <div>
+              <div class="flex flex-wrap -mx-3 text-left">
+                <div
+                  class="w-full max-w-full px-3 mt-4 [flex:0_0_auto] md:w-6/12"
+                >
+                  <label
+                    class="mb-2 ml-1 font-bold text-sm text-slate-700"
+                    for="Street Name"
+                    >Ad</label
+                  >
+                  <input
+                    type="text"
+                    name="Street Name"
+                    v-model="credentials.first_name"
+                    placeholder="Adınız"
+                    class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-400 focus:outline-none"
+                  />
+                </div>
+                <div
+                  class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12"
+                >
+                  <label
+                    class="mb-2 ml-1 font-bold text-sm text-slate-700"
+                    for="Street No"
+                    >Soyad</label
+                  >
+                  <input
+                    type="text"
+                    name="Street No"
+                    v-model="credentials.last_name"
+                    min="01"
+                    placeholder="Soyadınız"
+                    class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
+                  />
+                </div>
+                <div
+                  class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12"
+                >
+                  <label
+                    class="mb-2 ml-1 font-bold text-sm text-slate-700"
+                    for="Street Name"
+                    >E-Posta</label
+                  >
+                  <input
+                    type="emailemre"
+                    name="Street Name"
+                    v-model="credentials.email"
+                    placeholder="E-Posta Adresiniz"
+                    class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
+                  />
+                </div>
+                <div
+                  class="w-full max-w-full px-3 mt-4 [flex:0_0_auto] md:w-6/12"
+                >
+                  <label
+                    class="mb-2 ml-1 font-bold text-sm text-slate-700"
+                    for="Street Name"
+                    >Telefon</label
+                  >
+                  <input
+                    type="text"
+                    name="Phone"
+                    v-model="credentials.phone"
+                    placeholder="Telefon Numaranız"
+                    class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
+                  />
+                </div>
+                <div
+                  class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12"
+                >
+                  <label
+                    class="mb-2 ml-1 font-bold text-sm text-slate-700"
+                    for="Street No"
+                    >Şifre</label
+                  >
+                  <input
+                    type="password"
+                    name="Street No"
+                    v-model="credentials.password"
+                    min="01"
+                    placeholder="Şifre"
+                    class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
+                  />
+                </div>
+                <div
+                  class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12"
+                >
+                  <label
+                    class="mb-2 ml-1 font-bold text-sm text-slate-700"
+                    for="Street No"
+                    >Şifre Tekrar</label
+                  >
+                  <input
+                    type="password"
+                    name="Street No"
+                    v-model="credentials.password_confirmation"
+                    min="01"
+                    placeholder="Şifre Tekrar"
+                    class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
+                  />
+                </div>
+              </div>
+              <div class="flex flex-wrap -mx-3">
+                <div class="flex w-full max-w-full px-3 mt-6 [flex:0_0_auto]">
+                  <button
+                    type="submit"
+                    send-form-btn=""
+                    @click="nextStep"
+                    href="javascript:;"
+                    class="inline-block px-6 py-3 mb-0 ml-auto font-bold text-right text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs dark:bg-gradient-to-tl dark:from-slate-850 dark:to-gray-850 bg-gradient-to-tl from-[#141727] to-[#3a416f] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25"
+                  >
+                    Kaydol
+                  </button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div multisteps-form="" class="mb-12 mt-5" v-if="activeTab == 1">
+      <div class="flex flex-wrap -mx-3">
+        <div class="w-full max-w-full px-3 m-auto [flex:0_0_auto]">
+          <form
+            class="relative lg:mb-32 mb-52"
+            style="height: 423px"
+            @submit.prevent="handleTeacherSubmit"
+          >
+            <div
+              class="absolute top-0 left-0 flex flex-col w-full min-w-0 p-4 break-words bg-white border-0 shadow-xl rounded-2xl bg-clip-border h-auto opacity-100 visible"
+              active=""
+            >
+            <div v-if="errors?.length > 0">
+              <ul
+                class="p-2.5 rounded-md bg-red-50 text-red-500 text-sm space-y-2"
+              >
+                <li v-for="error in errors">{{ error }}</li>
+              </ul>
+            </div>
+              <div>
                 <div class="flex flex-wrap -mx-3 text-left">
                   <div
-                    class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12"
+                    class="w-full max-w-full px-3 mt-4 [flex:0_0_auto] md:w-6/12"
                   >
                     <label
                       class="mb-2 ml-1 font-bold text-sm text-slate-700"
                       for="Street Name"
                       >Ad</label
                     >
+                    <span class="font-medium text-red-600"> *</span>
                     <input
                       type="text"
                       name="Street Name"
-                      v-model="credentials.first_name"
+                      v-model="teacherCredentials.first_name"
                       placeholder="Adınız"
                       class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-400 focus:outline-none"
                     />
@@ -692,10 +921,11 @@ const previousStep = () => {
                       for="Street No"
                       >Soyad</label
                     >
+                    <span class="font-medium text-red-600"> *</span>
                     <input
                       type="text"
                       name="Street No"
-                      v-model="credentials.last_name"
+                      v-model="teacherCredentials.last_name"
                       min="01"
                       placeholder="Soyadınız"
                       class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
@@ -709,28 +939,12 @@ const previousStep = () => {
                       for="Street Name"
                       >E-Posta</label
                     >
+                    <span class="font-medium text-red-600"> *</span>
                     <input
                       type="emailemre"
                       name="Street Name"
-                      v-model="credentials.email"
+                      v-model="teacherCredentials.email"
                       placeholder="E-Posta Adresiniz"
-                      class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
-                    />
-                  </div>
-                  <div
-                    class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12"
-                  >
-                    <label
-                      class="mb-2 ml-1 font-bold text-sm text-slate-700"
-                      for="Street No"
-                      >Şifre</label
-                    >
-                    <input
-                      type="password"
-                      name="Street No"
-                      v-model="credentials.password"
-                      min="01"
-                      placeholder="Şifre"
                       class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
                     />
                   </div>
@@ -742,27 +956,56 @@ const previousStep = () => {
                       for="Street Name"
                       >Telefon</label
                     >
+                    <span class="font-medium text-red-600"> *</span>
                     <input
                       type="text"
                       name="Phone"
-                      v-model="credentials.phone"
+                      v-maska
+                      data-maska="(###) ### ## ##"
+                      v-model="teacherCredentials.phone"
                       placeholder="Telefon Numaranız"
+                      class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
+                    />
+                  </div>
+                  <div
+                    class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12"
+                  >
+                    <label
+                      class="mb-2 ml-1 font-bold text-sm text-slate-700"
+                      for="Street No"
+                      >Şifre</label
+                    >
+                    <span class="font-medium text-red-600"> *</span>
+                    <input
+                      type="password"
+                      name="Street No"
+                      v-model="teacherCredentials.password"
+                      min="01"
+                      placeholder="Şifre"
+                      class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
+                    />
+                  </div>
+                  <div
+                    class="w-full max-w-full px-3 mt-4 ml-auto [flex:0_0_auto] md:w-6/12"
+                  >
+                    <label
+                      class="mb-2 ml-1 font-bold text-sm text-slate-700"
+                      for="Street No"
+                      >Şifre Tekrar</label
+                    >
+                    <span class="font-medium text-red-600"> *</span>
+                    <input
+                      type="password"
+                      name="Street No"
+                      v-model="teacherCredentials.password_confirmation"
+                      min="01"
+                      placeholder="Şifre Tekrar"
                       class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"
                     />
                   </div>
                 </div>
                 <div class="flex flex-wrap -mx-3">
                   <div class="flex w-full max-w-full px-3 mt-6 [flex:0_0_auto]">
-                    <button
-                      type="button"
-                      aria-controls="account"
-                      prev-form-btn=""
-                      @click="previousStep"
-                      href="javascript:;"
-                      class="inline-block px-6 py-3 mb-0 font-bold text-right uppercase align-middle transition-all border-0 rounded-lg cursor-pointer hover:scale-[1.02] active:opacity-[.85] hover:shadow-xs bg-gradient-to-tl from-[#ced4da] to-[#ebeff4] leading-pro text-[.75rem] ease-in tracking-tight shadow-md bg-150 bg-x-25 text-[#3a416f]"
-                    >
-                      Geri Dön
-                    </button>
                     <button
                       type="submit"
                       send-form-btn=""
