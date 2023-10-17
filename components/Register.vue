@@ -255,7 +255,7 @@ const setActiveTab = (index) => {
       <div class="grid md:grid-cols-5 grid-cols-1 bg-white mx-auto rounded-3xl">
         <div class="col-span-2">
           <img
-            src="https://images.freeimages.com/images/large-previews/4ca/maldives-unseen-beauty-1641934.jpg"
+            src="/login.png"
             class="md:block h-full w-full object-cover rounded-l-xl hidden"
           />
         </div>

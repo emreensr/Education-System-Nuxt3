@@ -12,9 +12,7 @@ definePageMeta({
     EN İYİ ÖĞRETMENLER
   </h1>
   <p class="text-center">Kategorisinden en iyi öğretmenleri sizin için listeledik.</p>
-  <div
-    class="mx-auto max-w-6xl grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mt-6 p-5"
-  >
+  <div class="mx-auto max-w-6xl grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mt-6 p-5">
     <CardContent />
     <CardContent />
     <CardContent />
@@ -22,7 +20,8 @@ definePageMeta({
     <CardContent />
     <CardContent />
   </div>
-  <div class="mx-auto max-w-8xl gap-8 mt-12">
+  <HomeInfoSection />
+  <div class="mx-auto max-w-8xl gap-8">
     <HomeFeatureSection />
   </div>
   <HomeFaq />
