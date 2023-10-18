@@ -69,7 +69,7 @@ const getUploadedImage = async (e) => {
             />
             <div
               v-else
-              class="bg-gray-100 w-16 aspect-square flex items-center justify-center rounded-full"
+              class="bg-gray-100 w-28 aspect-square flex items-center justify-center rounded-full"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,6 @@ const getUploadedImage = async (e) => {
             accept="image/png, image/jpeg, image/jpg"
           />
         </div>
-
         <ul>
           <li>
             <nuxt-link
@@ -130,7 +129,7 @@ const getUploadedImage = async (e) => {
               >
             </nuxt-link>
           </li>
-          <li>
+          <li v-if="userStore.getUserDetails.user.user_type == 'teacher'">
             <nuxt-link
               to="/profile/my-adverts"
               class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
@@ -146,6 +145,20 @@ const getUploadedImage = async (e) => {
           </li>
           <li>
             <nuxt-link
+              to="/profile/my-messages"
+              class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
+              exact-active-class="bg-gray-100"
+            >
+              <Icon
+                name="material-symbols:android-chat"
+                size="22"
+                color="gray"
+              />
+              <span class="font-normal text-sm text-[#3F4254]">Mesajlarım</span>
+            </nuxt-link>
+          </li>
+          <li v-if="userStore.getUserDetails.user.user_type == 'teacher'">
+            <nuxt-link
               to="/profile/buy-packages"
               class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
               exact-active-class="bg-gray-100"
@@ -158,38 +171,18 @@ const getUploadedImage = async (e) => {
               <span class="font-normal text-sm text-[#3F4254]">Paketler</span>
             </nuxt-link>
           </li>
-          <li>
+          <li v-if="userStore.getUserDetails.user.user_type == 'teacher'">
             <nuxt-link
               to="/profile/my-lessons"
               class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
               exact-active-class="bg-gray-100"
             >
-              <Icon name="solar:notebook-linear" size="22" color="gray" />
+              <Icon name="fluent:data-usage-edit-20-regular" size="22" color="gray" />
               <span class="font-normal text-sm text-[#3F4254]"
-                >Hangi Dersleri Verebilirsin?</span
+                >Blog Yazılarım</span
               >
             </nuxt-link>
           </li>
-          <!-- <li>
-                        <nuxt-link
-                            to="/profile/locations"
-                            class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
-                            exact-active-class="bg-gray-100"
-                            >
-                        <Icon name="material-symbols:location-on" size="22" color="gray" />
-                        <span class="font-normal text-sm text-[#3F4254]">Ders Verebileceğin Konumlar</span>
-                    </nuxt-link>
-                    </li> -->
-          <!-- <li>
-                        <nuxt-link
-                            to="/profile/available-days"
-                            class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
-                            exact-active-class="bg-gray-100"
-                            >
-                        <Icon name="material-symbols:event-available" size="22" color="gray" />
-                        <span class="font-normal text-sm text-[#3F4254]">Müsait Günlerin</span>
-                        </nuxt-link>
-                    </li> -->
           <li>
             <nuxt-link
               to="/profile/lesson-requests"
@@ -202,7 +195,19 @@ const getUploadedImage = async (e) => {
               >
             </nuxt-link>
           </li>
-          <li>
+          <li v-if="userStore.getUserDetails.user.user_type == 'student'">
+            <nuxt-link
+              to="/profile/lesson-requests"
+              class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
+              exact-active-class="bg-gray-100"
+            >
+              <Icon name="material-symbols:person-search" size="22" color="gray" />
+              <span class="font-normal text-sm text-[#3F4254]"
+                >Öğretmen Bul</span
+              >
+            </nuxt-link>
+          </li>
+          <li v-if="userStore.getUserDetails.user.user_type == 'teacher'">
             <nuxt-link
               to="/profile/comments"
               class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
@@ -212,7 +217,7 @@ const getUploadedImage = async (e) => {
               <span class="font-normal text-sm text-[#3F4254]">Yorumlar</span>
             </nuxt-link>
           </li>
-          <li>
+          <li v-if="userStore.getUserDetails.user.user_type == 'student'">
             <nuxt-link
               to="/profile/invite-friends"
               class="flex space-x-2 text-[15px] cursor-pointer hover:text-[#EC5252] duration-150 px-4 py-2 mb-1 block rounded-md hover:bg-gray-100"
@@ -243,7 +248,7 @@ const getUploadedImage = async (e) => {
             </nuxt-link>
           </li>
           <button
-            class="w-full mt-10 bg-[#EC5252] rounded-full py-1.5 text-white"
+            class="w-full mt-6 bg-red-500 rounded-full py-1.5 text-white"
             @click="handleLogout"
           >
             Çıkış Yap

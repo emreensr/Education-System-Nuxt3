@@ -89,6 +89,7 @@ const credentials = reactive({
   password: "",
   password_confirmation: "",
   phone: "",
+  user_type: "student"
 });
 
 const teacherCredentials = reactive({
@@ -98,6 +99,7 @@ const teacherCredentials = reactive({
   password: "",
   password_confirmation: "",
   phone: "",
+  user_type: "teacher"
 });
 
 watch(selectedLocations, () => {
@@ -107,7 +109,7 @@ watch(selectedLocations, () => {
 });
 
 const handleSubmit = async () => {
-  error.value = null;
+  errors.value = null;
 
   await $fetch(runtimeConfig.public.apiURL + "/studentRegister", {
     body: credentials,
