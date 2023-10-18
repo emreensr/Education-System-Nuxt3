@@ -252,10 +252,10 @@ const setActiveTab = (index) => {
 <template>
   <div class="bg-[#f8f8f8]">
     <div class="mx-auto max-w-6xl auto lg:pt-20 lg:pb-32">
-      <div class="grid md:grid-cols-5 grid-cols-1 bg-white mx-auto rounded-3xl">
+      <div class="grid md:grid-cols-5 grid-cols-1 mx-auto rounded-3xl">
         <div class="col-span-2">
           <img
-            src="/login.png"
+            src="/login2.png"
             class="md:block h-full w-full object-cover rounded-l-xl hidden"
           />
         </div>

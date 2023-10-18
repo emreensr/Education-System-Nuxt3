@@ -9,7 +9,7 @@
     "skipLibCheck": true,
     "strict": true,
     "allowJs": true,
-    "baseUrl": "/Users/macbook/Desktop/Projects/Education-System-Nuxt3",
+    "baseUrl": "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3",
     "noEmit": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
@@ -19,70 +19,70 @@
     ],
     "paths": {
       "~": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
       ],
       "~/*": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "@": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
       ],
       "@/*": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "~~": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
       ],
       "~~/*": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "@@": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3"
       ],
       "@@/*": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
       ],
       "assets": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/assets"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/assets"
       ],
       "public": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/public"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/public"
       ],
       "public/*": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/public/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/public/*"
       ],
       "#app": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app"
       ],
       "#app/*": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/*"
       ],
       "vue-demi": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/compat/vue-demi"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "#image": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime"
       ],
       "#image/*": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/@nuxt/image-edge/dist/runtime/*"
       ],
       "pinia": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/node_modules/pinia/dist/pinia"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/node_modules/pinia/dist/pinia"
       ],
       "#vue-router": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/.nuxt/vue-router"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/.nuxt/vue-router"
       ],
       "#imports": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/.nuxt/imports"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/.nuxt/imports"
       ],
       "#build": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/.nuxt"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/.nuxt"
       ],
       "#build/*": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/.nuxt/*"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/.nuxt/*"
       ],
       "#components": [
-        "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/.nuxt/components"
+        "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/.nuxt/components"
       ]
     }
   },
@@ -90,14 +90,14 @@
     "./nuxt.d.ts",
     "../**/*",
     "../**/*",
-    "/Users/macbook/Desktop/Projects/Education-System-Nuxt3",
-    "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*",
-    "/Users/macbook/Desktop/Projects/Education-System-Nuxt3",
-    "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*",
-    "/Users/macbook/Desktop/Projects/Education-System-Nuxt3",
-    "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*",
-    "/Users/macbook/Desktop/Projects/Education-System-Nuxt3",
-    "/Users/macbook/Desktop/Projects/Education-System-Nuxt3/*"
+    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3",
+    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*",
+    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3",
+    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*",
+    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3",
+    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*",
+    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3",
+    "C:/Users/capci/Desktop/Projects/Education-System-Nuxt3/*"
   ],
   "exclude": [
     "../dist",
