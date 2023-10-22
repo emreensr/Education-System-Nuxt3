@@ -5,7 +5,8 @@ export const useUserStore = defineStore('user', {
     state: () => {
         return {
             token: null,
-            details: null
+            details: null,
+            photo:null
         }
     },
     actions: {
@@ -13,7 +14,7 @@ export const useUserStore = defineStore('user', {
             this.token = payload
         },
         setUserDetails(payload , isLogin = false , isReset = false) {
-            console.log(payload);
+            console.log(payload)
             this.details = payload;
             if(isLogin) {
                 notify(
@@ -35,6 +36,27 @@ export const useUserStore = defineStore('user', {
                     4000
                   );
             }
+            if (!isLogin && !isReset) {
+                notify(
+                    {
+                      group: "central",
+                      title: "Başarılı!",
+                      text: "Değişiklikler kaydedildi.",
+                    },
+                    4000
+                  );
+            }
+        },
+        setUserPhoto(payload) {
+            this.photo = payload
+                notify(
+                    {
+                    group: "central",
+                    title: "Başarılı!",
+                    text: "Fotoğraf güncellendi.",
+                    },
+                    4000
+                );
         },
         async signOut() {
             await navigateTo('/')
@@ -48,6 +70,9 @@ export const useUserStore = defineStore('user', {
         },
         getUserDetails(state) {
             return state.details
+        },
+        getUserPhoto(state) {
+            return state.photo
         } 
     },
     persist: true

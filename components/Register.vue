@@ -61,8 +61,6 @@ const getSubCategories = async () => {
   );
   const data = await response.json();
   subCategories.value = data.data;
-  console.log('Sub Categories fetched:', subCategories.value);
-
 };
 
 const getCategoryLevels = async () => {
@@ -122,7 +120,7 @@ const handleSubmit = async () => {
       try {
         console.log(response);
         userStore.setUserToken(response.access_token);
-        userStore.setUserDetails(response, true, false);
+        userStore.setUserDetails(response.details, true, false);
         await navigateTo("/profile");
         closeModal();
       } catch (err) {
@@ -145,7 +143,7 @@ const handleTeacherSubmit = async () => {
   })
   .then((response) => {
         userStore.setUserToken(response.access_token);
-        userStore.setUserDetails(response, true, false);
+        userStore.setUserDetails(response.details, true, false);
       navigateTo("/profile");
     })
     .catch((err) => {

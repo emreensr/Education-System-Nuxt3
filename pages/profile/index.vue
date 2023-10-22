@@ -1,4 +1,10 @@
 <script setup>
+
+import { useUserStore } from "~/store/user";
+
+const userStore = useUserStore();
+const { errorHandler } = useErrorHandler();
+
 definePageMeta({
   layout: "main",
 });
@@ -12,6 +18,7 @@ const maxDate = new Date();
 const birth_date = ref();
 const universities = ref([]);
 const departments = ref([]);
+const errors = ref([]);
 
 const getUniversities = async () => {
   const response = await fetch(`${runtimeConfig.public.apiURL}/universities`);
@@ -26,7 +33,6 @@ const getDepartments = async () => {
   );
   const data = await response.json();
   departments.value = data.data;
-  console.log(departments.value);
 };
 
 const getCities = async () => {
@@ -38,7 +44,7 @@ const getCities = async () => {
 const getDistricts = async () => {
   districts.value = [];
   const response = await fetch(
-    `${runtimeConfig.public.apiURL}/city/${selectedCity.value}/districts`
+    `${runtimeConfig.public.apiURL}/city/${studentInfo.city_id}/districts`
   );
   const data = await response.json();
   districts.value = data.data;
@@ -46,7 +52,61 @@ const getDistricts = async () => {
 
 onMounted(() => {
   getCities();
+  getDistricts();
   getUniversities();
+});
+
+const studentInfo = reactive({
+  first_name: userStore.getUserDetails?.user.first_name || "",
+  last_name: userStore.getUserDetails?.user.last_name || "",
+  email: userStore.getUserDetails?.user.email || "",
+  phone: userStore.getUserDetails?.userInfo?.phone || "",
+  city_id: userStore.getUserDetails?.userInfo?.city?.id || userStore.getUserDetails?.userInfo?.city_id || "",
+  district_id: userStore.getUserDetails?.userInfo?.district?.id || userStore.getUserDetails?.userInfo?.district_id || "",
+});
+
+
+console.log(userStore.getUserDetails);
+
+const handleSubmit = async () => {
+  errors.value = null;
+
+  await $fetch(runtimeConfig.public.apiURL + "/update-student-info", {
+    body: studentInfo,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${userStore.getToken}`,
+    },
+  })
+    .then(async (response) => {
+      try {
+        console.log(response);
+        userStore.setUserDetails(response.details);
+      } catch (err) {
+        console.log(err.response);
+        console.log("err", err);
+      }
+    })
+    .catch((err) => {
+      errors.value = errorHandler(err)
+    })
+};
+
+const teacherCredentials = reactive({
+  first_name: "",
+  last_name: "",
+  email: "",
+  phone: "",
+  city_id: "",
+  district_id: "",
+  birth_date: "",
+  university_id: "",
+  department_id: "",
+  education_status: "",
+  experience_year: "",
+  about: "",
+  experience: ""
 });
 
 const activeTab = ref(0);
@@ -79,36 +139,59 @@ const setActiveTab = (index) => {
 <template>
   <div class="border-b border-gray-200 dark:border-gray-700">
     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500">
-      <li v-for="(tab, index) in tabs" :key="index" class="mr-2">
-        <a
-          :href="tab.href"
-          :class="[
-            'inline-flex p-4 border-b-2 rounded-t-lg hover:border-blue-600 hover:text-blue-600',
-            { 'text-blue-600 border-blue-600 active': index === activeTab },
-          ]"
-          @click="setActiveTab(index)"
+      <li 
+      v-if="userStore.getUserDetails.user.user_type === 'student'"  
+      class="mr-2">
+      <a
+        :href="tabs[0].href"
+        class="inline-flex p-4 border-b-2 rounded-t-lg hover:border-blue-600 hover:text-blue-600 text-blue-600 border-blue-600 active"
+      >
+        <svg
+          class="w-5 h-5 mr-2 text-blue-600"
+          fill="currentColor"
+          :viewBox="tabs[0].icon.viewBox"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            :class="['w-5 h-5 mr-2', { 'text-blue-600': index === activeTab }]"
-            :fill="index === activeTab ? 'currentColor' : 'none'"
-            :viewBox="tab.icon.viewBox"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              v-if="index === activeTab || !tab.icon.onlyActive"
-              :d="tab.icon.path"
-              :clip-rule="tab.icon.clipRule || 'evenodd'"
-              :fill-rule="tab.icon.fillRule || 'evenodd'"
-            />
-          </svg>
-          {{ tab.label }}
-        </a>
-      </li>
+          <path
+          :d="tabs[0].icon.path"
+          :clip-rule="tabs[0].icon.clipRule || 'evenodd'"
+          :fill-rule="tabs[0].icon.fillRule || 'evenodd'"
+          />
+        </svg>
+        {{ tabs[0].label }}
+      </a>
+    </li>
+    <li v-for="(tab, index) in tabs" :key="index" class="mr-2" v-else>
+      <a
+        :href="tab.href"
+        :class="[
+          'inline-flex p-4 border-b-2 rounded-t-lg hover:border-blue-600 hover:text-blue-600',
+          { 'text-blue-600 border-blue-600 active': index === activeTab },
+        ]"
+        @click="setActiveTab(index)"
+      >
+        <svg
+          :class="['w-5 h-5 mr-2', { 'text-blue-600': index === activeTab }]"
+          :fill="index === activeTab ? 'currentColor' : 'none'"
+          :viewBox="tab.icon.viewBox"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            v-if="index === activeTab || !tab.icon.onlyActive"
+            :d="tab.icon.path"
+            :clip-rule="tab.icon.clipRule || 'evenodd'"
+            :fill-rule="tab.icon.fillRule || 'evenodd'"
+          />
+        </svg>
+        {{ tab.label }}
+      </a>
+    </li>
     </ul>
   </div>
-  <div v-if="activeTab === 0" class="mx-6">
+  <div v-show="userStore.getUserDetails.user.user_type == 'teacher' && activeTab === 0" class="mx-6">
     <div class="w-full space-y-3 md:space-y-0 md:space-x-4 mt-6">
-      <form>
+      <form
+       @submit.prevent="handleSubmit">
         <div class="space-y-12">
           <div class="pb-4">
             <h2 class="text-base font-semibold leading-7 text-gray-900">
@@ -130,6 +213,7 @@ const setActiveTab = (index) => {
                     type="text"
                     id="first_name"
                     name="first_name"
+                    v-model="studentInfo.first_name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   />
                 </div>
@@ -146,6 +230,7 @@ const setActiveTab = (index) => {
                     type="text"
                     id="last_name"
                     name="last_name"
+                    v-model="studentInfo.last_name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   />
                 </div>
@@ -179,11 +264,11 @@ const setActiveTab = (index) => {
                   <input
                     type="text"
                     id="email"
+                    v-model="studentInfo.email"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                   />
                 </div>
               </div>
-
               <div class="sm:col-span-3">
                 <label
                   for="email"
@@ -209,6 +294,7 @@ const setActiveTab = (index) => {
                   <input
                     type="text"
                     id="phone"
+                    v-model="studentInfo.phone"
                     v-maska
                     data-maska="(###) ### ## ##"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
@@ -255,6 +341,7 @@ const setActiveTab = (index) => {
                     name="district"
                     class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400"
                   >
+                  <option disabled value="">İlçe Seçiniz</option>
                     <option
                       v-for="(district, index) in districts"
                       :value="district.id"
@@ -285,25 +372,189 @@ const setActiveTab = (index) => {
                   </vue-date-picker>
                 </div>
               </div>
-              <!-- <div class="sm:col-span-3">
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 flex items-center justify-end gap-x-6">
+          <button type="button" class="text-sm font-normal leading-6 text-gray-900">
+            İptal
+          </button>
+          <button
+            type="submit"
+            class="rounded-md bg-green-600 px-3 py-2 text-sm font-normal text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+          >
+            Kaydet
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div v-show="userStore.getUserDetails.user.user_type == 'student' && activeTab === 0" class="mx-6">
+    <div class="w-full space-y-3 md:space-y-0 md:space-x-4 mt-6">
+      <form
+      @submit.prevent="handleSubmit">
+        <div class="space-y-12">
+          <div class="pb-4">
+            <h2 class="text-base font-semibold leading-7 text-gray-900">
+              Kişisel Bilgiler
+            </h2>
+            <p class="mt-1 text-sm leading-6 text-gray-600">
+              Buradan kişisel bilgilerinizi girebilir ve güncelleyebilirsiniz.
+            </p>
+            <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-6">
+              <div class="sm:col-span-3">
                 <label
-                  for="country"
+                  for="first-name"
                   class="block text-sm font-medium leading-6 text-gray-900"
-                  >Mahalle</label
-                >
+                  >Adınız
+                  <span class="font-medium text-red-600">*</span>
+                </label>
+                <div class="mt-2">
+                  <input
+                    type="text"
+                    id="first_name"
+                    name="first_name"
+                    v-model="studentInfo.first_name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  />
+                </div>
+              </div>
+              <div class="sm:col-span-3">
+                <label
+                  for="last-name"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >Soyadınız
+                  <span class="font-medium text-red-600">*</span>
+                </label>
+                <div class="mt-2">
+                  <input
+                    type="text"
+                    id="last_name"
+                    name="last_name"
+                    v-model="studentInfo.last_name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  />
+                </div>
+              </div>
+              <div class="sm:col-span-3">
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >E-Posta Adresiniz
+                  <span class="font-medium text-red-600">*</span>
+                </label>
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5 text-gray-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                      ></path>
+                      <path
+                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    id="email"
+                    v-model="studentInfo.email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                  />
+                </div>
+              </div>
+              <div class="sm:col-span-3">
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Telefon Numaranız
+                  <span class="font-medium text-red-600">*</span>
+                </label>
+                <div class="relative">
+                  <div
+                    class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 text-gray-500"
+                      fill="currentColor"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    id="phone"
+                    v-model="studentInfo.phone"
+                    v-maska
+                    data-maska="(###) ### ## ##"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
+                  />
+                </div>
+              </div>
+              <div class="sm:col-span-3">
+                <label
+                  for="city"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >Şehir
+                  <span class="font-medium text-red-600">*</span>
+                </label>
                 <div class="mt-2">
                   <select
-                    id="country"
-                    name="country"
-                    autocomplete="country-name"
+                    id="city"
+                    name="city"
+                    v-model="studentInfo.city_id"
+                    @change="getDistricts"
                     class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
                   >
-                    <option>Akfırat</option>
-                    <option>Cami</option>
-                    <option>Mimarsinan</option>
+                    <option disabled value="">Şehir Seçiniz</option>
+                    <option
+                      v-for="(city, index) in cities"
+                      :value="city.id"
+                      :selected="index === studentInfo.city_id"
+                      :key="city.id"
+                    >
+                      {{ city.name }}
+                    </option>
                   </select>
                 </div>
-              </div> -->
+              </div>
+
+              <div class="sm:col-span-3">
+                <label
+                  for="district"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >İlçe
+                  <span class="font-medium text-red-600">*</span>
+                </label>
+                <div class="mt-2">
+                  <select
+                    id="district"
+                    name="district"
+                    v-model="studentInfo.district_id"
+                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400"
+                  >
+                    <option
+                      v-for="(district, index) in districts"
+                      :value="district.id"
+                      :selected="index === studentInfo.district_id"
+                      :key="district.id"
+                    >
+                      {{ district.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -417,21 +668,6 @@ const setActiveTab = (index) => {
                     <option>2 Yıl</option>
                     <option>3 Yıl</option>
                   </select>
-                </div>
-              </div>
-              <div class="sm:col-span-3">
-                <label
-                  for="first-name"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >1 cümle ile kendinizden bahsedin</label
-                >
-                <div class="mt-2">
-                  <input
-                    type="text"
-                    id="first_name"
-                    name="first_name"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                  />
                 </div>
               </div>
 
