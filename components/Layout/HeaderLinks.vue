@@ -39,6 +39,7 @@ const handleSubmit = async () => {
   })
     .then(async (response) => {
       try {
+        console.log(response)
         userStore.setUserToken(response.access_token);
         userStore.setUserDetails(response.details, true, false);
         await navigateTo("/profile");
@@ -190,10 +191,10 @@ onBeforeUnmount(() => {
       <li v-else>
         <nuxt-link to="/profile" class="flex items-center space-x-2.5 text-sm">
           <img
-            v-if="userStore.getUserPhoto?.user?.avatar"
+            v-if="userStore.getUserDetails?.user?.avatar"
             :src="
               runtimeConfig.public.baseURL +
-              userStore.getUserPhoto?.user?.avatar
+              userStore.getUserDetails?.user?.avatar
             "
             class="aspect-square rounded-full w-10 transition duration-200 object-cover"
             alt=""

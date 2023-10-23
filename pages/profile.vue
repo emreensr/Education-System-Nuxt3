@@ -30,7 +30,7 @@ const getUploadedImage = async (e) => {
     },
   })
     .then((response) => {
-      userStore.setUserPhoto(response.details);
+      userStore.setUserDetails(response.details);
     })
     .catch((err) => {
       console.log(err);
@@ -59,10 +59,10 @@ const getUploadedImage = async (e) => {
               width="120"
             />
             <img
-              v-else-if="userStore.getUserPhoto?.user?.avatar"
+              v-else-if="userStore.getUserDetails?.user?.avatar"
               :src="
                 runtimeConfig.public.baseURL +
-                userStore.getUserPhoto?.user?.avatar"
+                userStore.getUserDetails?.user?.avatar"
                 class="aspect-square rounded-full transition duration-200 object-cover"
                 width="120"
                 alt=""
