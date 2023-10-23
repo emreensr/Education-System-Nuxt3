@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-<div class="fixed top-0 left-0 w-full h-full bg-black z-50 bg-opacity-50 flex md:items-center justify-center transition duration-500" v-if="loginModal">
+<div class="fixed top-0 left-0 w-full h-full bg-black z-50 bg-opacity-70 flex md:items-center justify-center transition duration-500" v-if="loginModal">
     <div class="bg-white p-6 rounded-2xl shadow-lg w-full max-w-xl overflow-y-auto loginPopup">
       <div class="flex items-center justify-between mx-auto mb-6">
         <h2 class="font-medium text-lg"></h2>
@@ -93,9 +93,9 @@ onBeforeUnmount(() => {
         </button>
       </div>
 
-    <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="flex flex-col justify-center px-6 py-6 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img class="mx-auto h-20 w-auto" src="/headLogo.png" alt="Your Company">
+        <img class="mx-auto h-16 w-auto" src="/headLogo.png" alt="Your Company">
         <h2 class="mt-10 text-center text-3xl font-semibold leading-9 tracking-tight text-[#010C20]">Giriş Yap</h2>
       </div>
 

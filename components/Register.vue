@@ -815,6 +815,8 @@ const setActiveTab = (index) => {
                         <input
                           type="text"
                           name="Phone"
+                          v-maska
+                          data-maska="(###) ### ## ##"
                           v-model="credentials.phone"
                           placeholder="Telefon Numaranız"
                           class="focus:shadow-[0_0_0_2px_#e5e7eb] mt-2 text-[.875rem] leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-2 font-normal text-grey-700 outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none"

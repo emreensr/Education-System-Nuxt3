@@ -62,6 +62,7 @@ export const useUserStore = defineStore('user', {
             await navigateTo('/')
             this.token = null;
             this.details = null;
+            this.photo = null;
         }
     },
     getters: {

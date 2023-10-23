@@ -29,7 +29,7 @@ const getUniversities = async () => {
 const getDepartments = async () => {
   departments.value = [];
   const response = await fetch(
-    `${runtimeConfig.public.apiURL}/university/${selectedUniversity.value}/departments`
+    `${runtimeConfig.public.apiURL}/university/${teacherIntroduceInfo.university_id}/departments`
   );
   const data = await response.json();
   departments.value = data.data;
@@ -50,10 +50,20 @@ const getDistricts = async () => {
   districts.value = data.data;
 };
 
+const getDistrict = async () => {
+  districts.value = [];
+  const response = await fetch(
+    `${runtimeConfig.public.apiURL}/city/${teacherGeneralInfo.city_id}/districts`
+  );
+  const data = await response.json();
+  districts.value = data.data;
+};
+
 onMounted(() => {
   getCities();
   getDistricts();
   getUniversities();
+  getDepartments();
 });
 
 const studentInfo = reactive({
@@ -65,8 +75,25 @@ const studentInfo = reactive({
   district_id: userStore.getUserDetails?.userInfo?.district?.id || userStore.getUserDetails?.userInfo?.district_id || "",
 });
 
+const teacherGeneralInfo = reactive({
+  first_name: userStore.getUserDetails?.user.first_name || "",
+  last_name: userStore.getUserDetails?.user.last_name || "",
+  email: userStore.getUserDetails?.user.email || "",
+  phone: userStore.getUserDetails?.userInfo?.phone || "",
+  city_id: userStore.getUserDetails?.userInfo?.city?.id || userStore.getUserDetails?.userInfo?.city_id || "",
+  district_id: userStore.getUserDetails?.userInfo?.district?.id || userStore.getUserDetails?.userInfo?.district_id || "",
+  birth_date: userStore.getUserDetails?.userInfo?.birth_date || "",
+});
 
-console.log(userStore.getUserDetails);
+const teacherIntroduceInfo = reactive({
+  university_id: userStore.getUserDetails?.userInfo?.university?.id || userStore.getUserDetails?.userInfo?.university_id || "",
+  department_id: userStore.getUserDetails?.userInfo?.department?.id || userStore.getUserDetails?.userInfo?.department_id || "",
+  education_status: userStore.getUserDetails?.userInfo?.education_status || "",
+  experience_year: userStore.getUserDetails?.userInfo?.experience_year || "",
+  about: userStore.getUserDetails?.userInfo?.about || "",
+  experience: userStore.getUserDetails?.userInfo?.experience || "",
+});
+
 
 const handleSubmit = async () => {
   errors.value = null;
@@ -93,21 +120,55 @@ const handleSubmit = async () => {
     })
 };
 
-const teacherCredentials = reactive({
-  first_name: "",
-  last_name: "",
-  email: "",
-  phone: "",
-  city_id: "",
-  district_id: "",
-  birth_date: "",
-  university_id: "",
-  department_id: "",
-  education_status: "",
-  experience_year: "",
-  about: "",
-  experience: ""
-});
+const handleTeacherGeneralSubmit = async () => {
+  errors.value = null;
+
+  await $fetch(runtimeConfig.public.apiURL + "/update-teacher-info", {
+    body: teacherGeneralInfo,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${userStore.getToken}`,
+    },
+  })
+    .then(async (response) => {
+      try {
+        console.log(response);
+        userStore.setUserDetails(response.details);
+      } catch (err) {
+        console.log(err.response);
+        console.log("err", err);
+      }
+    })
+    .catch((err) => {
+      errors.value = errorHandler(err)
+    })
+};
+
+const handleTeacherIntroduceSubmit = async () => {
+  errors.value = null;
+
+  await $fetch(runtimeConfig.public.apiURL + "/update-teacher-introduce-info", {
+    body: teacherIntroduceInfo,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${userStore.getToken}`,
+    },
+  })
+    .then(async (response) => {
+      try {
+        console.log(response);
+        userStore.setUserDetails(response.details);
+      } catch (err) {
+        console.log(err.response);
+        console.log("err", err);
+      }
+    })
+    .catch((err) => {
+      errors.value = errorHandler(err)
+    })
+};
 
 const activeTab = ref(0);
 const tabs = [
@@ -191,7 +252,7 @@ const setActiveTab = (index) => {
   <div v-show="userStore.getUserDetails.user.user_type == 'teacher' && activeTab === 0" class="mx-6">
     <div class="w-full space-y-3 md:space-y-0 md:space-x-4 mt-6">
       <form
-       @submit.prevent="handleSubmit">
+       @submit.prevent="handleTeacherGeneralSubmit">
         <div class="space-y-12">
           <div class="pb-4">
             <h2 class="text-base font-semibold leading-7 text-gray-900">
@@ -213,7 +274,7 @@ const setActiveTab = (index) => {
                     type="text"
                     id="first_name"
                     name="first_name"
-                    v-model="studentInfo.first_name"
+                    v-model="teacherGeneralInfo.first_name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   />
                 </div>
@@ -230,7 +291,7 @@ const setActiveTab = (index) => {
                     type="text"
                     id="last_name"
                     name="last_name"
-                    v-model="studentInfo.last_name"
+                    v-model="teacherGeneralInfo.last_name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   />
                 </div>
@@ -264,7 +325,7 @@ const setActiveTab = (index) => {
                   <input
                     type="text"
                     id="email"
-                    v-model="studentInfo.email"
+                    v-model="teacherGeneralInfo.email"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                   />
                 </div>
@@ -294,7 +355,7 @@ const setActiveTab = (index) => {
                   <input
                     type="text"
                     id="phone"
-                    v-model="studentInfo.phone"
+                    v-model="teacherGeneralInfo.phone"
                     v-maska
                     data-maska="(###) ### ## ##"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
@@ -312,8 +373,8 @@ const setActiveTab = (index) => {
                   <select
                     id="city"
                     name="city"
-                    v-model="selectedCity"
-                    @change="getDistricts"
+                    v-model="teacherGeneralInfo.city_id"
+                    @change="getDistrict"
                     class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
                   >
                     <option disabled value="">Şehir Seçiniz</option>
@@ -339,13 +400,15 @@ const setActiveTab = (index) => {
                   <select
                     id="district"
                     name="district"
+                    v-model="teacherGeneralInfo.district_id"
                     class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400"
                   >
                   <option disabled value="">İlçe Seçiniz</option>
                     <option
-                      v-for="(district, index) in districts"
+                      v-for="district in districts"
                       :value="district.id"
                       :key="district.id"
+                      :selected="district.id === teacherGeneralInfo.district_id"
                     >
                       {{ district.name }}
                     </option>
@@ -361,7 +424,7 @@ const setActiveTab = (index) => {
                 <div class="mt-2">
                   <vue-date-picker
                     input-class-name="birth-date-input"
-                    v-model="birth_date"
+                    v-model="teacherGeneralInfo.birth_date"
                     :enable-time-picker="false"
                     :max-date="maxDate"
                     format="dd/MM/yyyy"
@@ -389,6 +452,161 @@ const setActiveTab = (index) => {
       </form>
     </div>
   </div>
+  <div v-if="activeTab === 1" class="mx-6">
+    <div class="w-full space-y-3 md:space-y-0 md:space-x-4 mt-6">
+      <form
+      @submit.prevent="handleTeacherIntroduceSubmit">
+        <div class="space-y-12">
+          <div class="pb-4">
+            <h2 class="text-base font-semibold leading-7 text-gray-900">
+              Kişisel Bilgiler
+            </h2>
+            <p class="mt-1 text-sm leading-6 text-gray-600">
+              Buradan kişisel bilgilerinizi girebilirsiniz.
+            </p>
+            <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-6">
+              <div class="sm:col-span-3">
+                <label
+                  for="university"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >Üniversite</label
+                >
+                <div class="mt-2">
+                  <select
+                    id="university"
+                    name="university"
+                    v-model="teacherIntroduceInfo.university_id"
+                    @change="getDepartments"
+                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
+                  >
+                    <option disabled value="">Üniversite Seçiniz</option>
+                    <option
+                      v-for="university in universities"
+                      :value="university.id"
+                      :key="university.id"
+                    >
+                      {{ university.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="sm:col-span-3">
+                <label
+                  for="department"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >Bölüm</label
+                >
+                <div class="mt-2">
+                  <select
+                    id="department"
+                    name="department"
+                    v-model="teacherIntroduceInfo.department_id"
+                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
+                  >
+                  <option disabled value="">Bölüm Seçiniz</option>
+                     <option
+                      v-for="department in departments"
+                      :value="department.id"
+                      :key="department.id"
+                    >
+                      {{ department.name }}           
+                    </option>
+
+                  </select>
+                </div>
+              </div>
+              <div class="sm:col-span-3">
+                <label
+                  for="country"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >Eğitim Durumu</label
+                >
+                <div class="mt-2">
+                  <select
+                    id="country"
+                    name="country"
+                    v-model="teacherIntroduceInfo.education_status"
+                    autocomplete="country-name"
+                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
+                  >
+                    <option>Mezun</option>
+                    <option>Öğrenci</option>
+                  </select>
+                </div>
+              </div>
+              <div class="sm:col-span-3">
+                <label
+                  for="country"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >Tecrübeniz</label
+                >
+                <div class="mt-2">
+                  <select
+                    id="country"
+                    name="country"
+                    v-model="teacherIntroduceInfo.experience_year"
+                    autocomplete="country-name"
+                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
+                  >
+                    <option>1 Yıl</option>
+                    <option>2 Yıl</option>
+                    <option>3 Yıl</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-span-full">
+                <label
+                  for="about"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >Hakkınızda</label
+                >
+                <div class="mt-2">
+                  <textarea
+                    id="message"
+                    rows="4"
+                    v-model="teacherIntroduceInfo.about"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Kısaca kendinizden bahsedin..."
+                  ></textarea>
+                </div>
+                <!-- <p class="mt-1 text-sm leading-6 text-gray-500">Kendinizi kısaca anlatın</p> -->
+              </div>
+              <div class="col-span-full">
+                <label
+                  for="about"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >Tecrübelerim</label
+                >
+                <div class="mt-2">
+                  <textarea
+                    id="message"
+                    rows="4"
+                    v-model="teacherIntroduceInfo.experience"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Kısaca tecrübelerinizden bahsedin..."
+                  ></textarea>
+                </div>
+                <!-- <p class="mt-1 text-sm leading-6 text-gray-500">Tecrübelerinizden bahsedin</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 flex items-center justify-end gap-x-6">
+          <button type="button" class="text-sm font-normal leading-6 text-gray-900">
+            İptal
+          </button>
+          <button
+            type="submit"
+            class="rounded-md bg-green-600 px-3 py-2 text-sm font-normal text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+          >
+            Kaydet
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div v-show="userStore.getUserDetails.user.user_type == 'student' && activeTab === 0" class="mx-6">
     <div class="w-full space-y-3 md:space-y-0 md:space-x-4 mt-6">
       <form
@@ -554,154 +772,6 @@ const setActiveTab = (index) => {
                     </option>
                   </select>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mt-6 flex items-center justify-end gap-x-6">
-          <button type="button" class="text-sm font-normal leading-6 text-gray-900">
-            İptal
-          </button>
-          <button
-            type="submit"
-            class="rounded-md bg-green-600 px-3 py-2 text-sm font-normal text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-          >
-            Kaydet
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div v-if="activeTab === 1" class="mx-6">
-    <div class="w-full space-y-3 md:space-y-0 md:space-x-4 mt-6">
-      <form>
-        <div class="space-y-12">
-          <div class="pb-4">
-            <h2 class="text-base font-semibold leading-7 text-gray-900">
-              Kişisel Bilgiler
-            </h2>
-            <p class="mt-1 text-sm leading-6 text-gray-600">
-              Buradan kişisel bilgilerinizi girebilirsiniz.
-            </p>
-            <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-6">
-              <div class="sm:col-span-3">
-                <label
-                  for="country"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Üniversite</label
-                >
-                <div class="mt-2">
-                  <select
-                    id="country"
-                    name="country"
-                    v-model="selectedUniversity"
-                    @change="getDepartments"
-                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
-                  >
-                    <option disabled value="">Üniversite Seçiniz</option>
-                    <option
-                      v-for="(university, index) in universities"
-                      :value="university.id"
-                      :key="university.id"
-                    >
-                      {{ university.name }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="sm:col-span-3">
-                <label
-                  for="country"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Bölüm</label
-                >
-                <div class="mt-2">
-                  <select
-                    id="country"
-                    name="country"
-                    autocomplete="country-name"
-                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
-                  >
-                     <option
-                      v-for="(department, index) in departments"
-                      :value="department.id"
-                      :key="department.id"
-                    >
-                      {{ department.name }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="sm:col-span-3">
-                <label
-                  for="country"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Eğitim Durumu</label
-                >
-                <div class="mt-2">
-                  <select
-                    id="country"
-                    name="country"
-                    autocomplete="country-name"
-                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
-                  >
-                    <option>Mezun</option>
-                    <option>Öğrenci</option>
-                  </select>
-                </div>
-              </div>
-              <div class="sm:col-span-3">
-                <label
-                  for="country"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Tecrübeniz</label
-                >
-                <div class="mt-2">
-                  <select
-                    id="country"
-                    name="country"
-                    autocomplete="country-name"
-                    class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 focus:shadow-[0_0_0_2px_#e5e7eb] text-[.875rem] mt-2 leading-5.6 ease block w-full appearance-none rounded-md bg-clip-padding p-2.5 font-normal outline-none transition-all placeholder:text-grey-500 focus:border-gray-400 focus:outline-none choices__input"
-                  >
-                    <option>1 Yıl</option>
-                    <option>2 Yıl</option>
-                    <option>3 Yıl</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-span-full">
-                <label
-                  for="about"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Hakkınızda</label
-                >
-                <div class="mt-2">
-                  <textarea
-                    id="message"
-                    rows="4"
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Kısaca kendinizden bahsedin..."
-                  ></textarea>
-                </div>
-                <!-- <p class="mt-1 text-sm leading-6 text-gray-500">Kendinizi kısaca anlatın</p> -->
-              </div>
-              <div class="col-span-full">
-                <label
-                  for="about"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Tecrübelerim</label
-                >
-                <div class="mt-2">
-                  <textarea
-                    id="message"
-                    rows="4"
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Kısaca tecrübelerinizden bahsedin..."
-                  ></textarea>
-                </div>
-                <!-- <p class="mt-1 text-sm leading-6 text-gray-500">Tecrübelerinizden bahsedin</p> -->
               </div>
             </div>
           </div>
