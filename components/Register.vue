@@ -130,7 +130,7 @@ const handleSubmit = async () => {
     })
     .catch((err) => {
       if (err.response) {
-        error.value = err.response._data.message;
+        errors.value = err.response._data.message;
       }
     });
 };

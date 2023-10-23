@@ -22,24 +22,30 @@ const getUploadedImage = async (e) => {
   const formData = new FormData();
   formData.append("avatar", file.value);
 
-  await $fetch(runtimeConfig.public.apiURL + "/update-student-image", {
-    method: "POST",
-    body: formData,
-    headers: {
-      Authorization: `Bearer ${userStore.getToken}`,
-    },
-  })
-    .then((response) => {
-      userStore.setUserDetails(response.details);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-    .finally(() => {
-      file.value = null;
-      uploadedImage.value = null;
+  try {
+    const avatarResponse = await $fetch(runtimeConfig.public.apiURL + "/update-student-image", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: `Bearer ${userStore.getToken}`,
+      },
     });
+    
+    const userResponse = await $fetch(runtimeConfig.public.apiURL + "/get-user-details", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${userStore.getToken}`,
+      },
+    });
+    userStore.setUserDetails(userResponse.details);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    file.value = null;
+    uploadedImage.value = null;
+  }
 };
+
 </script>
 
 <template>
