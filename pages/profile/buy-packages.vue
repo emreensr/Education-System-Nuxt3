@@ -17,8 +17,8 @@
                                     class="flex border h-6 bg-white rounded-2xl p-3 items-center justify-center text-sm shadow-md">Starter</span>
                             </div>
                             <div class="mt-5">
-                                <span class="text-[50px] font-medium">$0</span>
-                                <span class="text-[#84858D] text-sm">/ free</span>
+                                <span class="text-[50px] font-medium">79₺</span>
+                                <span class="text-[#84858D] text-sm">/ ay</span>
                             </div>
                             <div>
                                 <p class="text-md">
@@ -72,8 +72,8 @@
                                     class="flex border h-6 bg-white rounded-2xl p-3 items-center justify-center text-sm shadow-md">Commercial</span>
                             </div>
                             <div class="mt-5">
-                                <span class="text-[50px] font-medium">$29</span>
-                                <span class="text-[#84858D] text-sm">/ month</span>
+                                <span class="text-[50px] font-medium">129₺</span>
+                                <span class="text-[#84858D] text-sm">/ ay</span>
                             </div>
                             <div>
                                 <p class="text-md">
@@ -125,8 +125,8 @@
                                         class="flex border h-6 bg-white rounded-2xl p-3 items-center justify-center text-sm shadow-md">Commercial</span>
                                 </div>
                                 <div class="mt-5">
-                                    <span class="text-[50px] font-medium">$39</span>
-                                    <span class="text-[#84858D] text-sm">/ month</span>
+                                    <span class="text-[50px] font-medium">179₺</span>
+                                    <span class="text-[#84858D] text-sm">/ ay</span>
                                 </div>
                                 <div>
                                     <p class="text-md">

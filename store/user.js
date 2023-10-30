@@ -28,8 +28,8 @@ export const useUserStore = defineStore('user', {
                 notify(
                     {
                       group: "central",
-                      title: "Das Passwort wurde zurückgesetzt.",
-                      text: "Zurücksetzen des Passworts erfolgreich",
+                      title: "Başarılı!",
+                      text: "Şifre başarıyla güncellendi!",
                     },
                     4000
                   );
